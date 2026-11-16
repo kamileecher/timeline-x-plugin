@@ -5,13 +5,13 @@
   },
   "metadata": {
     "description": "Edit and verify Timeline X Studio projects from Claude Code or Codex through the hosted Timeline X MCP connection and managed workflow skills.",
-    "version": "0.2.809"
+    "version": "0.2.810"
   },
   "plugins": [
     {
       "name": "timeline-x",
       "source": "./plugins/timeline-x",
-      "version": "0.2.809",
+      "version": "0.2.810",
       "description": "Edit and verify Timeline X Studio projects from Claude Code or Codex through the hosted Timeline X MCP connection and managed workflow skills."
     }
   ]
