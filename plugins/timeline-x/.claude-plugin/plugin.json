@@ -1,0 +1,10 @@
+{
+  "name": "timeline-x",
+  "version": "0.2.794",
+  "description": "Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills.",
+  "author": {
+    "name": "Timeline X Studio contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://timelinex.studio"
+}

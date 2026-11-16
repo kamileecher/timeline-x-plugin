@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "timeline-x": {
+      "type": "http",
+      "url": "https://mcp.timelinex.studio/mcp",
+      "oauth": {
+        "clientId": "9c013f3d-c623-4ec5-bbf1-ed8f472e9d27",
+        "callbackPort": 16334
+      }
+    }
+  }
+}

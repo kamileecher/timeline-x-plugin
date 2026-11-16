@@ -1,0 +1,18 @@
+{
+  "name": "timeline-x",
+  "owner": {
+    "name": "Timeline X Studio contributors"
+  },
+  "metadata": {
+    "description": "Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills.",
+    "version": "0.2.794"
+  },
+  "plugins": [
+    {
+      "name": "timeline-x",
+      "source": "./plugins/timeline-x",
+      "version": "0.2.794",
+      "description": "Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills."
+    }
+  ]
+}
