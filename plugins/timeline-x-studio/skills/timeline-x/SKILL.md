@@ -48,7 +48,7 @@ duration, ending, target, and delivery choices over defaults.
    restore point.
 4. A small change (a handful of tool calls) needs no more ceremony than that:
    edit, verify, report.
-5. A batch job (rough-cutting a video, a silence pass, building a caption
+5. A batch job (rough-cutting a video, a silence sweep, building a caption
    track) is different: ASK the user whether to switch the app into agent mode,
    and call `begin_agent_session` only after they agree. Wrap the batch in
    `lock_history` … `unlock_history`, and rehearse it with `dry_run` first
@@ -122,14 +122,14 @@ descriptions:
   speech, stage `auto_duck_audio`; it authors real gain keyframes and fails if a
   target already has automation, so stage `clear_keyframes` first only when the
   user intends to replace that curve. For clip peak normalization, call
-  `analyze_audio_level`, then pass its normalization fields to the stageable
+  `analyze_audio_level`, then feed its normalization fields to the stageable
   `normalize_audio_peak`; do not describe its sample-peak/RMS result as true
   peak or LUFS. Read `composition://meter` for the live master level and use
   export loudness normalization for the delivery target.
 - Rough cut: `analyze_clip` or `auto_split_by_shot`, then trim and delete
   segments.
 - Cut/B-roll review: `inspect_visible_shots` is the bounded fast contact-sheet
-  pass; `inspect_timeline_frames` is the exhaustive frame-grid pass.
+  check; `inspect_timeline_frames` is the exhaustive frame-grid check.
   `find_similar_shots` ranks only visual signals (luma/motion/sharpness/event
   flags) among placed VideoClip shots, not semantic identity. Combine it with
   `describe_clip` for meaning and `search_stock` when the project has no fitting
@@ -195,7 +195,7 @@ descriptions:
   inspect before writing. Direct single edits use `ripple_trim_layer`,
   `roll_edit`, `slip_layer`, `slide_layer`, `close_gap`, or
   `close_all_gaps`. For an AI-designed multi-step change, call
-  `begin_edit_session`, pass its edit-session id to every mutation, then
+  `begin_edit_session`, give its edit-session id to every mutation, then
   `review_edit_session` and `apply_edit_session`; the review card supplies
   per-operation selection, summary, receipt and timeline ghost diff. Prefer
   lane ripple. Use all-unlocked scope only when the user explicitly wants the
@@ -220,7 +220,7 @@ descriptions:
   Audio mix roles (dialogue / voiceover / music / sfx) are `set_clip_role`
   on the audio layer, not a track. Use `set_canvas_view` only for viewer zoom/pan — it
   never changes export — and finish every project-changing workflow with
-  `verify_edit_result`. Pass exact layer/range/property/coverage/stacking
+  `verify_edit_result`. Give exact layer/range/property/coverage/stacking
   expectations and inspect all fresh composed frames it returns; JSON alone is
   not visual proof. Use `capture_canvas_frame` only for intermediate diagnosis.
   To judge motion rather than one instant (easing, overshoot, a transition, a
@@ -245,7 +245,7 @@ descriptions:
   only storyboard approval may derive the scene plan, so do not call
   `set_scene_plan` separately.
 - Film look and platform delivery: `list_look_packs` → `apply_look_pack` to
-  restyle captions and grade picture; its picture pass uses the same atomic
+  restyle captions and grade picture; its picture stage uses the same atomic
   grade mutation as direct Agent edits. `list_platform_outputs` →
   `apply_platform_output` to reframe the same cut for YouTube 16:9 or 4K,
   Reels/Douyin 9:16, Xiaohongshu 3:4, or square 1:1 and set the named export.
@@ -337,7 +337,7 @@ function of `t`, never an accumulation. Then:
 
 1. `list_motifs`, and read the closest existing Motif with `get_motif_source`
    — base your draft on what already renders correctly.
-2. `write_motif_draft` (pass `from` when your draft updates an existing Motif).
+2. `write_motif_draft` (set `from` when your draft updates an existing Motif).
 3. **The user approves, not you.** Place the draft with `add_motif`, ask the
    user to play it in the app, and call `install_motif` only after they
    confirm. If you can read images, pre-check with `preview_motif_draft` at
