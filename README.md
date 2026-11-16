@@ -5,7 +5,7 @@
 <h1 align="center">Timeline X Studio for Claude Code &amp; Codex</h1>
 
 <p align="center">
-  Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills.
+  Edit and verify Timeline X Studio projects from Claude Code or Codex through the hosted Timeline X MCP connection and managed workflow skills.
 </p>
 
 <p align="center">
