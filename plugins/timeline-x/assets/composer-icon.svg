@@ -1,0 +1,57 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="82" y1="42" x2="430" y2="472" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101722" />
+      <stop offset="0.48" stop-color="#060A10" />
+      <stop offset="1" stop-color="#020408" />
+    </linearGradient>
+    <linearGradient id="tile-edge" x1="256" y1="24" x2="256" y2="488" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#354252" />
+      <stop offset="0.45" stop-color="#1A222D" />
+      <stop offset="1" stop-color="#0B111A" />
+    </linearGradient>
+    <linearGradient id="electric-blue" x1="42" y1="256" x2="220" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08C7FF" />
+      <stop offset="0.48" stop-color="#078DFF" />
+      <stop offset="1" stop-color="#075BFF" />
+    </linearGradient>
+    <linearGradient id="metal" x1="236" y1="118" x2="338" y2="394" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8DEE8" />
+      <stop offset="0.18" stop-color="#9EA8B8" />
+      <stop offset="0.54" stop-color="#596373" />
+      <stop offset="0.82" stop-color="#333C49" />
+      <stop offset="1" stop-color="#1E2631" />
+    </linearGradient>
+    <filter id="blue-glow" x="10" y="146" width="242" height="220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="11" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="metal-shadow" x="158" y="102" width="276" height="320" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#000000" flood-opacity="0.7" />
+    </filter>
+    <clipPath id="brand-tile-clip">
+      <rect x="24" y="24" width="464" height="464" rx="108" />
+    </clipPath>
+  </defs>
+
+  <g id="brand-tile" clip-path="url(#brand-tile-clip)">
+    <rect x="24" y="24" width="464" height="464" rx="108" fill="url(#tile)" />
+    <ellipse cx="160" cy="72" rx="260" ry="112" fill="#1A2636" fill-opacity="0.24" />
+    <rect x="25.5" y="25.5" width="461" height="461" rx="106.5" stroke="url(#tile-edge)" stroke-width="3" />
+  </g>
+
+  <g id="brand-speed-lines" fill="url(#electric-blue)" filter="url(#blue-glow)" clip-path="url(#brand-tile-clip)">
+    <rect x="76" y="181" width="104" height="22" rx="11" />
+    <rect x="48" y="245" width="168" height="22" rx="11" />
+    <rect x="76" y="309" width="104" height="22" rx="11" />
+  </g>
+
+  <g id="brand-x" fill="url(#metal)" stroke="#DDE4EE" stroke-opacity="0.38" stroke-width="2" stroke-linejoin="round" filter="url(#metal-shadow)">
+    <path id="brand-x-chevron" d="M181 126H230L354 256L230 386H181L306 256L181 126Z" />
+    <path id="brand-x-upper" d="M291 193L354 126H405L316 219L291 193Z" />
+    <path id="brand-x-lower" d="M291 319L316 293L405 386H354L291 319Z" />
+  </g>
+</svg>

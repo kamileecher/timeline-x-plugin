@@ -21,6 +21,13 @@
     "longDescription": "Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills.",
     "developerName": "Timeline X Studio contributors",
     "category": "Productivity",
-    "websiteURL": "https://timelinex.studio"
+    "websiteURL": "https://timelinex.studio",
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/composer-icon.svg",
+    "brandColor": "#1A8CFF",
+    "brandColorDark": "#1A8CFF",
+    "defaultPrompt": [
+      "Check my Timeline X connection status and summarize the open project"
+    ]
   }
 }
