@@ -1,0 +1,19 @@
+{
+  "name": "timeline-x",
+  "version": "0.2.795",
+  "description": "Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills.",
+  "author": {
+    "name": "Timeline X Studio contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://timelinex.studio",
+  "mcpServers": "./.codex.mcp.json",
+  "interface": {
+    "displayName": "Timeline X Studio",
+    "shortDescription": "Edit video projects in Timeline X Studio",
+    "longDescription": "Edit and verify Timeline X Studio projects from Claude through the hosted Timeline X MCP connection and managed workflow skills.",
+    "developerName": "Timeline X Studio contributors",
+    "category": "Productivity",
+    "websiteURL": "https://timelinex.studio"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "timeline-x",
+  "interface": {
+    "displayName": "Timeline X Studio"
+  },
+  "plugins": [
+    {
+      "name": "timeline-x",
+      "source": {
+        "source": "local",
+        "path": "./plugins/timeline-x"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
