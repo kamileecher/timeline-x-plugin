@@ -125,7 +125,7 @@ or music with nothing else, is still a draft.
 - Start a new space early as a J-cut, 0.3–1.5 s before the picture cut, and let
   tails spill after it as an L-cut. Start long layers at least 0.3 s away from
   a cut.
-- Reverb and delay from `set_audio_effectcraft_chain` stop at the clip
+- Reverb and delay from `set_audio_tx_fx_chain` stop at the clip
   boundary, so leave room for the tail by extending the clip end. There is no
   shared send: to place effects in one space, give the relevant layers the same
   reverb stage settings.

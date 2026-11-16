@@ -176,7 +176,7 @@ descriptions:
   BLAKE3 content identity; never guess from a filename, and do not put this
   technical writeback in an editorial edit session.
 - Timeline interchange: choose CMX only for a one-track cut list; use OTIO for
-  the richest general handoff and FCPXML for Final Cut Pro. Read every export
+  the richest general handoff and FCPXML for FCPXML-based editors. Read every export
   warning and send `allow_lossy=true` only after the user accepts the named
   omission or rate conform. Import is always preview-first:
   `preview_edl_import`, `preview_otio_import`, or `preview_fcpxml_import`, then

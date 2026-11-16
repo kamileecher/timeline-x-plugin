@@ -119,7 +119,7 @@ get them into a graphic: bind Library images instead (below).
 - Define `const Component = ({item}) => ...` and return a styled root `<div>`.
 - Drive every visible value from `useCurrentFrame()` and the provided helpers:
   `useVideoConfig`, `useImage`, spring, interpolate, `interpolateColors`,
-  `Easing`, `AbsoluteFill`, `Img`, `Surface`, `Sequence`, `Series`, `Loop`,
+  `Easing`, `AbsoluteFill`, `Img`, `Surface`, `Canvas`, `Sequence`, `Series`, `Loop`,
   `Freeze`, `editable`, and seeded random. `AbsoluteFill` and default time-window
   wrappers are full-size flex columns, so center with `justifyContent` and
   `alignItems`. Never name a binding after a browser global (for example
@@ -162,11 +162,11 @@ get them into a graphic: bind Library images instead (below).
   self-contained `data:image`, or `motif:` URL; ordinary web/file/blob URLs are
   not media bindings. A Library image enters only through an image property
   binding. Keep output comfortably below 4,096 nodes and depth 64.
-- For procedural geometry, use `<Surface commands={...} />`. Its per-frame
-  declarative display list supports bounded groups, rect/circle/ellipse/line,
-  polyline/polygon, SVG path, and text commands. Compute commands from
-  `useCurrentFrame()` and props. Never request canvas/WebGL, refs, imperative
-  draw callbacks, or shader execution; those capabilities are intentionally absent.
+- For procedural geometry, use `<Surface commands={...} />`: groups,
+  rect/circle/ellipse/line, polyline/polygon, path and text commands computed
+  from `useCurrentFrame()` and props. For particles and glows, `<Canvas>` draws
+  the same list as pixels ([canvas](references/canvas.md)). No canvas context,
+  refs, draw callbacks or shaders exist.
 - Put user-editable values in `item.props` and declare the matching
   properties entries. Keep layout constants inside the component.
 - Give any rendered element that may need source-level repair a unique literal
@@ -209,7 +209,7 @@ get them into a graphic: bind Library images instead (below).
   binds at most 8 images. Unbound, the image renders nothing and `active` is
   false, so lay the design out to survive an empty slot and verify one frame
   with the image bound. Swap the picture later by binding another id.
-- After Effects animations: a `lottie` property and `<Lottie>` (motion-craft.md).
+- Ready-made vector animations: a `lottie` property and `<Lottie>` (motion-craft.md).
 - Split text, draw-on, path motion, morph: `SplitText`, `drawPath`, `followPath`, `morph`.
 - When several assets of one piece share components (browser frame, cursor,
   easing helpers, brand colours), do not paste them into every source. On a

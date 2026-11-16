@@ -24,7 +24,7 @@ Repair all of them before compiling again; do not fix one per round trip.
 | MG_MEDIA_COMPONENT | Video, Audio | Place media as Timeline layers; react to sound through an audio property and useAudio(). |
 | MG_STATEFUL_HOOK | useState, useEffect, useMemo, useRef… | Derive every value from useCurrentFrame() and the props on each render. |
 
-Easing note: graphics created from 2026-11-14 on use the Remotion curves
+Easing note: graphics created from 2026-11-14 on use the current easing curves
 (Easing.ease is cubic-bezier 0.42, 0, 1, 1; Easing.elastic eases in, so wrap it
 in Easing.out for an overshooting settle). Older graphics keep their original
 curves when republished. Use Easing.bezier(...) for an exact curve.

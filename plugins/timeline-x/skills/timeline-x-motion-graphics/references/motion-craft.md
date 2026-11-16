@@ -251,7 +251,7 @@ nested interpolate calls: track(editable("card", "x", "0:-400, 18:120:out,
 in, out, inOut or hold (the curve into that key). Key frames count on the
 same clock as useCurrentFrame(): at the top level from the graphic's frame 0,
 and inside a component rendered within a Sequence, Series.Sequence or Loop
-iteration from that window's own start, like Remotion. Call track inside the
+iteration from that window's own start. Call track inside the
 scene's component; a track evaluated by the parent and passed down keeps the
 parent's clock. track(spec, frame) samples an explicit frame instead.
 The Properties panel then lists every key with its frame, value and curve,
@@ -284,7 +284,7 @@ Use preview_motif_draft for a single exact frame or a custom size.
 
 ## Lottie animations
 
-Ready-made After Effects animations (icons, characters, loaders, stickers)
+Ready-made vector animations (icons, characters, loaders, stickers)
 come in as Lottie files instead of being redrawn in JSX:
 
 1. import_motion_graphic_lottie with the file (local endpoint) or its JSON
