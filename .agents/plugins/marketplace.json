@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "timeline-x",
+      "name": "timeline-x-studio",
       "source": {
         "source": "local",
-        "path": "./plugins/timeline-x"
+        "path": "./plugins/timeline-x-studio"
       },
       "policy": {
         "installation": "AVAILABLE",

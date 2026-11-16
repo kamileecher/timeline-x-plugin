@@ -8,6 +8,7 @@ import {
   statSync,
   writeFileSync,
 } from "node:fs";
+import { homedir } from "node:os";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
@@ -201,6 +202,7 @@ function parseArgs(args) {
     else if (arg === "--columns") {
       result.columns = boundedInteger(requiredValue(args, ++index, arg), arg, 1, 9);
     } else if (arg === "--crop") result.crop = requiredValue(args, ++index, arg);
+    else if (arg === "--ffmpeg") result.ffmpeg = requiredValue(args, ++index, arg);
     else if (arg === "--font-file") result.fontFile = requiredValue(args, ++index, arg);
     else if (arg === "--font-size") {
       result.fontSize = boundedInteger(requiredValue(args, ++index, arg), arg, 10, 72);
@@ -229,11 +231,12 @@ function resolveBackend() {
   }
   const ffmpeg = resolveFfmpeg();
   if (ffmpeg) return { kind: "ffmpeg", command: ffmpeg };
-  fail("No image compositor is available; install ImageMagick or set TIMELINE_X_FFMPEG_PATH to Timeline X Studio's ffmpeg binary");
+  fail("No image compositor is available; install ImageMagick or pass --ffmpeg with the path to Timeline X Studio's ffmpeg binary");
 }
 
 function resolveFfmpeg() {
-  const explicit = process.env.TIMELINE_X_FFMPEG_PATH;
+  // Paths come from arguments and fixed install locations, never the environment.
+  const explicit = parsed.ffmpeg;
   if (explicit && existsSync(explicit)) return explicit;
   if (commandExists("ffmpeg")) return "ffmpeg";
 
@@ -254,11 +257,11 @@ function resolveFfmpeg() {
   if (process.platform === "darwin") {
     candidates.push("/Applications/TimelineX.app/Contents/Resources/ffmpeg/ffmpeg");
     candidates.push("/Applications/Timeline X Studio.app/Contents/Resources/ffmpeg/ffmpeg");
-  } else if (process.platform === "win32" && process.env.LOCALAPPDATA) {
-    candidates.push(join(process.env.LOCALAPPDATA, "Programs", "Timeline X Studio", "resources", "ffmpeg", "ffmpeg.exe"));
-    candidates.push(join(process.env.LOCALAPPDATA, "Programs", "TimelineX", "resources", "ffmpeg", "ffmpeg.exe"));
+  } else if (process.platform === "win32") {
+    const localAppData = join(homedir(), "AppData", "Local");
+    candidates.push(join(localAppData, "Programs", "Timeline X Studio", "resources", "ffmpeg", "ffmpeg.exe"));
+    candidates.push(join(localAppData, "Programs", "TimelineX", "resources", "ffmpeg", "ffmpeg.exe"));
   } else if (process.platform === "linux") {
-    if (process.env.APPDIR) candidates.push(join(process.env.APPDIR, "resources", "ffmpeg", "ffmpeg"));
     candidates.push("/opt/Timeline X Studio/resources/ffmpeg/ffmpeg");
     candidates.push("/opt/TimelineX/resources/ffmpeg/ffmpeg");
   }
@@ -270,9 +273,7 @@ function resolveSystemFont() {
     "/System/Library/Fonts/Menlo.ttc",
     "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
     "/usr/share/fonts/truetype/liberation2/LiberationMono-Regular.ttf",
-    ...(process.platform === "win32" && process.env.WINDIR
-      ? [join(process.env.WINDIR, "Fonts", "consola.ttf")]
-      : []),
+    ...(process.platform === "win32" ? ["C:\\Windows\\Fonts\\consola.ttf"] : []),
   ];
   return candidates.find((candidate) => existsSync(candidate)) ?? null;
 }
@@ -309,7 +310,7 @@ function fail(message) {
 
 function usage(exitCode) {
   process.stdout.write(
-    "Usage: concat-images.mjs --output <image> [--columns N] [--crop WxH+X+Y] [--font-file path] [--font-size N] [--caption text ...] <images...>\n",
+    "Usage: concat-images.mjs --output <image> [--columns N] [--crop WxH+X+Y] [--ffmpeg path] [--font-file path] [--font-size N] [--caption text ...] <images...>\n",
   );
   process.exit(exitCode);
 }

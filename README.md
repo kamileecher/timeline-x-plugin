@@ -45,16 +45,16 @@ the hosted Timeline X connection. No local binaries, no API keys.
 
 ```text
 /plugin marketplace add kamileecher/timeline-x-plugin
-/plugin install timeline-x@timeline-x
+/plugin install timeline-x-studio@timeline-x
 ```
 
-Then run `/mcp`, choose **plugin:timeline-x:timeline-x** and select **Authenticate**.
+Then run `/mcp`, choose **plugin:timeline-x-studio:timeline-x** and select **Authenticate**.
 
 ### Codex
 
 ```bash
 codex plugin marketplace add kamileecher/timeline-x-plugin
-codex plugin add timeline-x@timeline-x
+codex plugin add timeline-x-studio@timeline-x
 codex mcp login timeline-x
 ```
 
@@ -154,7 +154,7 @@ and questions about the plugin. Release history is on the [changelog](https://ti
 | | Claude Code | Codex |
 | --- | --- | --- |
 | Update | `/plugin marketplace update timeline-x` | `codex plugin marketplace upgrade` |
-| Remove | `/plugin uninstall timeline-x@timeline-x` | `codex plugin remove timeline-x@timeline-x` |
+| Remove | `/plugin uninstall timeline-x-studio@timeline-x` | `codex plugin remove timeline-x-studio@timeline-x` |
 
 ## Troubleshooting
 
@@ -172,8 +172,8 @@ düzenlemesini sağlar: kesme, altyazı, seslendirme, müzik, görsel ve video �
 renk ve dışa aktarma.
 
 1. Timeline X Studio masaüstü uygulamasını kurun ve açık tutun.
-2. Claude Code'da: `/plugin marketplace add kamileecher/timeline-x-plugin` ve `/plugin install timeline-x@timeline-x`.
-   Codex'te: `codex plugin marketplace add kamileecher/timeline-x-plugin`, `codex plugin add timeline-x@timeline-x`.
+2. Claude Code'da: `/plugin marketplace add kamileecher/timeline-x-plugin` ve `/plugin install timeline-x-studio@timeline-x`.
+   Codex'te: `codex plugin marketplace add kamileecher/timeline-x-plugin`, `codex plugin add timeline-x-studio@timeline-x`.
 3. `/mcp` → **Authenticate** (Codex'te `codex mcp login timeline-x`) ile tarayıcıda giriş yapıp onaylayın.
 4. Deneyin: "Timeline X bağlantı durumumu kontrol et."
 
