@@ -60,35 +60,6 @@ analysis request is read-only unless the user also asks for changes.
    Motion Graphics repair loop, stop after three failed repair passes and report the exact
    unresolved check rather than inferring success.
 
-## Labeled contact sheets
-
-For several local PNG/JPEG/WebP frames, use the bundled
-`scripts/concat-images.mjs` helper to create one chronological, labeled contact
-sheet. It prefers ImageMagick and falls back to Timeline X Studio's bundled
-ffmpeg, so ImageMagick is not a required installation.
-
-Run it from this skill folder or use its absolute path:
-
-```bash
-node scripts/concat-images.mjs \
-  --output /absolute/path/contact-sheet.jpg \
-  --columns 3 \
-  --caption "frame 120 | 4.000s" \
-  --caption "frame 123 | 4.100s" \
-  /absolute/path/frame-120.png \
-  /absolute/path/frame-123.png
-```
-
-Use `--crop WIDTHxHEIGHT+X+Y` to apply one identical pixel crop to every
-input, and `--tile-width` to control tile size. Preserve chronological argument
-order. Put exact frame/time labels first; display text wraps to at most three
-lines and the receipt preserves the full caption plus any truncation. Use
-`--font-file /absolute/path/font.ttf` for a missing glyph or `--font-size` for
-legibility; no font download is implied. Read the JSON receipt, then open the
-returned outputPath and inspect its
-pixels; successful composition is not itself visual verification. Keep these
-temporary analysis files outside the project unless the user asks to import
-them.
 
 ## Verification checklist
 

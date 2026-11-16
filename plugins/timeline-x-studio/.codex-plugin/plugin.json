@@ -25,7 +25,6 @@
     "privacyPolicyURL": "https://timelinex.studio/legal/privacy",
     "termsOfServiceURL": "https://timelinex.studio/legal/terms",
     "logo": "./assets/logo.png",
-    "composerIcon": "./assets/composer-icon.svg",
     "brandColor": "#1A8CFF",
     "brandColorDark": "#1A8CFF",
     "defaultPrompt": [
