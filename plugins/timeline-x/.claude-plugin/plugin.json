@@ -8,6 +8,7 @@
   "license": "MIT",
   "homepage": "https://timelinex.studio",
   "repository": "https://github.com/kamileecher/timeline-x-plugin",
+  "privacyPolicyUrl": "https://timelinex.studio/legal/privacy",
   "keywords": [
     "video",
     "video-editing",

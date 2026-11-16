@@ -12,6 +12,7 @@
   <a href="https://timelinex.studio">Website</a> ·
   <a href="#install">Install</a> ·
   <a href="#what-you-can-do">Skills</a> ·
+  <a href="#privacy-and-data">Privacy</a> ·
   <a href="#troubleshooting">Troubleshooting</a> ·
   <a href="#türkçe">Türkçe</a>
 </p>
@@ -31,7 +32,7 @@ grade, and export — while every change goes through the desktop app's own undo
 
 ## Requirements
 
-- **Timeline X Studio** desktop app, installed and running — download it from [timelinex.studio](https://timelinex.studio).
+- **Timeline X Studio** desktop app (macOS Apple Silicon or Windows x64), installed and running — get it from the [download page](https://timelinex.studio/download).
 - A Timeline X Studio account (you sign in once in the browser).
 - [Claude Code](https://claude.com/claude-code) or [Codex CLI](https://github.com/openai/codex).
 
@@ -121,6 +122,32 @@ Claude Code / Codex ──OAuth──▶ https://mcp.timelinex.studio/mcp
   be undone.
 - Access is granted through OAuth consent. To revoke it on a machine, clear the server's
   authentication in `/mcp` (Claude Code) or run `codex mcp logout timeline-x` (Codex).
+
+## Privacy and data
+
+- **The plugin itself collects nothing.** It is a set of Markdown instructions plus the address of the
+  hosted Timeline X MCP server. It has no hooks, no background process, no analytics and no telemetry.
+- **Account data.** Signing in uses your Timeline X Studio account (email address and authentication
+  records). The server keeps the OAuth grant you approved and the record of your paired desktop so it
+  can route calls to you. Revoking access removes the grant.
+- **Tool calls.** Each call and its result is relayed, encrypted in transit, between the assistant and
+  your own desktop app. Request logs hold a correlation id, status and timing — not the tool arguments
+  or results.
+- **Projects and media stay on your computer.** They leave it only when you ask for a feature that
+  needs an outside service, such as AI image, video, music or speech generation with a provider you
+  configured, or a file transfer you approve.
+- **Your assistant sees what the tools return.** Results such as transcripts, project summaries and
+  preview frames are sent to Claude or Codex as part of the conversation, under that product's own terms.
+- No advertising, no sale of personal data, and nothing here is designed for health or other
+  special-category data.
+
+Full details: [Privacy policy](https://timelinex.studio/legal/privacy) · [Terms](https://timelinex.studio/legal/terms).
+Deletion requests and privacy questions: see the contact address in the privacy policy.
+
+## Support
+
+Open an issue at [github.com/kamileecher/timeline-x-plugin/issues](https://github.com/kamileecher/timeline-x-plugin/issues) for bugs
+and questions about the plugin. Release history is on the [changelog](https://timelinex.studio/changelog).
 
 ## Updating and removing
 

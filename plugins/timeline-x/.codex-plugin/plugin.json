@@ -22,6 +22,8 @@
     "developerName": "Timeline X Studio contributors",
     "category": "Productivity",
     "websiteURL": "https://timelinex.studio",
+    "privacyPolicyURL": "https://timelinex.studio/legal/privacy",
+    "termsOfServiceURL": "https://timelinex.studio/legal/terms",
     "logo": "./assets/logo.png",
     "composerIcon": "./assets/composer-icon.svg",
     "brandColor": "#1A8CFF",
