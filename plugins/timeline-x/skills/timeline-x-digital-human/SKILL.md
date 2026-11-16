@@ -21,6 +21,10 @@ avatar identity/catalog/generation capability actually returned there. Invoke
 it through `call_external_mcp_tool` with its exact schema. If no compatible
 tool is present, explain the missing connection; do not silently substitute
 `generate_video` or call a provider endpoint directly.
+On the hosted Timeline X connection (the public Claude Code or Codex plugin)
+`list_external_mcp_tools` and `call_external_mcp_tool` are unavailable; use an
+equivalent tool the host itself exposes in this conversation, under the same
+rules, or explain the missing connection.
 
 ## Resolve the generation contract
 

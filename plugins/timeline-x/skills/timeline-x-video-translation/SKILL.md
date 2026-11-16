@@ -54,6 +54,10 @@ source text, target-language timing or final checks.
   tool names, call provider endpoints directly, use `generate_video` as lip
   sync, or present an audio dub as changed mouth movement. If no compatible
   selected connection exists, report the exact gap and supported alternatives.
+  On the hosted Timeline X connection (the public Claude Code or Codex plugin)
+  `list_external_mcp_tools` and `call_external_mcp_tool` are unavailable; use
+  an equivalent tool the host itself exposes in this conversation, under the
+  same rules, or explain the missing connection.
 
 ## Keep production recoverable
 

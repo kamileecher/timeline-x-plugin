@@ -14,6 +14,10 @@ read-only unless the user also asks to import or use returned media.
 1. A compatible browser connection must be selected for the current Agent
    conversation. Call `list_external_mcp_tools` with the short-lived capability
    from the current turn and inspect the exact returned schemas.
+   On the hosted Timeline X connection (the public Claude Code or Codex
+   plugin) `list_external_mcp_tools` and `call_external_mcp_tool` are
+   unavailable; use an equivalent tool the host itself exposes in this
+   conversation, under the same rules, or explain the missing connection.
 2. Prefer the selected Firecrawl connection when present, but never assume its
    remote tool name, argument names, formats, or actions. Call the chosen tool
    through `call_external_mcp_tool` with the exact server id and schema.

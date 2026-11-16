@@ -5,7 +5,7 @@ Edit and verify Timeline X Studio projects from Claude through the hosted Timeli
 ## Install in Claude Code
 
 ```
-/plugin marketplace add <owner>/<repository>
+/plugin marketplace add kamileecher/timeline-x-plugin
 /plugin install timeline-x@timeline-x
 ```
 
@@ -14,7 +14,7 @@ Then run `/mcp`, select `plugin:timeline-x:timeline-x` and authenticate.
 ## Install in Codex
 
 ```
-codex plugin marketplace add <owner>/<repository>
+codex plugin marketplace add kamileecher/timeline-x-plugin
 codex plugin add timeline-x@timeline-x
 codex mcp login timeline-x
 ```

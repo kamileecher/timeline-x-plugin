@@ -7,6 +7,13 @@
   },
   "license": "MIT",
   "homepage": "https://timelinex.studio",
+  "repository": "https://github.com/kamileecher/timeline-x-plugin",
+  "keywords": [
+    "video",
+    "video-editing",
+    "timeline",
+    "mcp"
+  ],
   "mcpServers": "./.codex.mcp.json",
   "interface": {
     "displayName": "Timeline X Studio",

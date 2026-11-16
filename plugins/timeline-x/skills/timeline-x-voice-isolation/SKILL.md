@@ -45,6 +45,10 @@ an audible improvement; an accepted parameter write proves only configuration.
    the available local file or URL form. Invoke it through
    `call_external_mcp_tool`. Never guess a remote tool name, upload to an
    unselected service, or expose the connection token.
+   On the hosted Timeline X connection (the public Claude Code or Codex
+   plugin) `list_external_mcp_tools` and `call_external_mcp_tool` are
+   unavailable; use an equivalent tool the host itself exposes in this
+   conversation, under the same rules, or explain the missing connection.
 3. Preserve the source. Use the remote tool's live status mechanism for a long
    job and retain the exact returned output identity. If no suitable tool is
    present, report the missing connection instead of altering the clip.
