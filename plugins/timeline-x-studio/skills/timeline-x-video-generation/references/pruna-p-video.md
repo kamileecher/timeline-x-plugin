@@ -28,8 +28,18 @@ background unchanged; both P-Video 2 and Pro generate the speech. For an exact
 recorded line, give `pruna-p-video-2` the portrait as first frame and the voice
 file as its one audio reference: it lip-syncs that audio, and the video runs to
 the audio length rounded up to whole seconds. The reference model treats audio
-as a voice/sound reference, not a script; put the words in the prompt.
+as a voice/sound reference, not a script; put the words in the prompt. To make
+a recorded narration the clip's own sound on the reference model, pass exactly
+one audio reference with `pruna_options: { keepAudio: true }` and a
+duration_seconds within one second of its length; the output follows the audio.
 Output frame sizes are rounded to the model grid (720p 16:9 is 1280x704).
+
+A reference video is copied closely, including what is burned into it. Captions
+and labels in it can come back as garbled text, so state in the prompt that
+those words are editing overlays and that the output shows no text, then check
+the frames. A person visible in the reference video wins over a reference
+image: say that the presenter is not the person in Video 1 but the one in
+Image 1, and compare the face before reusing the recipe.
 
 Recover a known prediction instead of starting another paid request. A blocked
 moderation result is terminal; change the prompt or inputs before trying again.
