@@ -81,8 +81,7 @@ meaning or legibility by itself.
 Common flows, one line each — parameters and caveats live in the tool
 descriptions:
 
-- Tighten silences: `detect_silences` → `split_layer` → `delete_layer` (also
-  packaged as the `/cut-silences` prompt).
+- Any cut, trim, tighten or delete: [surgical edits](references/surgical-editing.md).
 - Make a short clip last longer: `loop_layer` with the Timeline time where it
   should end. It leaves one compound clip of repeats; do not duplicate the
   clip by hand. A source whose last frame does not match its first jumps at
