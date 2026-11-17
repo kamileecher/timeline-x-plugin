@@ -14,9 +14,12 @@ start and end from the result instead of assuming the request landed.
 
 ## Protocol
 
-1. Scope. With sequences in the project, call `list_sequences` and confirm
-   which timeline the user is looking at (`capture_editor_screen`) before
-   reading tracks; `project://tracks` shows the root only.
+1. Scope. With sequences in the project, call `list_sequences`: the row
+   marked open_in_editor is the timeline the user is looking at, and
+   `project://tracks` shows the root only. While a reusable timeline is on
+   screen an edit that names no sequence_id is refused: pass that
+   timeline's id, or sequence_id null to edit the root on purpose.
+   `set_active_sequence` shows a timeline to the user.
 2. Measure. Read the target's start, end, track, group and lock state, and
    note user_revision from `project://current`. Pass it as if_user_revision
    on your edits: an edit planned before the user changed the timeline is
@@ -64,9 +67,7 @@ start and end from the result instead of assuming the request landed.
    and changed ids, moved layers, applied timing, and any transition the edit
    removed. An answer of applied=false means nothing changed. Entities under
    also_changed are side effects the tool's own receipt did not name; check
-   each one is intended. A timeline_note means the edit went to the root
-   timeline while the editor shows another one: stop and confirm the target.
-   A misspelled argument is refused, never ignored.
+   each one is intended. A misspelled argument is refused, never ignored.
 8. Verify the cut itself. `capture_canvas_strip` starting two frames before
    the cut with four frames at step one shows both sides: the intended
    pictures, no black frame, no one-frame flash. `find_gaps` again: no new
