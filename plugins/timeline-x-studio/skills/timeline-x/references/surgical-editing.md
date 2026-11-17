@@ -93,6 +93,12 @@ start and end from the result instead of assuming the request landed.
 - A split keeps animation continuous across the cut, leaves the fade-in on
   the left half and the fade-out on the right, and splits a linked partner
   with it.
+- A split Motion Graphic keeps playing on the right piece from the cut; it
+  does not replay its entrance.
+- `rate_stretch_layer` with ripple and `close_all_gaps` move only their own
+  lane unless you pass ripple_scope all_unlocked; pass it whenever captions,
+  music or markers after the edit must stay in step with the picture, and
+  read skipped_gaps for the gaps another track still fills.
 - Linked picture and sound trim, ripple and move together, and replacing a
   clip's media switches its linked sound with it.
 - `undo` will not revert an edit the user made unless you pass
