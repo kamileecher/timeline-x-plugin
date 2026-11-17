@@ -1,6 +1,6 @@
 ---
 name: timeline-x-visual-analysis
-description: "Inspect Timeline X Studio source footage and composed timeline frames, compare before and after states, locate visual changes, and verify edits with fresh timestamped evidence."
+description: "Inspect Timeline X Studio source footage and composed timeline frames, compare before and after states, locate visual changes, verify edits with fresh timestamped evidence, and break down a finished film or short drama (characters, shots, speakers, beats, why it works)."
 ---
 
 # Timeline X Studio Visual Analysis
@@ -60,6 +60,43 @@ analysis request is read-only unless the user also asks for changes.
    Motion Graphics repair loop, stop after three failed repair passes and report the exact
    unresolved check rather than inferring success.
 
+
+## Break down a reference video
+
+When the user wants to learn from a finished film or short drama (why it works,
+how it is written and shot), break it down before planning anything (Film planning can use it afterwards). Run
+`start_video_breakdown` on the Library video, in the user's language. The
+breakdown never starts a transcription: transcribe the clip first with
+`transcribe_clip` when it has speech, or it will have no lines.
+
+With the default agent lane the result returns open questions with labeled
+contact sheets as images. Look at every image, answer each question with the JSON
+its answer_shape describes, and send them with `answer_breakdown_questions`;
+repeat until status is complete. Answer only from what the pictures show, name
+only shots and characters the question offers, and mark a speaker you cannot
+decide as unsure instead of guessing. If you cannot see images, do not answer:
+use lane=model only when the user has configured a video-understanding engine,
+because that lane sends the frames to it.
+
+Read the result with `get_video_breakdown` section=document: characters, every
+shot's reading, attributed lines, scenes, beats, the ledger counted by code
+(pacing, emotion events, build-to-payoff waits, screen time) and the report.
+Quote the ledger's numbers rather than estimating your own. Record the user's
+corrections with `update_video_breakdown`; they survive reruns, and a corrected
+emotion or speaker recounts the ledger. A breakdown is study material, not a
+plan or an approval. When the user wants to make a film from it, `breakdown_to_film_script`
+returns a Film script document (save it only when asked), and
+`plan_film_from_video` with breakdown_id builds the plan with each shot's
+references from the same video; the approval gates still apply.
+
+For a series (one Library video per episode), use `start_video_series` with the
+videos in episode order; ask the user when the order is unclear. Each episode is
+read with what came before, so keep names consistent with the people it lists.
+Only the first episodes are read (episode_limit, default 5): show the user the
+results and cost before raising it with `continue_video_series`. Answer each
+episode's questions with `answer_breakdown_questions`, then call
+`continue_video_series` again; it ends with one series question. Read the result
+with `get_video_series`; correct who is who with `update_video_series`.
 
 ## Verification checklist
 

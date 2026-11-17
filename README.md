@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.2.826-1a8cff">
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.827-1a8cff">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Codex" src="https://img.shields.io/badge/Codex-plugin-111111">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-2ea043">
@@ -101,7 +101,7 @@ Timeline X Studio. They load automatically when your request matches:
 | **UGC product ads** | `timeline-x-ugc-ad` | Plan, generate, finish, and verify short UGC-style advertisements for physical e-commerce products in Timeline X Studio. |
 | **Video generation** | `timeline-x-video-generation` | Generate and place video in Timeline X Studio, including direct QwenCloud Wan 3, BytePlus Seedance and MiniMax reference recipes, FilmManifest scene queues, independent edit/extend candidates, same-job recovery and verified delivery. |
 | **Video translation** | `timeline-x-video-translation` | Localize an existing Timeline X Studio video into another language by routing caption translation, approved audio dubbing or true external lip synchronization to actual supported tools while preserving source media and verifying delivery. |
-| **Visual analysis** | `timeline-x-visual-analysis` | Inspect Timeline X Studio source footage and composed timeline frames, compare before and after states, locate visual changes, and verify edits with fresh timestamped evidence. |
+| **Visual analysis** | `timeline-x-visual-analysis` | Inspect Timeline X Studio source footage and composed timeline frames, compare before and after states, locate visual changes, verify edits with fresh timestamped evidence, and break down a finished film or short drama (characters, shots, speakers, beats, why it works). |
 | **Voice isolation** | `timeline-x-voice-isolation` | Choose bounded native DeNoise/DeReverb treatment or a selected external learned speech-isolation capability for dialogue, preserve picture and source media, and verify the actual audible result in Timeline X Studio. |
 | **Voiceover** | `timeline-x-voiceover` | Write, generate, place, replace, and synchronize narration or approved dubbing in Timeline X Studio using saved speech settings, measured audio timing and scene-aware mixing. |
 | **Web sources** | `timeline-x-web-browser` | Browse, scrape, extract, or screenshot a website through a selected external MCP connection such as Firecrawl, and safely import chosen web media into Timeline X Studio. |
@@ -182,5 +182,5 @@ adresini içerir.
 
 ---
 
-<sub>Version 0.2.826. This repository is generated from the Timeline X Studio source on every release —
+<sub>Version 0.2.827. This repository is generated from the Timeline X Studio source on every release —
 please open issues instead of pull requests. Licensed under the MIT License.</sub>
