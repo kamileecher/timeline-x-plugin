@@ -53,8 +53,10 @@ start and end from the result instead of assuming the request landed.
    the cut against the audio around it, the level before and after, and
    checks the transcript for a word the cut lands inside. A join is verified
    only by a clean or silent verdict with no words cut. click or risky means
-   fix it and measure again; unmeasured means the sound was not ready, never
-   that it is fine. `apply_transcript_cut`, `apply_silence_cut` and
+   fix it and measure again; unsealed means sound on both sides and no fade:
+   add 10 ms fades and measure again; unmeasured means the sound was not
+   ready, never that it is fine. With listen true the recogniser's text for
+   the cut comes back too: a hint to read, never proof of a broken word. `apply_transcript_cut`, `apply_silence_cut` and
    `detect_fillers` attach this as cut_audio in their own result: read it.
    After any other edit to sound (split and delete, trim, ripple, move) call
    `inspect_cut_audio` yourself on the layers you touched.
