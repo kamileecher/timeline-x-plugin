@@ -31,6 +31,11 @@ model, voice, or MCP connection is not an extra task. Use only the skills and
 options relevant to the request, and preserve explicit structure, language,
 duration, ending, target, and delivery choices over defaults.
 
+## Names
+
+Name what you create by its content; an id, a file stem or a bare kind word
+("Motif") is refused. `check_project_health` `naming.unreadable` must be 0.
+
 ## Session etiquette
 
 1. Read `project://current` before your first mutation — never write against a
@@ -311,14 +316,12 @@ global queue/key administration are outside this client capability.
   there and why the visual supports it), the complete visual prompt, purpose,
   and the exact timeline range/target track. Generate that one image and wait
   for it to finish before planning the next; plan→generate is a strict pair.
-- With `placement: "timeline"`, the host gives the result one stable
-  `S###__T<start>-<end>__<content>` identity, copies it into the project's
-  `Media/` folder, imports it, and places it on the planned track/range. Do not
-  call `import_media` or `add_video_layer` again for that generated image.
+- With `placement: "timeline"`, the host names the result from your scene
+  title (`S01 · <title> · V01`), imports it, and places it on the planned
+  track/range. Do not call `import_media` or `add_video_layer` again for it.
 - With `placement: "media-pool"`, the host names and imports it but does not
-  edit the timeline. Use this when the user asked only to create an asset. A
-  missing plan falls back to an explicitly `TUNASSIGNED` name; never guess a
-  timeline time from prose.
+  edit the timeline. Use this when the user asked only to create an asset.
+  Never guess a timeline time from prose.
 - After every generated image, re-read `project://media` and, for timeline
   placement, `project://tracks`. Verify the meaningful name, intended range,
   and order before proceeding to the next scene. After the final generated
