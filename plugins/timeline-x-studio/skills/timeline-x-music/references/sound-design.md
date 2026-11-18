@@ -77,6 +77,14 @@ or music with nothing else, is still a draft.
   recordings the user supplies or licenses, imported through the media import
   workflow. Generated or designed sound suits what follows motion or the score:
   risers, swells, tonal hits, abstract sounds with no real source.
+- Before generating or asking the user for a recording, try the library that
+  ships with the app: `search_sound_effects` finds about 520 recorded CC0
+  effects (footsteps on five surfaces; glass, metal, wood and punch impacts;
+  UI clicks, confirmations and errors; doors, books, cloth, coins, cards,
+  dice; sci-fi lasers, engines and explosions) by English or Turkish words,
+  offline and free. `add_sound_effect` copies one into Media/Audio and places
+  it as an sfx layer at `t_start_us`. Sounds already in the project rank last,
+  so search again for a fresh take instead of reusing one take for every step.
 - When `generate_sound_effect` is advertised and the user has approved the
   provider spend, describe the sound physically: material, how it is struck or
   played, what rattles, and the recording distance (close, dry, outdoor field).

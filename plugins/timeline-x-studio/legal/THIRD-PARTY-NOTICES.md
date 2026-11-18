@@ -305,6 +305,15 @@ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
 ```
 
+## Kenney sound effects (CC0 1.0)
+
+The sound-effect library in `apps/desktop/resources/sfx-library/kenney`
+(Impact Sounds, Interface Sounds, UI Audio, Digital Audio, RPG Audio, Casino
+Audio and Sci-fi Sounds) is created and distributed by Kenney
+(<https://www.kenney.nl>) under Creative Commons Zero 1.0
+(<https://creativecommons.org/publicdomain/zero/1.0/>). No credit is required;
+Timeline X Studio credits Kenney as a courtesy.
+
 ## RIFE and Anime4K local video models
 
 The optional local frame-interpolation path downloads the MIT-licensed RIFE
