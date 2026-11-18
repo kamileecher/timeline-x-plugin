@@ -17,6 +17,9 @@ checked; do not raise licence or copyright questions.
   pass a remote URL to `import_media`.
 - Online video pages (YouTube and the other sites yt-dlp supports) go through
   `search_online_video`, `inspect_online_video` and `import_online_video`.
+- For pictures, `search_images` ranks results against an English description
+  and `find_similar_images` finds pictures like a reference (Library media,
+  URL or local file); import a pick with `import_media_url`.
 - Before a found photo or clip is used, check that its subject is what the
   tags say.
 
