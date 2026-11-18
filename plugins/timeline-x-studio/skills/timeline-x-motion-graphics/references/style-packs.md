@@ -25,6 +25,27 @@ new asset. Never edit a pack module in place unless the user asks for it:
 `update_motion_graphic_module` republishes every asset that uses it, in every
 project.
 
+## Make a style your own
+
+When the user wants a pack in their brand ("my colours", "our font", "my
+channel's version"), copy it instead of editing it:
+
+1. `inspect_style_pack` with the pack's module id. Show the user the palette
+   by role (the names field tells which colour is the accent, the ink, the paper)
+   and the fonts, and ask one question at a time: brand colours for which
+   roles, which bundled font for titles and body (available_fonts in the result), default
+   copy such as a channel name, and a name for the new style.
+2. `customize_style_pack` with that mapping. Keep the pack's contrast logic:
+   a dark ink stays dark, a light paper stays light, the accent stays the one
+   loud colour.
+3. Review two or three new scenes with `review_motion_graphic`; fix a
+   low_contrast finding by choosing a darker or lighter brand shade, then run
+   the tool again under a new name (or delete the copy first).
+4. Place the new scenes as usual. Sound cues and layer fitting come with them.
+
+The base pack never changes, and the copy is the user's: later pack updates do
+not touch it. Tints written as rgba() keep their values (rgba_uses counts them).
+
 ## Length
 
 Pack scenes fit their layer: drag or set a layer longer than the scene's
