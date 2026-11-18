@@ -45,6 +45,11 @@ when the piece has more than three of them.
   gives a picture, look at it, describe it in a few English phrases and call
   `find_similar_images` with those queries to find related pictures online and
   in the Library.
+- For plates, maps and drawings from old books (anatomy atlases, travel
+  accounts, histories), `search_book_pages` finds digitised books by keywords
+  and year range and ranks their pages against the picture description; the
+  best pages are usually the illustrations. It takes about a minute for three
+  books, so name the books from an earlier result when searching again.
 
 ## 3. Inspect before choosing
 
