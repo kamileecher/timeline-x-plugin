@@ -54,6 +54,10 @@ music may still drift, so verify against the real audio.
 
 - Put scene boundaries on bar lines and hits on beats the song already
   accents; never layer added drums over the song's own.
+- To write music to the picture instead of cutting to a song, mark each
+  picture accent (label one marker drop and one end) and call
+  `plan_music_to_cues`. Generate from its score (`music_studio_score_from_midi`)
+  or its prompt, place the take at `place_at_us`, then check it.
 - Before export, put a marker on each picture accent (title hit, cut, Motion
   Graphic beat) and run `check_music_cue_sync` on the music layer. It reports
   each cue as hit, near or miss with its offset in milliseconds. A shared

@@ -335,6 +335,11 @@ graphic times its parts the same way:
   their outline as path data, so drawPath, fills and morph work on it;
   projection.project([lon, lat]) places a pin or route point. The data is
   Natural Earth 1:110m (countries, not cities), embedded offline.
+- Words on the voice: give the graphic a text property (for example "words")
+  and read it with useWords("words"); after placing the graphic over the
+  narration, `sync_motion_graphic_words` fills it from the narration's
+  word-timed transcript. Reveal word i when i < spoken, or scale it with
+  progress(i). Run the tool again whenever the narration moves.
 - Real pen writing: handwrite(text, {fontSize, maxWidth, progress}) returns
   single-line strokes (Turkish letters included) in writing order. Draw each
   path with fill="none", strokeLinecap="round" and its draw props, inside an
@@ -356,3 +361,15 @@ pixels to your canvas. The events list (cut, flash, hold, appear, disappear)
 gives the reference's rhythm: put your own entrances and cuts on the same
 beats. Measure again on your render with the same region to compare.
 
+## Pictures
+
+For product photos, logos and other pictures, declare a property with
+`type: 'image'` and render it with `<Img src={item.props.logo} />` (or read
+`useImage("logo")`: `{src, width, height, active}`). Import the still first,
+find its id with `query_media`, then bind each placed instance by passing
+`"image:<mediaId>"` for that prop to `add_motif` or `update_motif_instance`.
+Only still Images bind; Video, Audio and unknown ids are rejected. The host
+delivers a copy of at most 2048 px on its longest edge, and one instance
+binds at most 8 images. Unbound, the image renders nothing and `active` is
+false, so lay the design out to survive an empty slot and verify one frame
+with the image bound. Swap the picture later by binding another id.

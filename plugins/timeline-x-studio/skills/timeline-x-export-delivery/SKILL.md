@@ -23,6 +23,9 @@ goes to a platform, client, or post, or a cover or thumbnail is wanted.
    also run `analyze_text_contrast` over the range and resolve its findings;
    skipped targets mean the frame budget ran out, so measure them in a second
    call.
+   When the edit has captions, run `check_caption_fit`: it lays them out with
+   the real fonts and flags a caption that wraps past two lines or spills out
+   of its box; split or shorten those cues and check again.
    When the edit has narration or dialogue, run `verify_narration` on its
    lines after the music and effects are in: a line marked `masked` in the
    mix is lost under the bed, so duck or lower it and check again.

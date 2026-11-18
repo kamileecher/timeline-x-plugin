@@ -76,3 +76,15 @@ the displayed terms) and the user's own recordings and images as own work.
 - Any picture, score, or audio lifted from a copyrighted film appearing in the delivered piece.
 - Files from sites that forbid downloading or that sit behind a login.
 - Paid services or provider calls without the user's explicit approval.
+
+## Finding open material
+
+`search_stock` with a `type` (image, video, sound, music) searches open
+collections at once: Wikimedia Commons, Openverse (sounds and Jamendo music),
+the Internet Archive, the Art Institute of Chicago, the Cleveland Museum of Art,
+the Metropolitan Museum and NASA. Only licences that allow commercial, edited
+use come back; a `share_alike` hit carries its licence onward, so prefer CC0,
+public domain or CC BY for music. Import a pick with `import_media_url` and pass
+the hit's `credit_fields` as `credit`: the credit is recorded on the media and
+`list_media_credits` lists it. A source under `unavailable` did not answer this
+time; the others still count.

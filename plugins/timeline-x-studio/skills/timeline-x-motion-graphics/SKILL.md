@@ -200,16 +200,8 @@ get them into a graphic: bind Library images instead (below).
   Only normal-speed, forward layers bind. Unbound, `active` is false and every
   value is 0, so also verify one bound frame on a loud passage and one on a
   quiet passage.
-- For product photos, logos and other pictures, declare a property with
-  `type: 'image'` and render it with `<Img src={item.props.logo} />` (or read
-  `useImage("logo")`: `{src, width, height, active}`). Import the still first,
-  find its id with `query_media`, then bind each placed instance by passing
-  `"image:<mediaId>"` for that prop to `add_motif` or `update_motif_instance`.
-  Only still Images bind; Video, Audio and unknown ids are rejected. The host
-  delivers a copy of at most 2048 px on its longest edge, and one instance
-  binds at most 8 images. Unbound, the image renders nothing and `active` is
-  false, so lay the design out to survive an empty slot and verify one frame
-  with the image bound. Swap the picture later by binding another id.
+- Product photos and logos: an image property, bound per placed instance
+  with `"image:<mediaId>"` (see Pictures in motion-craft.md).
 - Ready-made vector animations: a `lottie` property and `<Lottie>` (motion-craft.md).
 - Split text, draw-on, path motion, morph: `SplitText`, `drawPath`, `followPath`, `morph`.
 - When several assets of one piece share components (browser frame, cursor,
