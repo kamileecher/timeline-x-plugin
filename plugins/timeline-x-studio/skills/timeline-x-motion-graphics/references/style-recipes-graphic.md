@@ -16,6 +16,8 @@ lined up with the Motif.
 
 ### swiss-motion: Grid Poster in Motion
 
+Ready scenes: the Izgara poster pack in [style packs](style-packs.md).
+
 - **What it is / is not:**
   - It is: flat typographic posters animated on a strict column grid, every arrival landing on a musical beat, nothing wobbling. Grammar of mid-century Zurich poster design.
   - The protagonist is the one element in the signal colour; it alone may disobey the grid.
@@ -75,6 +77,8 @@ lined up with the Motif.
 - **Vary it:** a ten-credit countdown with a clock in every set; two agents in a diagonally split frame that slowly merge; a title left incomplete because the hero walks off with its last piece.
 
 ### dataviz: Pencil-Drawn Data Story
+
+Ready scenes: the Veri hikâyesi pack in [style packs](style-packs.md).
 
 - **What it is / is not:**
   - It is: a single chart that tells a story with real, sourced numbers. Each visual event is a genuine chart operation (a point lands, an axis appears, the scale changes, the encoding morphs, a note is pinned), drawn as though by a pencil on cream paper. Grammar of newsroom scrollytelling.

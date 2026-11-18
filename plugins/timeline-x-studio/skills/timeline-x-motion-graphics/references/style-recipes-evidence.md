@@ -22,6 +22,8 @@ planning skill's visual development reference.
 
 ### vox-explainer — Paper-Desk Why Explainer
 
+Ready scenes: the Kâğıt masa pack in [style packs](style-packs.md).
+
 - **What it is / is not:** a calm investigation that answers one "why" question, sentence by sentence; each shot proves the line just spoken and the piece ends on a takeaway of a few words. Everything looks printed and laid on a warm desk. Not the comic case file (no gags or stamps), not a backlit archive (no loupe or glow), not a tidy Swiss grid. Grammar reference only: Vox-era desk explainers.
 - **Material:** archive photos, document scans, maps and short clips each sit as Timeline layers, cropped with a mask; a card Motif placed under each one draws its white border and soft paper shadow (`feDropShadow`), and the annotation Motif sits on top.
   - Source from the user or `search_stock` (Wikimedia Commons; read every licence). If nothing licensable exists, draw a flat silhouette in the Motif instead of faking an archive picture. No figure appears without an approved source.
@@ -165,6 +167,8 @@ planning skill's visual development reference.
 - **Vary it:** a lone series climbing to its peak, a pair that cross, regions on a map-shaped base; end on the last object landing, a slow orbit of the whole piece, or one piece lifted away to show what a unit is.
 
 ### risograph — Spot-Ink Duplicator Print
+
+Ready scenes: the Risograf pack in [style packs](style-packs.md).
 
 - **What it is / is not:** animation that looks printed sheet by sheet with two or three translucent spot inks on warm paper: inks multiply where they cross into extra colours, plates sit a few pixels out of register, mid-tones are dot screens, solids show pinholes and streaks. Shapes are flat fields and silhouettes with no outlines. Not vector art with a noise layer, not CMYK pop art, not opaque screen print, and no duplicator brand or machine look.
 - **Material:** mostly drawn in Motion Graphics. A real photo can join the print as its own Timeline layer finished with posterize, the halftone effect and a two-colour grade, under a Motif that adds paper grain and misregistered ink shapes.

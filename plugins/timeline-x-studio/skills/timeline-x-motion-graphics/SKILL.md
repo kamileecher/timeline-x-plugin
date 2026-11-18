@@ -27,13 +27,12 @@ comparisons, text animation, and other reusable animated overlays.
   and review it; [video types](references/video-types.md) per kind of piece.
 - Read a style recipe when the user names a style or an approved direction
   maps to one: [graphic and information looks](references/style-recipes-graphic.md)
-  (Swiss grid, title sequences, data stories, isometric, keynote, pictograms,
-  blueprint, morphs, sticker canvas, visual proofs) or
-  [evidence films and print](references/style-recipes-evidence.md)
-  (paper-desk explainer, archive table, evidence wall, satellite briefing,
-  teardown, counted objects, risograph, halftone file, screen print). The full
-  index and the names people use are in the image generation skill's
-  style library.
+  (Swiss grid, titles, data stories, isometric, keynote, pictograms, blueprint,
+  morphs, stickers, visual proofs) or [evidence and print](references/style-recipes-evidence.md)
+  (paper desk, archive table, evidence wall, satellite, teardown, counted
+  objects, risograph, halftone, screen print); full index: the image generation
+  skill's style library. Nine looks (news, desk, grid, boards, sketchnote,
+  newsreel, data, riso) have [style packs](references/style-packs.md).
 
 These references guide the existing Motif workflow. They grant no font
 download, network access, new parameter widget, or alternative renderer.
