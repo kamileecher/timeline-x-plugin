@@ -59,7 +59,8 @@ and key its exit to useVideoConfig().durationInFrames.
 
 Every pack scene carries sound cues: the stamp, counter, card drop, marker,
 chalk or projector sound its motion calls for, timed to its default content.
-After placing a scene, call `add_motion_graphic_sfx` with the layer id: the
+After placing a scene, call `add_motion_graphic_sfx` with the layer id (and
+the timeline's `sequence_id` when the scene is on a reusable timeline): the
 sounds are synthesized on this computer, cost nothing and land as one sfx
 Audio layer at the layer start. A trimmed or split instance only gets the
 cues it shows, and exit sounds marked from_end follow a longer layer to its end. For a new scene, give your own asset soundCues when you create

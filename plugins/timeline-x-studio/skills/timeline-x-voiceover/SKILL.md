@@ -17,17 +17,14 @@ by ear, vary the reading, check generated speech and time sound from the lines.
 
 1. Read `project://current`, `project://tracks`, and `project://scene-plan`.
    For provider-backed narration, use only voice or voice-model fields
-   explicitly present in the current turn's Agent generation context. When a
-   field is absent, do not read app settings to infer a composer selection;
-   omit that synthesis argument unless the user explicitly chooses another
-   value in the request. An explicitly chosen local model follows the local
-   workflow below.
+   explicitly present in the current turn's Agent generation context; omit an
+   absent one rather than inferring it from app settings. An explicitly chosen
+   local model follows the local workflow below.
 2. When visuals already exist, map each spoken idea to the scene it describes.
    Write for what the viewer can see, avoid narrating obvious details twice,
    and preserve enough time for comprehension. Before synthesis, run
    `check_script_text` on the script with the planned `duration_s` and fix or
-   justify its findings; it costs nothing and catches dashes, stock phrases and
-   an overfull word budget before a paid or slow generation.
+   justify its findings before a paid or slow generation.
 3. Keep one continuous synthesis for a standalone narration by default. Split
    only when separate scenes need independent placement, replacement, or
    timing. Keep each request below 4,000 characters for portable backend
@@ -52,6 +49,8 @@ by ear, vary the reading, check generated speech and time sound from the lines.
 - For a redo, synthesize the approved replacement first, then replace or remove
   the old narration only after the new layer is verified. Do not destroy the
   user's usable take preemptively.
+- Hear each new line back with `verify_narration` (free, on-device) and
+  re-synthesize a line marked mismatch (skipped words, wrong number).
 
 ## Explicit local models and saved voices
 
