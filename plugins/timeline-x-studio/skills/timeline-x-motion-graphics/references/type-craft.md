@@ -73,6 +73,13 @@ style names Inter.
   Mono. Every bundled family except Kalam is variable, so any weight in its
   range renders and can be animated smoothly; Kalam has only 400 and 700, and a
   weight between them snaps.
+- When no bundled family carries the film's tone, `search_fonts` ranks about
+  1,500 open-licence families with Turkish letters by tone words ("komik çizgi
+  film", "belgesel sakin", "luxury fashion"); `add_font` installs one id once,
+  after which its family name works in Text layers, captions and Motion
+  Graphics like a bundled one. A Motion Graphic compiled before the install
+  needs its code updated once to load it. A static family keeps only its
+  400/700/900 weights, so other weights snap.
 
 ## Spacing and measure
 
