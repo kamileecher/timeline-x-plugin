@@ -1,10 +1,21 @@
 # Style packs: ready scenes for named styles
 
 Read this when the user picks one of the nine styles below, or an approved look
-maps to one. Each style ships in every user's Library as one shared module
+maps to one. Eighty-one more styles (art deco to woodcut, neon to ukiyo-e) ship
+the same way; find them in the [style pack catalogue](style-pack-catalog.md). Each style ships in every user's Library as one shared module
 (palette, type, easing and the style's signature parts) and four template
 scenes built on it. Start from them instead of writing the look from scratch:
 the scenes already pass the frame and motion review at their defaults.
+
+## Choose a pack by purpose
+
+When the user names a purpose instead of a style ("a science explainer", "a
+product launch", "a news short"), call `list_motion_graphic_modules` with
+`style_uses` (and `style_category` for a visual family) and offer two or three
+of the packs it returns, by their Turkish names. Use tags: haber, belgesel,
+bilim, egitim, urun, marka, veri, harita-seyahat, cocuk, muzik, oyun-fragman,
+acilis-jenerik, etkinlik, sosyal-medya, teknoloji, kultur-sanat, spor. Every
+listed style module carries its category and uses with labels.
 
 ## How to use a pack
 

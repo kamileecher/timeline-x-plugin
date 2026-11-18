@@ -330,6 +330,16 @@ graphic times its parts the same way:
   centred on its origin, in the path's own coordinates.
 - morph(fromD, toD, progress) returns path data between two shapes (same
   subpath count morphs subpath by subpath). Keep both shapes simple outlines.
+- Real maps: geoProjection({bounds: geoBounds(["Türkiye", "Yunanistan"], 2)})
+  fits countries into the frame and geoPath(country, projection) returns
+  their outline as path data, so drawPath, fills and morph work on it;
+  projection.project([lon, lat]) places a pin or route point. The data is
+  Natural Earth 1:110m (countries, not cities), embedded offline.
+- Real pen writing: handwrite(text, {fontSize, maxWidth, progress}) returns
+  single-line strokes (Turkish letters included) in writing order. Draw each
+  path with fill="none", strokeLinecap="round" and its draw props, inside an
+  svg of the returned width and height. Use it for whiteboard, notebook and
+  signature looks; SplitText suits ordinary type.
 
 Drive each progress from interpolate or spring of the current frame, and give
 a landed title a still hold before the next move.

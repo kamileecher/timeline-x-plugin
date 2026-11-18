@@ -54,6 +54,12 @@ music may still drift, so verify against the real audio.
 
 - Put scene boundaries on bar lines and hits on beats the song already
   accents; never layer added drums over the song's own.
+- Before export, put a marker on each picture accent (title hit, cut, Motion
+  Graphic beat) and run `check_music_cue_sync` on the music layer. It reports
+  each cue as hit, near or miss with its offset in milliseconds. A shared
+  offset comes back as `suggested_music_shift_us` (slide the music layer);
+  for a single near or miss, move the cut or accent, or put a sound effect on
+  the cue instead.
 - Use few effects, because a finished song already occupies most of the
   frequency range. Keep foley tied to the picture and a handful of accents beneath the
   music, as [Sound design](sound-design.md) describes. The song keeps the music

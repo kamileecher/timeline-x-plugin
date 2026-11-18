@@ -49,8 +49,8 @@ by ear, vary the reading, check generated speech and time sound from the lines.
 - For a redo, synthesize the approved replacement first, then replace or remove
   the old narration only after the new layer is verified. Do not destroy the
   user's usable take preemptively.
-- Hear each new line back with `verify_narration` (free, on-device) and
-  re-synthesize a line marked mismatch (skipped words, wrong number).
+- Hear each new line back with `verify_narration` (on-device): redo a
+  mismatch line; duck the bed under a line its mix marks masked.
 
 ## Explicit local models and saved voices
 

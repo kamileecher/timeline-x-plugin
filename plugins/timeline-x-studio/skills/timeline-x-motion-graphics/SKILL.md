@@ -31,8 +31,10 @@ comparisons, text animation, and other reusable animated overlays.
   morphs, stickers, visual proofs) or [evidence and print](references/style-recipes-evidence.md)
   (paper desk, archive table, evidence wall, satellite, teardown, counted
   objects, risograph, halftone, screen print); full index: the image generation
-  skill's style library. Nine looks (news, desk, grid, boards, sketchnote,
-  newsreel, data, riso) have [style packs](references/style-packs.md).
+  skill's style library. Ninety looks have ready style packs: nine (news, desk,
+  grid, boards, sketchnote, newsreel, data, riso) in
+  [style packs](references/style-packs.md), the rest in the
+  [style pack catalogue](references/style-pack-catalog.md).
 
 These references guide the existing Motif workflow. They grant no font
 download, network access, new parameter widget, or alternative renderer.
