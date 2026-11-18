@@ -17,6 +17,12 @@ bilim, egitim, urun, marka, veri, harita-seyahat, cocuk, muzik, oyun-fragman,
 acilis-jenerik, etkinlik, sosyal-medya, teknoloji, kultur-sanat, spor. Every
 listed style module carries its category and uses with labels.
 
+When the user describes a look in their own words ("neon olsun", "belgesel
+gibi", "minimal", "çocuklara yönelik", "80'ler anime", a known studio or
+show), pass those words as `style_query`: the packs come back best first with
+`style_match`. A studio or show name maps to the nearest grammar; build an
+original piece in that pack, never a copy of the named work.
+
 ## How to use a pack
 
 1. Find the scenes in `list_motifs` (their names start with the style's name

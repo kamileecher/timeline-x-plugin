@@ -38,6 +38,12 @@ the score and answer a spoken line.
 - Keep designed layers such as drones, beds and swells without a clear pitch
   unless the identity includes music; a pitched drone quietly turns a scene
   into a score.
+- A voice heard through something takes `apply_voice_treatment` on its Audio
+  layer: telefon, telsiz, megafon, eski-radyo, ic-ses (a character's
+  thought), buyuk-salon, duvar-arkasi. Each keeps the voice at its loudness
+  under a -1 dBFS ceiling (the wall sits about 8 dB lower), so no level fix
+  follows. Treat only the lines that pass through the device; the room around
+  them stays dry.
 
 ## Layers and roles
 
