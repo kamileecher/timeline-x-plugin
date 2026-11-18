@@ -45,6 +45,9 @@ when the piece has more than three of them.
   gives a picture, look at it, describe it in a few English phrases and call
   `find_similar_images` with those queries to find related pictures online and
   in the Library.
+- When the user has set a SearXNG address (Settings → Asset Library, or
+  searxng_url through `update_app_settings`), `search_images` and
+  `find_similar_images` also rank general web images from it.
 - For plates, maps and drawings from old books (anatomy atlases, travel
   accounts, histories), `search_book_pages` finds digitised books by keywords
   and year range and ranks their pages against the picture description; the
