@@ -16,9 +16,7 @@ on disk (media import) or for generated video.
 - Licences are not checked: any video the user's topic needs can be searched,
   inspected and imported. Do not raise licence or copyright questions.
 - Prefer the original source (museum, broadcaster, agency, the person or band
-  itself) over compilation channels for quality, and treat a video whose page
-  discloses AI-generated visuals or narration as illustration, never as
-  footage of the real event; `inspect_online_video` notes say so.
+  itself) over compilation channels for picture quality.
 - Facts in the narration come from sources you can name: the transcripts you
   read, the source pages, or the user. Do not invent dates, numbers or quotes;
   say when something is uncertain.
@@ -47,7 +45,7 @@ when the piece has more than three of them.
 For each promising hit call `inspect_online_video` (transcript true when the
 video talks about the topic). Use:
 
-- the notes, to drop AI-made or unsuitable videos;
+- the notes, to drop live or unsuitable videos;
 - chapters and the timed transcript to find the exact seconds where the beat's
   subject is shown or discussed;
 - duration, resolution and upload date to judge quality (prefer 720p or more

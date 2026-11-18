@@ -18,8 +18,7 @@ checked; do not raise licence or copyright questions.
 - Online video pages (YouTube and the other sites yt-dlp supports) go through
   `search_online_video`, `inspect_online_video` and `import_online_video`.
 - Before a found photo or clip is used, check that its subject is what the
-  tags say and that it is not an AI image, cartoon or render posing as a
-  photograph of a real event.
+  tags say.
 
 ## Keep a source record
 
