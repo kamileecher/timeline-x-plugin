@@ -25,6 +25,15 @@ new asset. Never edit a pack module in place unless the user asks for it:
 `update_motion_graphic_module` republishes every asset that uses it, in every
 project.
 
+## Length
+
+Pack scenes fit their layer: drag or set a layer longer than the scene's
+default and the entrances keep their timing, the exit moves to the layer end
+and the middle holds with its ambient motion (grain, drift, flicker). Place
+one instance per beat at the beat's length instead of writing a longer copy.
+A new scene of your own does the same when you create it with fitsLayer true
+and key its exit to useVideoConfig().durationInFrames.
+
 ## Sound effects
 
 Every pack scene carries sound cues: the stamp, counter, card drop, marker,
@@ -32,7 +41,7 @@ chalk or projector sound its motion calls for, timed to its default content.
 After placing a scene, call `add_motion_graphic_sfx` with the layer id: the
 sounds are synthesized on this computer, cost nothing and land as one sfx
 Audio layer at the layer start. A trimmed or split instance only gets the
-cues it shows. For a new scene, give your own asset soundCues when you create
+cues it shows, and exit sounds marked from_end follow a longer layer to its end. For a new scene, give your own asset soundCues when you create
 it, or pass them to the tool. Duck music under narration as usual; the sfx
 role gain sets their level against it. Board scenes time their marker and
 chalk sounds for the default copy, so check a much longer line by ear.
