@@ -44,7 +44,7 @@ channel's version"), copy it instead of editing it:
 4. Place the new scenes as usual. Sound cues and layer fitting come with them.
 
 The base pack never changes, and the copy is the user's: later pack updates do
-not touch it. Tints written as rgba() keep their values (rgba_uses counts them).
+not touch it. rgba() tints of a replaced colour follow it and keep their alpha.
 
 ## Length
 
