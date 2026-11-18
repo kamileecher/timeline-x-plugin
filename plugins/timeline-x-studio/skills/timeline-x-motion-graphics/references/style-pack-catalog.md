@@ -1,4 +1,4 @@
-# Style pack catalogue: the other 81 styles
+# Style pack catalogue: the other 88 styles
 
 Read this when the user names a style that is not one of the nine described in
 [style packs](style-packs.md), or when you look for a look by its name. Every
@@ -338,6 +338,24 @@ Module: stil-konstruktivist. 1920’lerin öncü afiş ve montaj sineması dili:
 - Konstrüktivist montaj: ortak emek (5 s)
 - Konstrüktivist montaj: fotomontaj kapanışı (5 s)
 
+### Titrek çizgi animasyonu
+
+Module: stil-titrek-cizgi. Nefes alan elle çizilmiş cel animasyonu: her çizgi saniyede on kez yeniden çizilmiş gibi titrer, böylece duran bir poz bile canlı kalır; pozlar ikişer karede değişir, hızlı bir hareket tek bir uzamış 'smear' çizimiyle satılır, ardından yere basışta ezilme ve toz bulutu gelir. Düz cel renkleri koyu kahve mürekkep çizgisinden birkaç piksel kaymış durur, her nesnenin tek bir serin gölge tonu vardır; zemin, pim delikli krem animasyon kâğıdıdır. Yazılar çerçeveli, renk dolgulu ve çizimlerle birlikte titrer; sahnelerde yuvarlak, sevimli bir top yaratık oynar.
+
+- Titrek çizgi animasyonu: başlık (5 s)
+- Titrek çizgi animasyonu: giriş (6 s)
+- Titrek çizgi animasyonu: tepki (5 s)
+- Titrek çizgi animasyonu: kapanış (5 s)
+
+### Sıvı hareket
+
+Module: stil-sivi-hareket. Koyu mor zemin üstünde her şeyin aynı koyu, parlak sıvıdan yapıldığı akışkan grafik: damlalar uzayarak düşer, yere değince yassılaşıp küçük damlacıklar sıçratır; kütleler ince bir boyunla birbirine uzanıp birleşir ya da ayrılırken ip kopar ve parçalar sallanarak toparlanır. Yumuşak dairelerin bulanıklaştırılıp keskin bir kenarla kesildiği yapışkan sıvı alanı, sol üstte ışıklı kenar, sağ altta gölge ve her kütlede tek parlak nokta taşır. Yazı sıvı durulduktan sonra gelen kalın, temiz bir grotesktir; sahneler ekranı soldan sağa basan kabarık bir dalgayla açılıp kapanır.
+
+- Sıvı hareket: damla açılış (5 s)
+- Sıvı hareket: sayı dolumu (6 s)
+- Sıvı hareket: üçe ayrılma (7 s)
+- Sıvı hareket: dalga kapanış (5 s)
+
 ### Manga panelleri
 
 Module: stil-manga. Siyah-beyaz manga sayfası: kalın mürekkep çerçeveli eğik paneller ve beyaz oluklar, noktalı tram gölgeler, birkaç karede bir yeniden çizilen odak ve hız çizgileri, konuşma balonları, anlatı kutuları ve panel sınırını taşan kalın ses efekti yazıları. Paneller ikişer karede sert kesmeyle oturur, büyük darbede kare ters döner ve sarsılır; sahne sayfa çevrilerek kapanır.
@@ -581,6 +599,15 @@ Module: stil-golge-oyunu. Kandille arkadan aydınlatılan gölge oyunu perdesi: 
 - Gölge oyunu: perdedeki kişiler (6 s)
 - Gölge oyunu: kapanış (5 s)
 
+### Şekil dönüşümü
+
+Module: stil-sekil-donusumu. Tek bir kahraman şekil, vuruşta bir sonraki anlamlı şeye dönüşür: nokta damlaya, damla yaprağa, yaprak kalbe, kalp bir amblem işaretine. Birbirine benzemeyen şekiller arada basit bir yuvarlaktan geçer, böylece çizgi hiç düğümlenmez; parlama, yaprak damarı ve çevresindeki küçük noktalar gibi parçalar da onunla birlikte değişir. Düz ve canlı renkler, dönüşürken hafif basılma ve dönme, oturduktan sonra küçük bir taşma; arka plan her yeni anlamla yuvarlak bir renk silmesiyle değişir ve her durumu, şekil oturduktan sonra yükselen temiz bir etiket adlandırır.
+
+- Şekil dönüşümü: açılış (5 s)
+- Şekil dönüşümü: şekillerle hikâye (7 s)
+- Şekil dönüşümü: özellik dizisi (7 s)
+- Şekil dönüşümü: kapanış işareti (5 s)
+
 ### Sessiz film
 
 Module: stil-sessiz-film. 1920’lerin sessiz güldürü filmi: biraz yavaş çevrilmiş gibi saniyede 16 karelik kesik kesik hareket, kareden kareye pompalayan parlaklık, kare kayması, gren, toz, kıl ve akan çizikler, koyu kenar karartması; ince beyaz çizgili ve kıvrık köşeli siyah ara yazı kartları, iris açılış ve kapanışlar, isteğe bağlı amber ya da gece mavisi film boyası. Boya dışında yalnızca siyah, gümüş ve beyaz.
@@ -643,6 +670,15 @@ Module: stil-cop-adam. Keçeli kalemle çizilmiş bilim defteri: kırmızı kena
 - Çöp adam anlatımı: bağlantı zinciri (6 s)
 - Çöp adam anlatımı: karşılaştırma (6 s)
 - Çöp adam anlatımı: kapanış (5 s)
+
+### Çıkartma anlatımı
+
+Module: stil-cikartma-anlatim. Tek ve büyük, sakin bir tuval üzerinde bilgi filmi: soluk mavi-gri zeminde silik bir ızgara, kesme yapmadan bölgeden bölgeye süzülen, yaklaşan ve geri çekilen tek bir kamera. Görseller kalın beyaz kenarlı, yumuşak gölgeli çıkartmalar gibi yapışır; köşesi hâlâ kalkıkken bastırılır, gölgesi küçülür. Görsel boş kalırsa aynı kenarın içine düz çizimli bir resim konur. Düz yuvarlak ikonlar, numaralı çizgili etiketler, sayaçları gerçek değerde duran ölçeğe tam uygun çubuk grafik ve kameranın adım adım gezdiği süreç; tek yazı ailesi, iki nötr, iki sakin renk ve tek vurgu rengi.
+
+- Çıkartma anlatımı: başlık (5 s)
+- Çıkartma anlatımı: etiketli çıkartma (6 s)
+- Çıkartma anlatımı: çubuk grafik (7 s)
+- Çıkartma anlatımı: adım adım süreç (7 s)
 
 ### Patlatılmış söküm
 
@@ -707,6 +743,15 @@ Module: stil-kent-eskizi. Eskiz defterinde kalem ve suluboya: önce kurşun kale
 - Kent eskizi: yürüyüş rotası (6 s)
 - Kent eskizi: kapanış (5 s)
 
+### Şov altyazısı
+
+Module: stil-sov-altyazi. Eğlence programı ve tepki videosu kurgusundan süslü, duygulu altyazılar; görüntünün üstüne şeffaf zeminle oturur. Kalın yuvarlak harfler üst üste katmanlı kontur giyer (sert mürekkep gölgesi, renkli dış halka, beyaz iç halka ve degrade dolgu), harf harf ya da sözcük sözcük taşarak ve yere basınca basıklaşarak zıplar, beklerken hafifçe sallanır. Elle çizilmiş küçük işaretler anı yorumlar: hız çizgili patlama, soru ve ünlem işaretleri, kayan ter damlası, pırıltılar, utanç çizgileri, kalpler, sinir işareti ve konuşanı gösteren kalın ok. Her duygunun kendi rengi vardır: şok sarı, neşe yeşil, utanç mavi, sevgi pembe, öfke kırmızı.
+
+- Şov altyazısı: şok tepkisi (4 s)
+- Şov altyazısı: yorum satırı (5 s)
+- Şov altyazısı: işaret etiketi (5 s)
+- Şov altyazısı: duygu patlaması (5 s)
+
 ### Eski gravür kolajı
 
 Module: stil-gravur-kolaj. Eski kitaplardan kesilmiş gravür nesneleri, yırtık kâğıt şeritlerde karışık ahşap harf ve kitap yazıları, tırtıklı pullar, etiketler, işaret eden el süsü ve kırmızı arşiv damgası; hepsi sararmış defter kâğıdının üstünde. Parçalar kesik kâğıt gibi ikişer karede kayarak gelir, yerine oturunca hafifçe titreşir ve sonda aynı yoldan çekilir.
@@ -725,6 +770,15 @@ Module: stil-gorsel-sorusturma. Açık kaynak görsel soruşturma: koyu analiz �
 - Görsel soruşturma: kare analizi (6 s)
 - Görsel soruşturma: kesişim haritası (6 s)
 
+### Görsel ispat
+
+Module: stil-gorsel-ispat. Koyu ve sakin bir zeminde şekillerden kurulan matematik: her nicelik baştan sona kendi rengini taşır (a deniz yeşili, b kehribar, c lavanta mavisi), şekil, etiketi ve sembolü aynı renktedir. Şekil, ispatın sırasıyla parça parça kurulur; sonra kareler, bloklar ve uzunluklar yerinden kalkıp küçülerek denklemdeki yerlerine süzülür, böylece denklem şeklin içinden doğar. İnce temiz çizgiler, yarı saydam düz dolgular, italik değişkenli serif matematik dizgisi, tek bir sade yazı karakteri, ağır ve yumuşak geçişler ve düşünceyi izleyen yavaş bir yaklaşma; ekrandaki her sayı hesaplanır, sonda tahta kararıp sakince kapanır.
+
+- Görsel ispat: başlık (5 s)
+- Görsel ispat: kareler ve Pisagor (8 s)
+- Görsel ispat: merdiven toplamı (8 s)
+- Görsel ispat: kare grafiği (6 s)
+
 ### Suluboya
 
 Module: stil-suluboya. Soğuk preslenmiş dokulu kâğıtta şeffaf suluboya: önce kurşun kalem taslak, sonra fırçanın değdiği yerden yayılan, kenarında pigment biriken, tanecik bırakan ve kurudukça açılan lekeler; ıslak üstüne ıslak geçişler, karnabahar çiçeklenmeleri, üst üste binen sırlar ve sıçratılmış boya. Boya çekildiğinde geriye beyaz kâğıt kalır.
@@ -734,6 +788,15 @@ Module: stil-suluboya. Soğuk preslenmiş dokulu kâğıtta şeffaf suluboya: ö
 - Suluboya: saha defteri (6 s)
 - Suluboya: kapanış (5 s)
 
+### Neden belgeseli
+
+Module: stil-neden-belgeseli. Sıcak bir çalışma masasında kâğıtla anlatılan "neden" belgeseli: yırtık kenarlı krem kartlar, beyaz kenarlı kesik arşiv fotoğrafları (görsel yoksa noktalı baskı resmi kendisi çizer), daktilo kokan belgeler, iri ve dar büyük harfli soru şeritleri. Kırmızı keçeli kalem önemli ayrıntıyı halkaya alır ya da altını çizer, sarı fosforlu kalem belgedeki kilit satırın arkasından geçer, kamera kanıta yavaşça yaklaşır; her şey ikişer karede kıpırdar ve sonda yeni bir kâğıt sayfa üstüne kayar.
+
+- Neden belgeseli: soru kartı (5 s)
+- Neden belgeseli: belge yakın planı (7 s)
+- Neden belgeseli: fotoğraf etiketi (6 s)
+- Neden belgeseli: kâğıt grafik (7 s)
+
 ### Ağaç baskı
 
 Module: stil-agac-baski. Halk masalı kitaplarının ve el atölyelerinin ağaç baskısı: krem kâğıtta damarlı, yer yer mürekkebi tutmamış kalın siyah kalıp, oyulan yerlerde kâğıdı gösteren sivri keski izleri, hafifçe kaymış ikinci kırmızı kalıp ve kırmızı mühür. Merdane mürekkebi soldan sağa sürer, keski izleri ikişer karede tek tek oyulur, harfler preste basılır gibi iner; sonda kâğıt kalıptan kaldırılır.
@@ -742,4 +805,3 @@ Module: stil-agac-baski. Halk masalı kitaplarının ve el atölyelerinin ağaç
 - Ağaç baskı: kitap alıntısı (5 s)
 - Ağaç baskı: görsel baskı (6 s)
 - Ağaç baskı: atölye mührü (5 s)
-
