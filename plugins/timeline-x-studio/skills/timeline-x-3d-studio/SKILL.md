@@ -122,7 +122,7 @@ distant true and max_error 0.1-0.25 (a few hundred triangles each) and keep the
 scene under the triangle budget. Referenced terrain and scatter
 must share their coordinate space; linked scatter uses an identity transform and
 no transform tracks. Seeded geometry and renderer budgets are enforced. Procedural
-shapes alone do not establish photorealism: select observed licensed detailed
+shapes alone do not establish photorealism: select observed detailed
 plant GLBs, PBR texture maps and HDRI for that requirement. Material physical
 supports transmission, thickness, IOR, clearcoat and attenuation; render settings
 support sky and fog in the same preview/capture/video renderer.

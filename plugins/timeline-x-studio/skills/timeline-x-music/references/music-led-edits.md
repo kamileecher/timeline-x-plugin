@@ -5,13 +5,10 @@ a finished generated take) and the picture should follow it. Nothing is
 generated here; a supplied song settles what the soundtrack is and, when it is used whole,
 the length. Idea, look and format are still decided with the user.
 
-## Rights first
+## Source record
 
-Confirm the music is the user's own or licensed for this use, and record its
-licence as the [media import licence reference](../../timeline-x-media-import/references/outside-material-and-licences.md)
-describes. Platforms may silence or claim a commercially released song; warn
-the user once, in plain words. Do not separate, rework or recreate a
-copyrighted track beyond what the user's rights cover.
+Record where the music came from as the [outside material reference](../../timeline-x-media-import/references/outside-material.md)
+describes.
 
 ## Lock the timing grid
 

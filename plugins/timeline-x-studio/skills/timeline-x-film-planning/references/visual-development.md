@@ -92,11 +92,8 @@ styles; keep the three directions in different families. If none of the
 three lands, write three new ones from different sources: one from cinema, one
 from a craft or material, one from art history or photography.
 
-Mood references come from the user's own Library images, or from openly
-licensed stills and artworks found with `search_stock`, kept with their credit
-and licence. Copyrighted film stills, FilmGrab frames included, may be linked
-for study only; they are never imported, used as provider inputs, or placed in
-the piece. No tool composes a direction board or measures a palette from
+Mood references come from the user's own Library images, or from stills and
+artworks found with `search_stock` or online video, kept with their source. No tool composes a direction board or measures a palette from
 references: present the directions as text with their references and read
 colours by eye. The vocabulary and the generic-image check are in
 [look and light](../../timeline-x-image-generation/references/look-and-light.md).
@@ -178,7 +175,7 @@ For a film about a real event, place, or person, decide the picture sources
 before any shot image:
 
 - **Real material leads.** Archive photographs, documents, maps, the real
-  places, and footage whose licence allows it come first; pictures from
+  places, and real footage come first; pictures from
   generation or stock cover only the gaps no real material can fill.
 - **Every stock shot belongs to this story.** It shows these people, this era,
   this place, or this object. A shot that would fit just as well into an

@@ -15,7 +15,7 @@ planning skill's visual development reference.
 - Real media sits on its own Timeline layer; the Motif above it keeps a transparent page and draws only marks, type, paper and ink. Camera presets (push in, pull out, drift, Ken Burns) move photo and clip layers, not Motifs, so a mark that must stay on a moving picture is drawn while the picture holds, follows it with motion tracking or corner pin, or both layers are parented to one controller layer that carries the move.
 - One Motif lasts at most 15 s (450 f at 30 fps). Longer takes become batches joined by Timeline transitions; a graphic that must stay steady across a transition goes in its own overlay instance on a separate lane.
 - Useful SVG: pattern (dot screens), mask, `clipPath` (wipes and pulls), gradients, and the filters `feTurbulence`, `feColorMatrix`, `feComposite`, `feBlend`, `feMorphology`, `feGaussianBlur`, `feOffset`, `feDropShadow`. `feDisplacementMap` is not available, so rough, torn or boiling edges are seeded polygons. Stay well below ~4,000 nodes: one pattern is cheaper than thousands of circles.
-- Evidence styles show only real, licensed media and sourced figures. A generated image never poses as the archive item, specimen, ground or product. Credit each source and keep a list of every on-screen claim next to where it came from.
+- Evidence styles show only real media and sourced figures. A generated image never poses as the archive item, specimen, ground or product. Credit each source and keep a list of every on-screen claim next to where it came from.
 - Fonts come from the bundled set; JetBrains Mono stands in wherever a typewriter would be expected. Timings are frames (f) at 30 fps; 54 f (1.8 s) is the shortest hold for any caption, longer when the spoken line runs longer.
 
 ## Recipes
@@ -26,7 +26,7 @@ Ready scenes: the Kâğıt masa pack in [style packs](style-packs.md).
 
 - **What it is / is not:** a calm investigation that answers one "why" question, sentence by sentence; each shot proves the line just spoken and the piece ends on a takeaway of a few words. Everything looks printed and laid on a warm desk. Not the comic case file (no gags or stamps), not a backlit archive (no loupe or glow), not a tidy Swiss grid. Grammar reference only: Vox-era desk explainers.
 - **Material:** archive photos, document scans, maps and short clips each sit as Timeline layers, cropped with a mask; a card Motif placed under each one draws its white border and soft paper shadow (`feDropShadow`), and the annotation Motif sits on top.
-  - Source from the user or `search_stock` (Wikimedia Commons; read every licence). If nothing licensable exists, draw a flat silhouette in the Motif instead of faking an archive picture. No figure appears without an approved source.
+  - Source from the user or `search_stock` (Wikimedia Commons) or online video. If nothing fits, draw a flat silhouette in the Motif instead of faking an archive picture. No figure appears without an approved source.
 - **Palette:** a warm desk ground, a lighter card stock, a single dark ink carrying all lettering and linework, a signal red reserved for marker strokes plus the most important word, and a highlighter yellow; photos get a light warm grade toward the paper through colour grading. Example: desk `#EDE1C8`, card `#FAF4E8`, ink `#1A2B47`, marker `#C43D2F`, highlight `#F3C93F`. No glow, neon or gradient type.
 - **Type:** statements in Big Shoulders, heavy and upper case, at most three lines per strip; body and captions in Newsreader; small tags in Archivo; handwritten asides beside the marker in Kalam 700; quoted document text in JetBrains Mono.
 - **Motion:**
@@ -74,7 +74,7 @@ Ready scenes: the Kâğıt masa pack in [style packs](style-packs.md).
 
 - **What it is / is not:** a real enamel whiteboard in a real room (window light, faint ghosts of old marker, frame and tray) with photographs of real things pinned by magnets and tags, and marker ink that writes itself in three colours whose meanings never change. The view travels along lines from fact to fact; the full wall appears once, at the end, as a finished poster. Not a flat hand-drawn whiteboard explainer, not a chart, not keynote bullets.
 - **Material:** a photo or locked-off clip of an actual whiteboard is the base layer; each evidence photo is its own layer, cut out with a mask and given one shared grade (slightly desaturated, a touch warm, lifted blacks); a Motif under each cut-out casts its shadow from one window direction, and the ink Motif rides on top.
-  - Photos come from the user or `search_stock` with each licence read; with no licensable photo, sketch the object in marker. Never enlarge a photo past its own pixels in a close-up; mask out lettering inside photos or pick another.
+  - Photos come from the user or `search_stock`; with no suitable photo, sketch the object in marker. Never enlarge a photo past its own pixels in a close-up; mask out lettering inside photos or pick another.
 - **Palette:** enamel and its window falloff as ground; graphite carries names and rules, blue anything measured, red only the decision (never more than three red marks in one frame); grey is for drafting lines. Full colour belongs to the photos. Example: enamel `#F1F2EE`, graphite `#363A40`, measure blue `#2E62B5`, decision red `#C9372C`, wall `#B8B0A5`.
 - **Type:** marker lettering in Kalam 700, large, with verdicts about twice that size; printed tags in Archivo, one to three words; credit lines in JetBrains Mono; stamp text in Big Shoulders, heavy caps.
 - **Motion:**
@@ -122,7 +122,7 @@ Ready scenes: the Kâğıt masa pack in [style packs](style-packs.md).
 
 - **What it is / is not:** a real product, modelled from its own engineering files, lit like a studio packshot and separated along one axis while the camera moves between the layers; every part is named with figures its files supply, then it closes back into one object. Not a single-object beauty render, not a blueprint line drawing, not an assembly manual with hands and step arrows.
 - **Material:** the 3D scene lives in 3D Studio (the product as a GLB; CAD exports converted outside Timeline X); render the separation and close-up passes into the Timeline, then add transparent label and dimension Motifs over the renders.
-  - Ask the user for CAD, bill of materials and spec sheet first; for public products, use open-hardware files whose licence you have checked. With no files, model only from dimensions the maker publishes, call it a model, and show no unsourced figure.
+  - Ask the user for CAD, bill of materials and spec sheet first; for public products, use published open-hardware files. With no files, model only from dimensions the maker publishes, call it a model, and show no unsourced figure.
 - **Palette:** the product keeps its own colours and stays the brightest, most saturated thing; the ground is a dark graphite sweep; labels use a single warm white, full strength for names and about 60 % for specs, and one accent is kept for anything measured. Example: sweep top `#303236`, sweep floor `#0E0F11`, ink `#F3F0EA`, accent `#F27A3A`.
 - **Type:** part names in Space Grotesk; specs and figures in JetBrains Mono so digits align; running text in Instrument Sans. Each label stacks an accent-coloured two-digit number, the part name and a single spec line with units.
 - **Motion:**
@@ -146,7 +146,7 @@ Ready scenes: the Kâğıt masa pack in [style packs](style-packs.md).
 
 - **What it is / is not:** real statistics built as countable pieces (plates, blocks, coins, discs) stacked at exact scale on a carefully made plinth and shot like a studio product: low warm key, long soft shadows, shallow focus. Data grows by pieces being placed, never by bars stretching or morphing. Not flat icons, not a paper chart, not a neon stage, not toy bricks.
 - **Material:** the stacks are a 3D Studio scene (repeated pieces, a wood or stone base, a seamless sweep) rendered into the Timeline; readings, the unit rule, the source line and verdicts are overlay Motifs. Without 3D, a flat fallback draws stacks as `Surface` polygons, kept to a few hundred pieces so the node limit holds.
-  - Figures come from published datasets or the user's own documents; check each dataset's licence, credit it in frame, and record how every derived value (unit per piece, ratio, difference) was worked out.
+  - Figures come from published datasets or the user's own documents; credit each dataset in frame, and record how every derived value (unit per piece, ratio, difference) was worked out.
 - **Palette:** a warm neutral set; series separate by material (say, satin aluminium beside coloured acrylic, or light oak beside slate), not by paint; one ruler material marks every tenth piece; near-black ink at two strengths; one accent only for the reading that matters now. Example: sweep `#CDC6BA`, ink `#202124`, accent `#C9561F`, series A `#BFC5CB`, series B `#93C6C2`.
 - **Type:** big figures in Big Shoulders (or Archivo at a light weight); labels and verdicts in Space Grotesk; units, years and the source line in JetBrains Mono; Fraunces only for the title.
 - **Motion:**
@@ -172,7 +172,7 @@ Ready scenes: the Risograf pack in [style packs](style-packs.md).
 
 - **What it is / is not:** animation that looks printed sheet by sheet with two or three translucent spot inks on warm paper: inks multiply where they cross into extra colours, plates sit a few pixels out of register, mid-tones are dot screens, solids show pinholes and streaks. Shapes are flat fields and silhouettes with no outlines. Not vector art with a noise layer, not CMYK pop art, not opaque screen print, and no duplicator brand or machine look.
 - **Material:** mostly drawn in Motion Graphics. A real photo can join the print as its own Timeline layer finished with posterize, the halftone effect and a two-colour grade, under a Motif that adds paper grain and misregistered ink shapes.
-  - Use the user's photos or Commons stills with checked licences; generated images suit illustrative scenes here, since nothing in this style is evidence.
+  - Use the user's photos or Commons stills; generated images suit illustrative scenes here, since nothing in this style is evidence.
 - **Palette:** two or three inks plus off-white paper, never more; every other colour is an overlap or a tint; at least one ink must hold a silhouette alone; paper white serves knockouts and subtitles; hold back the all-inks overlap until the story's biggest beat. Example: paper `#F2EBDD`, blue `#2A6FB0`, pink `#F2569B`, yellow `#F9D84A` (blue over yellow gives the green, pink over yellow the orange).
 - **Type:** titles in Bricolage Grotesque at a heavy weight, sometimes struck on two plates slightly apart as a deliberate double hit; captions in Space Grotesk or Instrument Sans; text belongs to one plate and shares its offset and grain.
 - **Motion:**
@@ -241,7 +241,7 @@ Ready scenes: the Risograf pack in [style packs](style-packs.md).
 
 ## Limits in Timeline X
 
-- **lidar-survey:** flying through a real point cloud needs GPU point rendering; Motifs have no canvas or WebGL, and point-cloud import into 3D Studio is not confirmed. Fallback: licensed relief or hillshade stills as layers, with a scan-line and section overlay Motif. The core flythrough is lost.
+- **lidar-survey:** flying through a real point cloud needs GPU point rendering; Motifs have no canvas or WebGL, and point-cloud import into 3D Studio is not confirmed. Fallback: relief or hillshade stills as layers, with a scan-line and section overlay Motif. The core flythrough is lost.
 - **microscope:** one unbroken zoom through a whole-slide image pyramid, with focus breaths, needs tiled streaming and blur. Timeline X can only chain push ins across a few stills of the same specimen, and scale readings must be computed from file metadata outside the app.
 - **satellite-briefing:** the globe-to-ground descent through georeferenced plates is shader work, so dives become stepped push ins between stills. `search_stock` covers Commons only, so most Landsat or aerial scenes must come from the user.
 - **archive-lighttable:** the negative turning positive inside the loupe and the photo opening into depth both rely on per-pixel shaders and depth maps. Needs a positive copy as a second layer revealed by a growing circular mask; depth only by masking subjects onto separate layers and moving them slightly.

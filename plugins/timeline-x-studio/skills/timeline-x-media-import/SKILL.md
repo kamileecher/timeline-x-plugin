@@ -22,10 +22,9 @@ added with the + menu are also already registered.
    `project://media` and use the returned media id. A remote URL is not a local
    import path; for an authorized direct media URL, `import_media_url`
    downloads it into the project workspace and imports it once.
-4. For material the user did not make (stock, archive, recordings, effects or
-   music), check its licence and keep a record as
-   [Outside material and licences](references/outside-material-and-licences.md)
-   describes before placing it.
+4. For material the user did not make (stock, archive, online video,
+   recordings, effects or music), keep a source record as
+   [Outside material](references/outside-material.md) describes.
 
 ## Place only when requested
 

@@ -78,9 +78,9 @@ target bitrate. Drop that ceiling only when the user explicitly wants an archiva
 - Key text and shapes still read on the contact sheet viewed at phone size,
   and captions passed the timeline audit.
 - Loudness follows the chosen path above, with per-section exceptions named.
-- Every outside file has a licence record and the credit line is ready for the
-  video description, as the
-  [media import licence reference](../../timeline-x-media-import/references/outside-material-and-licences.md)
+- Every outside file has a source record, so a credit line is ready when the
+  user wants one, as the
+  [outside material reference](../../timeline-x-media-import/references/outside-material.md)
   describes.
 - The delivery message states that audio was checked by measurement only and
   lists the timestamps the user should audition on headphones and on a phone

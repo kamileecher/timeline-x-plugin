@@ -202,7 +202,7 @@ saat, ampul, yildiz, onay, ok, insan, hedef.
 Module: stil-haber-filmi. Flickering black-and-cream film with grain that
 changes every two frames, scratches, dust, vignette and gate weave, art deco
 intertitles, a spinning newspaper and an iris close. Use real archive footage
-or photos with checked licences; a generated picture never poses as archive.
+or photos; a generated picture never poses as archive.
 
 - Haber filmi: ara yazı kartı (4 s): a framed intertitle of up to four lines.
 - Haber filmi: dönen gazete (4 s): a front page spinning in, then a slow push.

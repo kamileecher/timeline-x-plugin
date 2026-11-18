@@ -6,7 +6,7 @@ description: "Generate songs or background music in Timeline X Studio through ma
 # Timeline X Studio Music Generation
 
 Use this skill when the user wants newly generated music. Do not use it to
-clean, remix, separate, or recreate an existing copyrighted track.
+clean, remix or separate an existing track.
 
 Read only what the task needs:
 [Musical intent and lyrics](references/musical-intent-and-lyrics.md) for vocal

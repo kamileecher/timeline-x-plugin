@@ -80,7 +80,7 @@ or music with nothing else, is still a draft.
   attack time; let a whoosh crest 2–3 frames ahead of the motion it carries,
   finish a riser exactly on its cue, and put a click on the frame of the press.
 - Physical events (water, steps, wind, cloth, glass, engines) take real
-  recordings the user supplies or licenses, imported through the media import
+  recordings the user supplies or finds, imported through the media import
   workflow. Generated or designed sound suits what follows motion or the score:
   risers, swells, tonal hits, abstract sounds with no real source.
 - Before generating or asking the user for a recording, try the library that

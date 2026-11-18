@@ -49,9 +49,8 @@ When the user supplies look references (Library Images or files they own):
 No tool measures palette or light from Library images. Read them by eye and
 never present an estimate as a measurement.
 
-Copyrighted film stills and artworks are mood references: study and describe
-them, but never import them as Library items, pass them to a provider, or place
-them in the piece. A named film, studio, or director stands for its visual
+Film stills and artworks the user brings or finds are mood references to study
+and describe. A named film, studio, or director stands for its visual
 grammar (light, framing, colour logic, pacing), never its shots, characters,
 sets, or titles.
 

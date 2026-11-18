@@ -46,5 +46,5 @@ Lead the delivery message with the file path, then:
 - the listening note from the final checklist;
 - for a post: two opening lines for the description that make someone press
   play, chapter times from the scene starts when the piece is long enough to
-  need them, and the credit lines from the licence records when outside
+  need them, and the credit lines from the source records when outside
   material was used.

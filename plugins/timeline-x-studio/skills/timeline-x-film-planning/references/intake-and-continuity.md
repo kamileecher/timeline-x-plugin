@@ -117,7 +117,7 @@ question.
 
 Before researching a real person, place, or event, count what the user has and
 what `search_stock` finds. When the material is thin, say so at once and offer
-the routes: the user's own licensed material, a design-led film (Motion
+the routes: the user's own material, online video found with `search_online_video`, a design-led film (Motion
 Graphics, 3D Studio, maps and documents), or a mix. Keep a search round to
 about fifteen minutes; a deeper search is the user's decision.
 

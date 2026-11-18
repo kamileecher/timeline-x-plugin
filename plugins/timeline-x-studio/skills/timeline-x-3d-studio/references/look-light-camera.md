@@ -39,8 +39,8 @@ it, not only the opening one:
 - **Material where it is seen.** No lit surface is flat: base colour, varied
   roughness, and a normal map; physical transmission, IOR, and clearcoat for
   glass, liquid, lacquer, and wet surfaces. Prefer scanned textures and HDRI the
-  user supplies or may use, imported with `studio_surface_import` with their
-  true origin and licence; there is no in-app texture search. Where darkness,
+  user supplies, imported with `studio_surface_import` with their true
+  origin; there is no in-app texture search. Where darkness,
   fog, or silhouette hides surfaces, texture adds nothing; work on the light
   and the air instead.
 - **Depth in every frame.** Near, middle, and far layers, the far one separated

@@ -289,8 +289,6 @@ come in as Lottie files instead of being redrawn in JSX:
 
 1. import_motion_graphic_lottie with the file (local endpoint) or its JSON
    returns binding "lottie:<id>"; list_motion_graphic_lotties lists the store.
-   Only import files the user may use: LottieFiles and other marketplaces
-   license each animation.
 2. Declare a property { key: "anim", type: "lottie" } and draw it with
    <Lottie src={item.props.anim} style={{ position: "absolute", width: 400, height: 400 }} />.
    Options: loop (wrap instead of holding the last frame), speed (0 to 16),

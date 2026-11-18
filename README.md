@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.2.852-1a8cff">
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.853-1a8cff">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Codex" src="https://img.shields.io/badge/Codex-plugin-111111">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-2ea043">
@@ -83,7 +83,7 @@ Timeline X Studio. They load automatically when your request matches:
 | **Core editing** | `timeline-x` | Drive the complete Timeline X Studio workflow over MCP: projects and templates, timeline editing, captions and voiceover, Motion Graphic authoring and instance props, export, app settings, and workspace panels. |
 | **3D Studio** | `timeline-x-3d-studio` | Create and edit native executable 3D workflows, scenes, GLB assets, materials, lights, animation curves, live character collision, distance-driven gait and planted foot IK, character FK/IK, retargeting, facial/viseme animation, camera paths and frame cuts through the shared Project actor and render video into Library/Timeline and verify rendered frames. |
 | **App & SaaS promos** | `timeline-x-app-promo` | Plan, produce, and verify short promotional videos for software, SaaS, apps, websites, and online services in Timeline X Studio. |
-| **Archive research** | `timeline-x-archive-research` | Research a documentary, history or explainer topic across online video and open archives, pick licensed footage by its transcript and chapters, import only the needed sections with credits, and build a sourced story in Timeline X Studio. |
+| **Archive research** | `timeline-x-archive-research` | Research a documentary, history or explainer topic across online video and open archives, pick footage by its transcript and chapters, import only the needed sections with credits, and build a sourced story in Timeline X Studio. |
 | **Digital humans** | `timeline-x-digital-human` | Create or use a consented AI avatar, talking photo, digital human, or virtual presenter through a selected external MCP capability, then import and verify the result in Timeline X Studio. |
 | **Effects & color** | `timeline-x-effects-color` | Apply and verify Timeline X Studio's canvas painting and retouch, native looks, color grades, motion presets, transitions, and on-device AI background removal. |
 | **Export & delivery** | `timeline-x-export-delivery` | Prepare, export, and inspect Timeline X Studio deliveries with platform-aware settings, safe filename conflicts, and final timeline quality checks. |
@@ -183,5 +183,5 @@ adresini içerir.
 
 ---
 
-<sub>Version 0.2.852. This repository is generated from the Timeline X Studio source on every release —
+<sub>Version 0.2.853. This repository is generated from the Timeline X Studio source on every release —
 please open issues instead of pull requests. Licensed under the MIT License.</sub>

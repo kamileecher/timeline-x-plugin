@@ -30,9 +30,8 @@ goes to a platform, client, or post, or a cover or thumbnail is wanted.
    lines after the music and effects are in: a line marked `masked` in the
    mix is lost under the bed, so duck or lower it and check again.
    When the edit uses stock, archive, web or AI-generated media, run
-   `list_media_credits`: resolve its `blocking` licences and `unsourced` items
-   with the user, and put `credits_text` on the end card or in the video
-   description.
+   `list_media_credits` and, when the user wants credits, put `credits_text`
+   on the end card or in the video description.
 3. For a named social/platform delivery, call `list_platform_outputs` and then
    `apply_platform_output`. This reframes the current project and changes its
    export preset, so verify the reframed result with `verify_edit_result` before
