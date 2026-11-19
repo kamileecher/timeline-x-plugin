@@ -39,8 +39,8 @@ instead of answering from generic product knowledge.
   route. If a feature or label cannot be verified from current app state or
   repository evidence, state that uncertainty instead of inventing a menu.
 - Preserve the exact error text. For a missing provider key, direct the user to
-  the named provider under Settings → API Keys. For unavailable local speech or
-  music, direct them to Settings → Audio and Music and the failing model/runtime.
+  the named provider under Settings → API Keys. For unavailable local
+  transcription or music, direct them to Settings → Audio and Music and the failing model/runtime.
   Distinguish installed, tested, selected, and actually completed generation.
 - Current app/resource evidence proves the running build. Repository source
   describes its checkout and release notes describe a dated rollout; do not

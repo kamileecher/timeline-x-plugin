@@ -29,11 +29,6 @@ For direct **Pruna P-Video**, read
 [Pruna P-Video rules](references/pruna-p-video.md). Its models are
 `pruna-p-video-2`, `pruna-p-video-2-pro` and `pruna-p-video-2-pro-reference`.
 
-For the user-owned **Timeline X API**, read
-[Timeline X models and Film production](references/timeline-x-api.md). Its
-namespaced video and image models use the common generation flow, FilmManifest
-and Scene Manager; they remain distinct from commercial MiniMax/Wan providers.
-
 ## Authorization gate
 
 Use generation tools only when the current request explicitly asks to create,

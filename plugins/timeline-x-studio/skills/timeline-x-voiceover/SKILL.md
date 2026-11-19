@@ -52,32 +52,14 @@ by ear, vary the reading, check generated speech and time sound from the lines.
 - Hear each new line back with `verify_narration` (on-device): redo a
   mismatch line; duck the bed under a line its mix marks masked.
 
-## Explicit local models and saved voices
+## Cloud-only speech
 
-- When the user explicitly chooses a local model, read `list_speech_models` or
-  `get_local_tts_status`. If setup is needed and authorized, call
-  `prepare_speech_model`, poll model readiness, then call `use_speech_model`.
-  Use an installed, selected fixed model; an unavailable local model must not
-  silently fall back to a paid provider.
-- Only when the user explicitly chooses a saved local voice, read
-  `list_local_voice_profiles` and pass its matching `voice_profile_id`.
-  Profiles are added in Settings → Transcription → My voices with a reference
-  recording from a file or Library. XTTS-v2 uses the recording without a
-  transcript; OmniVoice requires the exact reference transcript. Antalia Mini
-  has one fixed Turkish voice and cannot clone. MCP lists and uses saved
-  profiles; it does not create them.
-- Call `synthesize_local_speech` with the script, fixed `model_id`, optional
-  explicitly chosen `voice_profile_id`, a stable `request_key`, and explicit
-  placement. Library-only uses `placement="media-pool"`; Timeline uses
-  `placement="timeline"`, an existing unlocked `track_id`, and `t_start_us`.
-  Omit the profile for the model's default voice. Never pass local profile IDs
-  or raw reference paths to the provider-backed synthesis tool.
-- Poll `get_audio_production_job` with the returned `job_id`; `wait_ms` is
-  bounded to 5,000. When completed, repeat the identical original request to
-  import/place the result once. Keep the key and all parameters unchanged;
-  changed profile metadata or reference audio needs a new key. Do not import
-  or add the result again. Use the returned media/layer identity to verify the
-  requested destination; Library-only production creates no Timeline layer.
+- Narration is generated only by ElevenLabs or MiniMax through
+  `synthesize_speech`. Timeline X Studio has no local text-to-speech model or
+  saved local voice; never promise an offline or on-device narration voice.
+- If the selected provider has no key or quota, preserve the exact error and
+  direct the user to Settings → API Keys rather than switching provider or
+  voice silently.
 
 ## Official and cloned voices
 

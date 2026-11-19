@@ -273,14 +273,6 @@ descriptions:
 
 ## Generated media
 
-For the user's own Timeline X Media API, use `manage_timeline_x_media`: inspect
-live availability, read the schema for the chosen task, submit with one stable
-UUID and Library media IDs, refresh the same receipt until complete, then import
-the chosen output. It shares the personal Vault key managed in API Keys. Never
-substitute a commercial Wan/MiniMax route or invent readiness. This workflow
-does not approve a FilmManifest or start Scene Manager. Model installation and
-global queue/key administration are outside this client capability.
-
 - Enter this workflow only when the user explicitly asked to create or place
   generated media, or approved a Production Brief. A selected generation model
   or skill is a preference, not generation authorization.
