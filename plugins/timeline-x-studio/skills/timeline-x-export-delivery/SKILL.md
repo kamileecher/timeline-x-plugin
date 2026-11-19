@@ -29,7 +29,8 @@ goes to a platform, client, or post, or a cover or thumbnail is wanted.
    When the edit has narration or dialogue, run `verify_narration` on its
    lines after the music and effects are in: a line marked `masked` in the
    mix is lost under the bed, so duck or lower it and check again.
-   Run `review_content_draft` once on the final cut; never export over an open P0.
+   Run `review_content_draft` and `check_face_occlusion` on the final cut; never
+   export over an open P0 or with a card, caption or CTA sitting on a face.
    When the edit uses stock, archive, web or AI-generated media, run
    `list_media_credits` and, when the user wants credits, put `credits_text`
    on the end card or in the video description.
