@@ -40,7 +40,8 @@ when the piece has more than three of them.
   Internet Archive and museum collections. Use it alongside, especially for
   anything before 1960.
 - For stills, `search_images` searches the same collections plus the Wellcome
-  Collection (medicine, anatomy, science history) and ranks the pictures by
+  Collection (medicine, anatomy, science history) and general web images, and
+  ranks the pictures by
   how well they match an English description, on this computer. When the user
   gives a picture, look at it, describe it in a few English phrases and call
   `find_similar_images` with those queries to find related pictures online and
