@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.2.886-1a8cff">
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.887-1a8cff">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Codex" src="https://img.shields.io/badge/Codex-plugin-111111">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-2ea043">
@@ -85,7 +85,7 @@ Timeline X Studio. They load automatically when your request matches:
 | **App & SaaS promos** | `timeline-x-app-promo` | Plan, produce, and verify short promotional videos for software, SaaS, apps, websites, and online services in Timeline X Studio. |
 | **Archive research** | `timeline-x-archive-research` | Research a documentary, history or explainer topic across online video and open archives, pick footage by its transcript and chapters, import only the needed sections with credits, and build a sourced story in Timeline X Studio. |
 | **Digital humans** | `timeline-x-digital-human` | Create or use a consented AI avatar, talking photo, digital human, or virtual presenter through a selected external MCP capability, then import and verify the result in Timeline X Studio. |
-| **Effects & color** | `timeline-x-effects-color` | Apply and verify Timeline X Studio's canvas painting and retouch, native looks, color grades, motion presets, transitions, and on-device AI background removal. |
+| **Effects & color** | `timeline-x-effects-color` | Apply and verify Timeline X Studio's canvas painting and retouch, native looks, color grades, motion presets, and transitions. |
 | **Export & delivery** | `timeline-x-export-delivery` | Prepare, export, and inspect Timeline X Studio deliveries with platform-aware settings, safe filename conflicts, and final timeline quality checks. |
 | **Film planning** | `timeline-x-film-planning` | Develop film ideas, screenplays, storyboards, continuity bibles and FilmManifest shot plans in Timeline X Studio, including 3D Studio motion-video and appearance-image references for Seedance or MiniMax production, local 3D Studio shot renders, while preserving separate writing, visual-review and production approvals. |
 | **Image generation** | `timeline-x-image-generation` | Plan and generate still images for Timeline X Studio, including screenplay storyboards, scene stills, concepts, first/last frames, timeline visuals, and safe regeneration with deterministic ordering and verification. |
@@ -183,5 +183,5 @@ adresini içerir.
 
 ---
 
-<sub>Version 0.2.886. This repository is generated from the Timeline X Studio source on every release —
+<sub>Version 0.2.887. This repository is generated from the Timeline X Studio source on every release —
 please open issues instead of pull requests. Licensed under the MIT License.</sub>

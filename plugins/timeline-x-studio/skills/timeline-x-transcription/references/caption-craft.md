@@ -119,7 +119,7 @@ for it or the format calls for it.
   three to five for conversation, four to six for a calm reading. Only one
   group is on screen at a time.
 - Text behind the speaker (the caption between the footage and a cut-out copy
-  of the person from the effects workflow's background removal) reads best
+  of the person, such as a keyed or previously matted copy) reads best
   when a large word is 30–55 percent covered: under about 15 percent it
   floats, over about 65 percent it is lost. Re-place the group when a content
   word is 80 percent covered or two neighbouring words 50 percent each, and

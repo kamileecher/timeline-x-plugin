@@ -1,6 +1,6 @@
 ---
 name: timeline-x-effects-color
-description: Apply and verify Timeline X Studio's canvas painting and retouch, native looks, color grades, motion presets, transitions, and on-device AI background removal.
+description: Apply and verify Timeline X Studio's canvas painting and retouch, native looks, color grades, motion presets, and transitions.
 ---
 
 # Timeline X Studio Effects and Color
@@ -66,29 +66,14 @@ verification path below.
   on adjacent layers on the same track. Respect the tool's handle and placement
   constraints; do not move unrelated clips to manufacture a transition.
 
-## Remove a video background
+## Existing AI background mattes
 
-Use on-device AI matting only for a VideoClip layer; it never runs live during
-playback or export. The matte is computed once, stored as evidence, and applied
-by a separate, undoable edit:
-
-1. `remove_video_background` with `estimate_only: true` and a stable
-   `request_key`. Choose `profile: "portrait"` for people and `"general"` for
-   other subjects (much slower, needs WebGPU `shader-f16`).
-2. If the receipt says `model_installed: false`, tell the user the download
-   size and licence it reports and ask them to install the model in
-   Settings → Device. Never imply it downloads silently.
-3. Start the same request with `estimate_only: false`, then poll
-   `get_video_background_job` until it reports `state: "completed"`. A job in
-   `state: "recovery_required"` resumes with `resume: true`; a mistaken job
-   stops with `cancel_video_background_job`.
-4. `apply_video_background` (`dry_run: true` first when the timeline changed
-   meanwhile). A trim beyond the covered source, a media replacement or a lock
-   is refused; regenerate instead of forcing it.
-5. Tune the matte's feather, edge shift, contrast, invert, outside-coverage
-   and blend parameters on its effect with `update_effect`, then inspect
-   real frames with `inspect_timeline_frames`. Hair, motion blur and
-   transparent objects stay imperfect; say so instead of overselling.
+New AI background removal is not available. A VideoClip may still carry a
+`segmentationMatte` effect from an earlier project: it keeps rendering its
+stored matte, and its feather, edge shift, contrast, invert, outside-coverage
+and blend parameters stay editable with `update_effect`. If
+`check_project_health` reports its matte missing or stale, export is blocked
+until the effect is disabled or removed; do not promise to regenerate it.
 
 When several targets need independently reviewable creative changes, stage one
 operation per target with `begin_edit_session`, inspect `review_edit_session`,

@@ -77,8 +77,8 @@ cannot be moved afterwards on the Timeline.
 
 - Slow motion at 0.25–0.5 times, or a ramp that changes speed over 0.3–0.6 s,
   can be applied to the placed clip with `set_speed_ramp`. A clip slowed far
-  below its frame rate judders; an interpolated higher-frame-rate copy from
-  `interpolate_local_video` is a separate, explicit Library derivative.
+  below its frame rate judders; for smooth slow motion, generate or shoot the
+  shot at a higher frame rate instead.
 - A freeze frame of 0.5–2 s uses `insert_freeze_segment`.
 - Time-lapse, 8–100 times faster, belongs in the prompt or the source material.
 
