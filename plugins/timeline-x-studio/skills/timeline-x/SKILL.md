@@ -76,7 +76,10 @@ you just made. Once a complete cut has picture, captions and/or sound, run
 `audit_timeline_quality` as the separate post-production gate before export or
 before calling the content finished. Fix every blocking issue, rerun it, and
 inspect every returned composed frame; timing/state JSON cannot prove visual
-meaning or legibility by itself.
+meaning or legibility by itself. For a video made for viewers, also run
+`review_content_draft`: it ranks what is weak (dead opening, static stretches,
+emphasis points with no sound or visual event, music on the voice). Fix P0 and
+P1, review again, stop after three rounds; never deliver with a P0 open.
 
 Common flows, one line each — parameters and caveats live in the tool
 descriptions:

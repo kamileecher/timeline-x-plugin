@@ -82,8 +82,8 @@ reference adds real-interface staging, the end card and per-type tells.
    chosen row becomes the Motif visual grammar. Do not open an external theme
    gallery or HTML composition.
 3. Pick a structure: problem/solution, product introduction, feature loop,
-   one-feature deep dive, or visual-impact montage. The first three seconds
-   show the problem, outcome, or product identity. One idea per beat.
+   one-feature deep dive, or visual-impact montage. The first two seconds
+   show the problem, outcome, or product identity, moving from frame 0. One idea per beat.
    Before the beat list, run the specificity test: list 8–12 confirmed facts
    about this product, write the concept as "[a fact only this product has]
    becomes [one visual device]", then swap in the closest competitor's name.
@@ -102,7 +102,7 @@ reference adds real-interface staging, the end card and per-type tells.
 
 ## Produce and finish
 
-After storyboard approval, place each Motion Graphics beat through the Motion
+After the storyboard, place each Motion Graphics beat through the Motion
 Graphics skill. Do not emit an HTML composition, a composition-id attribute, or
 an external timeline script.
 
@@ -146,4 +146,6 @@ separately through the export delivery workflow.
 Finish with `verify_edit_result` over the complete promo range, inspect all
 returned frames, then run `audit_timeline_quality`. Confirm exact copy,
 brand-asset fidelity, scene order, safe areas, audio balance, and the intended
-final duration before reporting completion.
+final duration. Mark the hook line, key numbers and the CTA as emphasis markers
+(`add_marker`, label "vurgu: ..."), then run `review_content_draft`: fix every
+P0 and P1, review again (at most three rounds) and report the score.

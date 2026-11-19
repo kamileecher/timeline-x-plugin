@@ -55,7 +55,9 @@ a second script-editing or Project-state path.
 8. Run `audit_timeline_quality` over the finished range. Treat missing cached
    transcript/waveform evidence as incomplete QA, fix every blocking caption,
    layer, A/V or audio issue, and inspect all returned composed frames before
-   calling the talking-head edit complete.
+   calling the talking-head edit complete. Then run `review_content_draft` and
+   fix its P0 and P1 findings (static stretches, uncaptioned speech, music on
+   the voice) before delivery.
 
 ## Editorial rules
 

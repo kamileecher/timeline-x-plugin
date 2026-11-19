@@ -120,5 +120,6 @@ needs no separate confirmation step.
 Inspect the generated asset before placement. Finish with
 `verify_edit_result` and `audit_timeline_quality`, checking product identity,
 continuity, claim accuracy, readable overlays, safe crop, pacing, audio balance,
-and exact final duration. Do not report a status-only generation as visually
-approved.
+and exact final duration. Then run `review_content_draft` for the hook,
+pacing and emphasis; fix P0 and P1 and review again. Do not report a
+status-only generation as visually approved.
