@@ -33,7 +33,9 @@ when the piece has more than three of them.
 
 ## 2. Search wide, per beat
 
-- `search_online_video` for each beat. English and specific terms (place, year, event, "archive footage",
+- `search_online_video` for each beat (YouTube by default; `source` dailymotion
+  or bilibili widens the pool, Bilibili with Chinese terms; their videos rarely
+  have captions, so pick sections with `scan_online_video`). English and specific terms (place, year, event, "archive footage",
   "newsreel", "1950s") usually find more than a general phrase. Try two or
   three phrasings before giving up on a beat.
 - `search_stock` with type video or image covers Wikimedia Commons, the
