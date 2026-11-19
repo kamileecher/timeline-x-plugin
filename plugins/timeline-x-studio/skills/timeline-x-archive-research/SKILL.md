@@ -35,7 +35,10 @@ when the piece has more than three of them.
 
 - `search_online_video` for each beat (YouTube by default; `source` dailymotion
   or bilibili widens the pool, Bilibili with Chinese terms; their videos rarely
-  have captions, so pick sections with `scan_online_video`). English and specific terms (place, year, event, "archive footage",
+  have captions, so pick sections with `scan_online_video`). `source`
+  instagram finds short reels by the words people write in captions (health,
+  how-to and local topics in Turkish work well); expect up to 15 hits and
+  import a reel whole or with `sections`. English and specific terms (place, year, event, "archive footage",
   "newsreel", "1950s") usually find more than a general phrase. Try two or
   three phrasings before giving up on a beat.
 - `search_stock` with type video or image covers Wikimedia Commons, the
@@ -113,7 +116,9 @@ without footage, and anything the user should double-check.
 ## When something fails
 
 - A bot check or HTTP 429 from the site: wait, reduce the number of calls, or
-  continue with `search_stock` sources; never ask for browser cookies.
+  continue with `search_stock` sources; never ask for browser cookies or an
+  Instagram login. When Instagram search says it stopped early, do not repeat
+  it in a loop; try again later or use another source.
 - No captions: import the section and use `transcribe_clip`.
 - No footage for a beat: say so and offer a still from `search_stock`, a map
   or a simple Motion Graphic.
