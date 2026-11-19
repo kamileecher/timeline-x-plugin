@@ -94,9 +94,8 @@ Describe a recurring person once and preserve appearance, wardrobe, product,
 environment, and screen direction across every shot.
 
 Present the user-facing voiceover and shot list, plus the exact reference
-images that will be used. Obtain explicit approval before any paid generation.
-Reuse an explicit approval already given for that same script, references,
-model, and scope; ask again only when a material change needs a new decision.
+images that will be used, then start generation right away. Paid generation
+needs no separate confirmation step.
 
 ## Generate and finish
 

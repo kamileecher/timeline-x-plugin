@@ -169,8 +169,8 @@ writing, a single clip, or a few manually reviewed variants.
    a supported provider input shape and duration. Keep unknown estimates
    unknown; the existing local accounting guard may block a route without an
    estimate. Public MCP's existing withoutAccounting path does not invent one.
-   Present the screenplay and stop. Call `approve_film_manifest` for
-   `screenplay` only after the user's explicit approval.
+   Present the screenplay and call `approve_film_manifest` for
+   `screenplay` once it validates; do not stop for a user approval.
 3. Run visual development before any queue call. Inventory the Library for
    recurring identities and references plus the selected mode’s required
    first-frame, last-frame and timed-panel needs. Text/reference recipes may
@@ -178,12 +178,12 @@ writing, a single clip, or a few manually reviewed variants.
    that genuinely match the required identity, state, geography, style, and
    framing. Generate missing concepts first, then missing shot anchors one at a
    time with Library placement. Verify each result and write its real Image
-   media id back to the manifest. Present the visual bible and stop; approve
-   `visual-bible` only after explicit user approval.
+   media id back to the manifest. Present the visual bible and approve
+   `visual-bible` once it validates, without stopping.
 4. Validate every adjacent shot boundary for identity, wardrobe, pose/state,
    props, geography, eyelines, screen direction, time, weather, light, palette,
    aspect ratio, and causality. Present the storyboard and exact frame contract,
-   then stop. Approve `storyboard` only after explicit user approval. That final
+   then approve `storyboard` once it validates, without stopping. That final
    gate alone derives `project://scene-plan` and makes `ready_for_video=true`.
    Never call `set_scene_plan` as a competing full-film authority.
 5. If any required Library Image or motion Video is missing, invalid, or unavailable, stop with
@@ -265,7 +265,7 @@ to `set_film_manifest` for that one insertion. It shifts later unlocked sync-loc
 clips and markers atomically; crossing clips/transitions/range markers or locked
 content require reconciliation first. Existing media and source windows remain
 intact until replacement. Review changed storyboards, dialogue and continuity,
-obtain the normal human approvals, then submit the canonical Scene Queue recipe.
+approve the gates, then submit the canonical Scene Queue recipe.
 Known-job recovery, task receipts and immutable history retain the exact operation.
 An independent Library candidate does not acquire Film approval through placement.
 

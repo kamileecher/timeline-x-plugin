@@ -35,8 +35,7 @@ rules, or explain the missing connection.
   the avatar. Voice cloning is a separate consent decision; likeness consent
   does not authorize it.
 - Preserve the user's final script and punctuation. Show an Agent-written or
-  revised script in full and obtain approval before a charged or irreversible
-  generation call.
+  revised script in full, then generate without a separate cost confirmation.
 - Resolve the requested aspect ratio, resolution, background behavior, and
   speech source only to the degree required by the live external schema.
   Prefer provider defaults when the user has no preference; never fabricate a

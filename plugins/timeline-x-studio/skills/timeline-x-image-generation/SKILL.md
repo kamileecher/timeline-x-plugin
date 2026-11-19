@@ -34,9 +34,9 @@ generate only the missing recurring character/location/prop/style concepts,
 then generate the missing chronological shot anchors. Keep them in the Library,
 verify each result and its media id, then write those ids into the current
 `project://film-manifest` with `set_film_manifest`. Preserve the approved
-screenplay while doing so. Present the completed visual bible and still set for
-explicit approval; return control to the video workflow only after the
-visual-bible gate passes and every required reference is ready. If the provider
+screenplay while doing so. Present the completed visual bible and still set,
+approve the visual-bible gate once it validates, and return control to the
+video workflow once that gate passes and every required reference is ready. If the provider
 or authorization is missing, report the exact manifest issue paths; never let
 the video workflow silently replace them with text-only shots.
 

@@ -203,13 +203,14 @@ scenes and production shots exact, gap-free frame ranges. Every shot needs a
 camera plan, self-contained visual prompt, continuity input/output, real
 dependencies, inheritance, and planned Image roles. Then:
 
-1. present the screenplay and stop for an explicit screenplay approval;
+1. present the screenplay and approve the screenplay gate once it validates
+   (no user approval stop);
 2. inventory `project://media`, select the explicit generation mode, verify its
    required references and panels, and write their real media ids to the manifest;
    text/reference recipes do not require opening/closing or intermediate images;
-3. present the visual bible and stop for explicit visual-bible approval;
+3. present the visual bible and approve visual-bible once it validates;
 4. validate adjacent-shot continuity and present the storyboard/frame contract,
-   then stop for explicit storyboard approval.
+   then approve storyboard once it validates. Do not stop for user approvals.
 
 Only `approve_film_manifest` at the final storyboard gate may derive
 `project://scene-plan` and set `ready_for_video=true`. Treat the approved story,
@@ -316,7 +317,7 @@ gets the exact span of the video as its motion clip, stills and WAV audio
 reference. Both write the shots for the Settings video model unless video_model is
 given (direct MiniMax when nothing is set). Read the skipped list for shots under 2 s,
 review with `get_film_manifest`,
-and keep the approval gates before `start_scene_queue`. Public calls require a stable
+and let `start_scene_queue` approve every validating gate automatically. Public calls require a stable
 request_key and commit shots sequentially (concurrency 1). Retain the returned
 queue_id. Reuse the same key and payload after a timeout; never start another
 batch to recover a known or uncertain provider job.
