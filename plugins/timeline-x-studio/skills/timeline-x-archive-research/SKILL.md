@@ -77,6 +77,13 @@ After import, `analyze_clip` (semantic) or `index_media_semantics` with
 `search_media_semantically` find the precise shot inside a longer section;
 look at frames with `inspect_timeline_frames` before relying on a picture.
 
+Downloaded footage often carries burned-in text: channel watermarks, site
+names, English labels and subtitles. `find_onscreen_text` with media_id scans a
+section before you choose the seconds (use its text_free_ranges); after
+placing, run it with the layer_ids and fix every text_visible layer by moving
+the source in-point into a clean range or applying its framing_hint with
+`frame_layer_to_canvas` (mode fill). Check again before export.
+
 ## 5. Build the piece
 
 - Narration: write short sentences, generate it with `synthesize_speech` in
