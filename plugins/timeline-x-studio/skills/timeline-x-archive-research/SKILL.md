@@ -66,10 +66,10 @@ video talks about the topic). Use:
   for full-frame use).
 
 Then look before importing: `scan_online_video` with two or three English
-picture descriptions of what the beat needs downloads a throwaway 240p copy,
+picture descriptions of what the beat needs downloads a throwaway 480p copy,
 ranks its frames with CLIP and reads burned-in text, and returns text-free
 sections plus `import_args`. Prefer sections that both the transcript and the
-scan support; small text can still slip through at 240p.
+scan support; small text can still slip through at 480p.
 
 Keep a short sourcing table for the user: beat, video title, channel, the
 section (start–end seconds) and why it fits.
