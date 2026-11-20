@@ -81,6 +81,13 @@ TikTok", "share as an Instagram Reel", "put it in my story"):
   video up to 3 minutes is a Short); TikTok `mode` `draft` sends it to the TikTok
   inbox, `direct` posts now with a creator `privacy` option. Write the caption
   from the user's words; never invent claims. Use `scheduled_at` for a time.
+- Instagram's automatic captions cannot be switched on through its API. When
+  the user wants subtitles on a Reel, Story or Short, burn them in before the
+  export: follow the transcription skill's Captions steps on the timeline being
+  exported (`transcribe_clip` → `apply_subtitles` → `apply_caption_template`,
+  inside the vertical safe area), check representative cues with
+  `capture_canvas_frame`, then export and publish. The written caption
+  (`description`) is separate: the post text and hashtags shown under the video.
 - Instagram and Facebook files go through Cloudflare R2 automatically; nothing
   else is needed. Follow with `get_social_publications` until the state is
   `published` (or `inbox`, `scheduled`) and report the URL, or the error.
