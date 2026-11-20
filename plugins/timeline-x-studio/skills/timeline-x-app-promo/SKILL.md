@@ -62,7 +62,7 @@ Read [audio-led execution](references/audio-led-execution.md) when narration,
 music, or product sound determines the timing. Choose the driver while planning;
 after approval, use the actual audio to resolve the final frame ranges.
 
-Read `promo-creative.md` beside this file before writing the storyboard. It
+Read `references/promo-creative.md` before writing the storyboard. It
 sets the tone sentence, the variety checks, the narrative transition names,
 and whether a surface is a real product capture or a simplified Motif. Do not
 call an external renderer, browser capture CLI, or CDN from that reference.
@@ -75,7 +75,7 @@ reference adds real-interface staging, the end card and per-type tells.
 
 1. Write one message for the film and the tone sentence from the creative
    reference. If either is still open, ask both in one widget and stop.
-2. Read `promo-themes.md` beside this file and offer two or three rows that
+2. Read `references/promo-themes.md` and offer two or three rows that
    fit the tone. Name the picture language, not a renderer, and skip a theme
    already used in this project. The user picks one in the same widget when the
    message is already known; otherwise ask only for the theme and stop. The
