@@ -66,3 +66,21 @@ any warnings. Never claim a platform-compatible delivery solely from the file
 extension or preset name. State loudness as a measured mix value or an applied
 export target, never as a measurement of the file, and name the seconds the
 user should listen to.
+
+## Publish to social media
+
+Only when the user asks to share or post the piece (for example "post it to
+TikTok", "share as an Instagram Reel", "put it in my story"):
+
+- Export and verify first, as above. Then call `list_social_targets` and use
+  only a connected platform; for Instagram or Facebook with several accounts
+  or Pages, pass the matching `account_id`.
+- Call `publish_to_social` with the absolute exported path and the format the
+  user named: Instagram `video` is a Reel, `story` a Story (photo or video up to
+  60 s), `carousel` 2–10 items; YouTube needs the user's own `title` (a vertical
+  video up to 3 minutes is a Short); TikTok `mode` `draft` sends it to the TikTok
+  inbox, `direct` posts now with a creator `privacy` option. Write the caption
+  from the user's words; never invent claims. Use `scheduled_at` for a time.
+- Instagram and Facebook files go through Cloudflare R2 automatically; nothing
+  else is needed. Follow with `get_social_publications` until the state is
+  `published` (or `inbox`, `scheduled`) and report the URL, or the error.
