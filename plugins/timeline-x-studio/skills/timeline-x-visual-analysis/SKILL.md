@@ -63,6 +63,9 @@ analysis request is read-only unless the user also asks for changes.
 
 ## Break down a reference video
 
+For context the frames cannot give (who made it, when, the claims it makes),
+read the source page with `web_scrape` or look it up with `web_search`.
+
 When the user wants to learn from a finished film or short drama (why it works,
 how it is written and shot), break it down before planning anything (Film planning can use it afterwards). Run
 `start_video_breakdown` on the Library video, in the user's language. The

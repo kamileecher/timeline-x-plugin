@@ -31,6 +31,11 @@ it makes and the picture it needs ("1453: cannons at the land walls",
 "today: the walls from the air"). Persist the beats with `set_scene_plan`
 when the piece has more than three of them.
 
+Check every claim a beat makes (dates, numbers, names) with `web_search` and
+read the best source with `web_scrape` before it reaches the narration; keep
+each source URL for the credits. A claim no source confirms is cut or marked
+as uncertain.
+
 ## 2. Search wide, per beat
 
 - `search_online_video` for each beat (YouTube by default; `source` dailymotion

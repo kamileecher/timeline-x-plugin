@@ -95,6 +95,10 @@ story or production; otherwise state a reasonable assumption and continue.
 
 ## Develop the story before coverage
 
+A story based on real people, places, events or products takes its facts from
+the user or from sources checked with `web_search` and `web_scrape`; keep the
+source links with the screenplay.
+
 Production independently runs server-owned prompt preflight at new queue
 admission and before submitting unsubmitted items. Errors block; advisory
 warnings and known provider-job recovery do not rewrite the approved recipe.

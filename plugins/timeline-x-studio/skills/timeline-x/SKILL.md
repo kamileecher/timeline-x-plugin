@@ -81,10 +81,26 @@ meaning or legibility by itself. For a video made for viewers, also run
 emphasis points with no sound or visual event, music on the voice). Fix P0 and
 P1, review again, stop after three rounds; never deliver with a P0 open.
 
+Facts that reach viewers (numbers, dates, names, prices, medical or legal
+claims) must come from the user or a source page, never from memory. Check
+them with `web_search` (the person's Firecrawl key; each answer reports the
+credits it spent) and read the best page with `web_scrape`. Keep each source's
+URL and the date read, and save them in a Context Studio note titled
+"Web sources" on `project:main` (`get_film_context`, then
+`set_film_context_note`). When a claim cannot be confirmed, leave it out or
+say it is unverified.
+
 Common flows, one line each — parameters and caveats live in the tool
 descriptions:
 
 - Any cut, trim, tighten or delete: [surgical edits](references/surgical-editing.md).
+- Research before a social post or a script: `web_search` the topic and the
+  person's niche (recent results first for news or trends), `web_scrape` the
+  public pages the person names, and return hooks, angles, common hashtags
+  and the source links. Pages behind a login (most Instagram and TikTok
+  profiles) usually cannot be read; say so and use search results instead.
+  Product or brand sites: `web_map` to find the page, `web_scrape` for facts
+  and branding; see the web-browser skill.
 - Make a short clip last longer: `loop_layer` with the Timeline time where it
   should end. It leaves one compound clip of repeats; do not duplicate the
   clip by hand. A source whose last frame does not match its first jumps at
