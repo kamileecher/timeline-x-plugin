@@ -26,10 +26,20 @@ identity/catalog/generation capability actually returned there. Invoke it
 through `call_external_mcp_tool` with its exact schema. If neither route is
 available, explain the missing key or connection; do not substitute another
 `generate_video` model or call a provider endpoint directly.
-On the hosted Timeline X connection (the public Claude Code or Codex plugin)
-`list_external_mcp_tools` and `call_external_mcp_tool` are unavailable; use an
-equivalent tool the host itself exposes in this conversation, under the same
-rules, or explain the missing connection.
+A local Claude Code, Codex or other MCP client sees `list_external_mcp_tools`
+and `call_external_mcp_tool` without a `connection_token` only for connections
+the user marked "External agents may use" in Settings → MCP (ADR 0261). On the
+hosted remote Timeline X connection they are unavailable; use an equivalent
+tool the host itself exposes in this conversation, under the same rules, or
+explain the missing connection.
+
+Remote avatar tools take their own asset ids or public URLs, never local paths.
+To send a Library photo or narration, call the connection's own upload tool
+(for HeyGen `create_asset_upload`), pass the returned upload URL and headers to
+`upload_media_to_external_mcp` with the Library `media_id`, then call the
+connection's completion tool if it has one and use the returned asset id.
+Import the finished video with `import_media_url` from the URL the status tool
+returns.
 
 ## Resolve the generation contract
 
