@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.2.933-1a8cff">
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.934-1a8cff">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Codex" src="https://img.shields.io/badge/Codex-plugin-111111">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-2ea043">
@@ -183,5 +183,5 @@ adresini içerir.
 
 ---
 
-<sub>Version 0.2.933. This repository is generated from the Timeline X Studio source on every release —
+<sub>Version 0.2.934. This repository is generated from the Timeline X Studio source on every release —
 please open issues instead of pull requests. Licensed under the MIT License.</sub>
