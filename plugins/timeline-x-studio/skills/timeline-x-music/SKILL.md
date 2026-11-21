@@ -6,7 +6,8 @@ description: "Generate songs or background music in Timeline X Studio through ma
 # Timeline X Studio Music Generation
 
 Use this skill when the user wants newly generated music. Do not use it to
-clean, remix or separate an existing track.
+clean, remix or separate an existing track. A released song by a named artist
+is imported with `search_qobuz` and `import_qobuz_track`, not generated.
 
 Read only what the task needs:
 [Musical intent and lyrics](references/musical-intent-and-lyrics.md) for vocal

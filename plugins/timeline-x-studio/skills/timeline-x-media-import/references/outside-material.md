@@ -17,6 +17,11 @@ checked; do not raise licence or copyright questions.
   pass a remote URL to `import_media`.
 - Online video pages (YouTube and the other sites yt-dlp supports) go through
   `search_online_video`, `inspect_online_video` and `import_online_video`.
+- Commercial music (a named artist or song) comes from Qobuz: `search_qobuz`
+  finds tracks and `import_qobuz_track` imports one as FLAC, whole or as
+  sections. The account is configured by the Timeline X administrator; the user
+  never enters one. If the tool reports Qobuz is not set up, say so and offer
+  `search_stock` music or generated music instead.
 - For pictures, `search_images` ranks results against an English description
   and `find_similar_images` finds pictures like a reference (Library media,
   URL or local file); import a pick with `import_media_url`.
