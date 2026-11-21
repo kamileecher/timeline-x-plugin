@@ -14,13 +14,18 @@ For a user-authorized portrait or existing project audio, read
 [Presenter source preparation](references/presenter-source-preparation.md)
 when source readiness, framing, segmentation or transparency needs attention.
 
-Timeline X Studio does not advertise a native avatar-generation tool. This
-workflow therefore requires a compatible external MCP connection selected for
-the current conversation. Call `list_external_mcp_tools` first and use only an
-avatar identity/catalog/generation capability actually returned there. Invoke
-it through `call_external_mcp_tool` with its exact schema. If no compatible
-tool is present, explain the missing connection; do not silently substitute
-`generate_video` or call a provider endpoint directly.
+Timeline X Studio has one native talking-photo route (ADR 0260):
+`generate_video` with `heygen-avatar-6` or `heygen-avatar-6-turbo`, one
+user-authorized photo and one Library speech audio. Use it when a HeyGen API key
+is configured and the request is a photo that speaks a prepared narration; read
+[HeyGen rules](../timeline-x-video-generation/references/heygen-video.md) first.
+For saved avatar identities, catalogs or providers HeyGen does not cover, use a
+compatible external MCP connection selected for the current conversation. Call
+`list_external_mcp_tools` first and use only an avatar
+identity/catalog/generation capability actually returned there. Invoke it
+through `call_external_mcp_tool` with its exact schema. If neither route is
+available, explain the missing key or connection; do not substitute another
+`generate_video` model or call a provider endpoint directly.
 On the hosted Timeline X connection (the public Claude Code or Codex plugin)
 `list_external_mcp_tools` and `call_external_mcp_tool` are unavailable; use an
 equivalent tool the host itself exposes in this conversation, under the same

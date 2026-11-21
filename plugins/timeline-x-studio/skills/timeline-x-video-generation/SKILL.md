@@ -29,6 +29,10 @@ For direct **Pruna P-Video**, read
 [Pruna P-Video rules](references/pruna-p-video.md). Its models are
 `pruna-p-video-2`, `pruna-p-video-2-pro` and `pruna-p-video-2-pro-reference`.
 
+For direct **HeyGen**, read [HeyGen rules](references/heygen-video.md). Its
+models are `heygen-video-1` (scene with its own sound) and `heygen-avatar-6` /
+`heygen-avatar-6-turbo` (one photo plus one speech audio → talking video).
+
 ## Authorization gate
 
 Use generation tools only when the current request explicitly asks to create,
