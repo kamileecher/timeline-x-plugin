@@ -1,0 +1,83 @@
+# Copied into the public plugin repository by scripts/publish-public-plugin.mjs.
+# Edit the source in timeline-x-studio, never in the public repository.
+#
+# Every v* tag gets a GitHub Release with downloadable, ready-to-install zips:
+#   timeline-x-studio-<version>.zip          the plugin itself (Claude / Codex plugin root)
+#   timeline-x-marketplace-<version>.zip     the whole marketplace (for a local marketplace add)
+#   SHA256SUMS.txt
+name: Release plugin zips
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to package, for example v0.2.943'
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-zips-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ inputs.tag || github.ref_name }}
+
+      - name: Build zips
+        run: |
+          set -euo pipefail
+          version="${TAG#v}"
+          marketplace=.claude-plugin/marketplace.json
+          name=$(jq -r '.plugins[0].name' "$marketplace")
+          source=$(jq -r '.plugins[0].source' "$marketplace")
+          declared=$(jq -r '.plugins[0].version' "$marketplace")
+          if [ "$declared" != "$version" ]; then
+            echo "::error::Tag $TAG does not match marketplace version $declared"
+            exit 1
+          fi
+          test -f "$source/.claude-plugin/plugin.json"
+          mkdir -p dist
+          (cd "$source" && zip -rqX "$GITHUB_WORKSPACE/dist/$name-$version.zip" . -x '*.DS_Store')
+          git archive --format=zip --prefix="timeline-x-marketplace-$version/" \
+            -o "dist/timeline-x-marketplace-$version.zip" HEAD
+          (cd dist && sha256sum *.zip > SHA256SUMS.txt)
+          unzip -l "dist/$name-$version.zip" | grep -q '.claude-plugin/plugin.json'
+          echo "NAME=$name" >> "$GITHUB_ENV"
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          ls -l dist
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cat > notes.md <<EOF
+          Timeline X Studio plugin $VERSION
+
+          **Download and install**
+          - \`$NAME-$VERSION.zip\`: the plugin. In the Claude desktop app open Customize → Plugins → Upload plugin and pick this zip.
+          - \`timeline-x-marketplace-$VERSION.zip\`: the whole marketplace. Unzip it, then run \`/plugin marketplace add <unzipped folder>\` and \`/plugin install $NAME@timeline-x\` in Claude Code, or \`codex plugin marketplace add <unzipped folder>\` and \`codex plugin add $NAME@timeline-x\` in Codex.
+
+          **Install from GitHub instead**
+          - Claude Code: \`/plugin marketplace add ${{ github.repository }}\` then \`/plugin install $NAME@timeline-x\`
+          - Codex: \`codex plugin marketplace add ${{ github.repository }}\` then \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
+
+          The plugin connects to the hosted Timeline X MCP server and needs Timeline X Studio running on your computer.
+          EOF
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/* --clobber
+            gh release edit "$TAG" --notes-file notes.md --title "Timeline X Studio plugin $VERSION"
+          else
+            gh release create "$TAG" dist/* --verify-tag --latest \
+              --title "Timeline X Studio plugin $VERSION" --notes-file notes.md
+          fi
