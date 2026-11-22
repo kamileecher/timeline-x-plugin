@@ -75,11 +75,12 @@ Try prompts like:
 - "Make an animated title card for the intro and place it at the start."
 - "Color-match all clips to the first shot, then export a 9:16 version for Reels."
 
-The plugin ships 27 workflow skills that teach the assistant how to do these jobs safely in
+The plugin ships 28 workflow skills that teach the assistant how to do these jobs safely in
 Timeline X Studio. They load automatically when your request matches:
 
 | Area | Skill | What it does |
 | --- | --- | --- |
+| **sign in** | `timeline-x-sign-in` | Sign the user in to Timeline X Studio automatically when its MCP server is not connected. |
 | **Core editing** | `timeline-x` | Drive the complete Timeline X Studio workflow over MCP: projects and templates, timeline editing, captions and voiceover, Motion Graphic authoring and instance props, export, app settings, and workspace panels. |
 | **3D Studio** | `timeline-x-3d-studio` | Create and edit native executable 3D workflows, scenes, GLB assets, materials, lights, animation curves, live character collision, distance-driven gait and planted foot IK, character FK/IK, retargeting, facial/viseme animation, camera paths and frame cuts through the shared Project actor and render video into Library/Timeline and verify rendered frames. |
 | **App & SaaS promos** | `timeline-x-app-promo` | Plan, produce, and verify short promotional videos for software, SaaS, apps, websites, and online services in Timeline X Studio. |

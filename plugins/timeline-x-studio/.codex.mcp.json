@@ -3,11 +3,10 @@
     "timeline-x": {
       "type": "http",
       "url": "https://mcp.timelinex.studio/mcp",
-      "oauth_resource": "https://mcp.timelinex.studio/mcp",
       "oauth": {
-        "client_id": "0f7237e7-6015-47e4-8ce1-97e5e550d57c",
-        "callback_port": 16333,
-        "callback_url": "http://127.0.0.1:16333/callback/aPwjRFeB3Ssj"
+        "clientId": "0f7237e7-6015-47e4-8ce1-97e5e550d57c",
+        "callbackPort": 16333,
+        "callbackUrl": "http://127.0.0.1:16333/callback/aPwjRFeB3Ssj"
       }
     }
   }
