@@ -21,6 +21,10 @@ on:
       tag:
         description: 'Existing tag to package, for example v0.2.943'
         required: true
+      ref:
+        description: 'Optional commit or branch to package instead of the tag (same version), e.g. main for a same-version hotfix'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -37,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: refs/tags/${{ inputs.tag || github.ref_name }}
+          ref: ${{ inputs.ref || format('refs/tags/{0}', inputs.tag || github.ref_name) }}
 
       - name: Build Claude and Codex zips
         run: |
