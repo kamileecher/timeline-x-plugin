@@ -29,6 +29,11 @@
     "brandColorDark": "#1A8CFF",
     "defaultPrompt": [
       "Check my Timeline X connection status and summarize the open project"
+    ],
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
     ]
   }
 }
