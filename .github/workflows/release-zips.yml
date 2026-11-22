@@ -4,7 +4,7 @@
 # Every v* tag (pushed by publish:plugin on each release) gets a GitHub Release
 # with separate, ready-to-install plugin zips:
 #   timeline-x-studio-claude-<version>.zip   Claude plugin (also a one-plugin marketplace)
-#   timeline-x-studio-codex-<version>.zip    Codex one-plugin marketplace
+#   timeline-x-studio-codex-<version>.zip    Codex plugin (also a one-plugin marketplace)
 #   timeline-x-studio-claude.zip / -codex.zip  the same bytes under fixed names, linked by
 #     timelinex.studio through releases/latest/download/ so the site always serves the newest
 #   SHA256SUMS.txt
@@ -55,7 +55,7 @@ jobs:
           done
           test "$(jq -r '.plugins[0].source.path' "$codex_marketplace")" = "$source"
           stage="$RUNNER_TEMP/stage"
-          mkdir -p dist "$stage/claude" "$stage/codex/plugins" "$stage/codex/.agents/plugins"
+          mkdir -p dist "$stage/claude" "$stage/codex/.agents/plugins"
 
           # Claude: the plugin root, which is also its own one-plugin marketplace.
           # Upload it in the Claude app, or unzip and /plugin marketplace add <folder>.
@@ -63,11 +63,17 @@ jobs:
           rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json"
           jq '.plugins[0].source = "./"' "$marketplace" > "$stage/claude/.claude-plugin/marketplace.json"
 
-          # Codex: a one-plugin local marketplace.
-          # Unzip, then codex plugin marketplace add <folder> && codex plugin add.
-          cp "$codex_marketplace" "$stage/codex/.agents/plugins/marketplace.json"
-          cp -R "$source" "$stage/codex/$source"
-          rm -rf "$stage/codex/$source/.claude-plugin" "$stage/codex/$source/.mcp.json"
+          # Codex: the plugin root (what the Codex app's Upload plugin expects), which
+          # also carries a one-plugin marketplace for the CLI:
+          # unzip, then codex plugin marketplace add <folder> && codex plugin add.
+          cp -R "$source/." "$stage/codex/"
+          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json"
+          jq '.plugins[0].source.path = "./"' "$codex_marketplace" > "$stage/codex/.agents/plugins/marketplace.json"
+          # The Codex app rejects a manifest without interface.capabilities; releases
+          # built before the generator added it get the same default here.
+          codex_manifest="$stage/codex/.codex-plugin/plugin.json"
+          jq 'if (.interface.capabilities | type) == "array" then . else .interface.capabilities = ["Interactive", "Read", "Write"] end' \
+            "$codex_manifest" > "$codex_manifest.tmp" && mv "$codex_manifest.tmp" "$codex_manifest"
 
           for host in claude codex; do
             (cd "$stage/$host" && zip -rqX "$GITHUB_WORKSPACE/dist/$name-$host-$version.zip" . -x '*.DS_Store')
@@ -85,9 +91,10 @@ jobs:
           grep -qx '.mcp.json' <<< "$claude_files"
           if grep -q '\.codex' <<< "$claude_files"; then echo "::error::Claude zip carries Codex files"; exit 1; fi
           grep -qx '.agents/plugins/marketplace.json' <<< "$codex_files"
-          grep -qx "${source#./}/.codex-plugin/plugin.json" <<< "$codex_files"
-          grep -qx "${source#./}/.codex.mcp.json" <<< "$codex_files"
-          if grep -qE '(\.claude-plugin/|/\.mcp\.json$)' <<< "$codex_files"; then echo "::error::Codex zip carries Claude files"; exit 1; fi
+          grep -qx '.codex-plugin/plugin.json' <<< "$codex_files"
+          grep -qx '.codex.mcp.json' <<< "$codex_files"
+          if grep -qE '^(\.claude-plugin/|\.mcp\.json$)' <<< "$codex_files"; then echo "::error::Codex zip carries Claude files"; exit 1; fi
+          unzip -p "dist/$name-codex.zip" .codex-plugin/plugin.json | jq -e '.interface.capabilities | type == "array" and length > 0 and all(type == "string")' > /dev/null
           (cd dist && sha256sum *.zip > SHA256SUMS.txt)
           echo "NAME=$name" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
@@ -107,7 +114,8 @@ jobs:
           - Or from GitHub: \`/plugin marketplace add ${{ github.repository }}\` then \`/plugin install $NAME@timeline-x\`
 
           **Codex:** \`$NAME-codex-$VERSION.zip\`
-          - Unzip it to a folder, then \`codex plugin marketplace add <folder>\`, \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
+          - Codex app: Plugins → Add → upload this zip.
+          - Codex CLI: unzip it to a folder, then \`codex plugin marketplace add <folder>\`, \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
           - Or from GitHub: \`codex plugin marketplace add ${{ github.repository }}\` then \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
 
           Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip
