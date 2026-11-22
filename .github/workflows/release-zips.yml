@@ -1,9 +1,10 @@
 # Copied into the public plugin repository by scripts/publish-public-plugin.mjs.
 # Edit the source in timeline-x-studio, never in the public repository.
 #
-# Every v* tag gets a GitHub Release with downloadable, ready-to-install zips:
-#   timeline-x-studio-<version>.zip          the plugin itself (Claude / Codex plugin root)
-#   timeline-x-marketplace-<version>.zip     the whole marketplace (for a local marketplace add)
+# Every v* tag (pushed by publish:plugin on each release) gets a GitHub Release
+# with separate, ready-to-install plugin zips:
+#   timeline-x-studio-claude-<version>.zip   Claude plugin (.claude-plugin + .mcp.json + skills)
+#   timeline-x-studio-codex-<version>.zip    Codex plugin (.codex-plugin + .codex.mcp.json + skills)
 #   SHA256SUMS.txt
 name: Release plugin zips
 
@@ -33,7 +34,7 @@ jobs:
         with:
           ref: refs/tags/${{ inputs.tag || github.ref_name }}
 
-      - name: Build zips
+      - name: Build Claude and Codex zips
         run: |
           set -euo pipefail
           version="${TAG#v}"
@@ -45,13 +46,26 @@ jobs:
             echo "::error::Tag $TAG does not match marketplace version $declared"
             exit 1
           fi
-          test -f "$source/.claude-plugin/plugin.json"
+          for manifest in .claude-plugin/plugin.json .codex-plugin/plugin.json; do
+            test -f "$source/$manifest"
+            test "$(jq -r .version "$source/$manifest")" = "$version"
+          done
           mkdir -p dist
-          (cd "$source" && zip -rqX "$GITHUB_WORKSPACE/dist/$name-$version.zip" . -x '*.DS_Store')
-          git archive --format=zip --prefix="timeline-x-marketplace-$version/" \
-            -o "dist/timeline-x-marketplace-$version.zip" HEAD
+          claude_zip="$GITHUB_WORKSPACE/dist/$name-claude-$version.zip"
+          codex_zip="$GITHUB_WORKSPACE/dist/$name-codex-$version.zip"
+          (cd "$source" && zip -rqX "$claude_zip" . -x '*.DS_Store' '.codex-plugin/*' '.codex.mcp.json')
+          (cd "$source" && zip -rqX "$codex_zip" . -x '*.DS_Store' '.claude-plugin/*' '.mcp.json')
+          # Each zip must carry only its own host's manifest and MCP file.
+          # (List first: grep -q on a live pipe would SIGPIPE unzip under pipefail.)
+          claude_files=$(unzip -Z1 "$claude_zip")
+          codex_files=$(unzip -Z1 "$codex_zip")
+          grep -qx '.claude-plugin/plugin.json' <<< "$claude_files"
+          grep -qx '.mcp.json' <<< "$claude_files"
+          if grep -q '^\.codex' <<< "$claude_files"; then echo "::error::Claude zip carries Codex files"; exit 1; fi
+          grep -qx '.codex-plugin/plugin.json' <<< "$codex_files"
+          grep -qx '.codex.mcp.json' <<< "$codex_files"
+          if grep -qE '^(\.claude-plugin/|\.mcp\.json$)' <<< "$codex_files"; then echo "::error::Codex zip carries Claude files"; exit 1; fi
           (cd dist && sha256sum *.zip > SHA256SUMS.txt)
-          unzip -l "dist/$name-$version.zip" | grep -q '.claude-plugin/plugin.json'
           echo "NAME=$name" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
           ls -l dist
@@ -64,17 +78,21 @@ jobs:
           cat > notes.md <<EOF
           Timeline X Studio plugin $VERSION
 
-          **Download and install**
-          - \`$NAME-$VERSION.zip\`: the plugin. In the Claude desktop app open Customize → Plugins → Upload plugin and pick this zip.
-          - \`timeline-x-marketplace-$VERSION.zip\`: the whole marketplace. Unzip it, then run \`/plugin marketplace add <unzipped folder>\` and \`/plugin install $NAME@timeline-x\` in Claude Code, or \`codex plugin marketplace add <unzipped folder>\` and \`codex plugin add $NAME@timeline-x\` in Codex.
+          **Claude:** \`$NAME-claude-$VERSION.zip\`
+          - Claude desktop app: Customize → Plugins → Upload plugin, then pick this zip.
+          - Claude Code from GitHub: \`/plugin marketplace add ${{ github.repository }}\` then \`/plugin install $NAME@timeline-x\`
 
-          **Install from GitHub instead**
-          - Claude Code: \`/plugin marketplace add ${{ github.repository }}\` then \`/plugin install $NAME@timeline-x\`
-          - Codex: \`codex plugin marketplace add ${{ github.repository }}\` then \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
+          **Codex:** \`$NAME-codex-$VERSION.zip\`
+          - Unzip it and add the folder as a local Codex plugin, then run \`codex mcp login timeline-x\`.
+          - Codex from GitHub: \`codex plugin marketplace add ${{ github.repository }}\` then \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
 
-          The plugin connects to the hosted Timeline X MCP server and needs Timeline X Studio running on your computer.
+          The plugin connects to the hosted Timeline X MCP server and needs Timeline X Studio running on your computer. \`SHA256SUMS.txt\` lists the checksums.
           EOF
           if gh release view "$TAG" >/dev/null 2>&1; then
+            # Drop assets this workflow no longer produces, then replace the rest.
+            for asset in $(gh release view "$TAG" --json assets -q '.assets[].name'); do
+              [ -f "dist/$asset" ] || gh release delete-asset "$TAG" "$asset" --yes
+            done
             gh release upload "$TAG" dist/* --clobber
             gh release edit "$TAG" --notes-file notes.md --title "Timeline X Studio plugin $VERSION"
           else
