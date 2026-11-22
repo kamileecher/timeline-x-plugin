@@ -1,6 +1,6 @@
 {
   "name": "timeline-x-studio",
-  "version": "0.2.943",
+  "version": "0.2.944",
   "description": "Edit and verify Timeline X Studio projects from Claude Code, Codex or Antigravity through the hosted Timeline X MCP connection and managed workflow skills.",
   "author": {
     "name": "Timeline X Studio contributors"
