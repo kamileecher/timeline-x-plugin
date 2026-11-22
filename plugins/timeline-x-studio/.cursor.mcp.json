@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "timeline-x": {
+      "url": "https://mcp.timelinex.studio/mcp",
+      "auth": {
+        "CLIENT_ID": "de4db8c9-068f-421f-8499-1e5e2be947ee"
+      }
+    }
+  }
+}

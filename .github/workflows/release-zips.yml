@@ -7,10 +7,12 @@
 #   timeline-x-studio-codex-<version>.zip    Codex plugin root, for the Codex app's Add plugin
 #   timeline-x-studio-antigravity-<version>.zip  Antigravity plugin root (manifest in
 #     .antigravity-plugin/, servers in mcp_config.json), for installing from a local folder
+#   timeline-x-studio-cursor-<version>.zip   Cursor plugin root (.cursor-plugin/ and .cursor.mcp.json),
+#     unzipped into ~/.cursor/plugins/local/<name>/
 # Each zip holds exactly one plugin root and no marketplace file: the Codex app
 # refuses an archive that also declares a marketplace ("Expected a single plugin
 # archive"). CLI users install from the GitHub marketplace instead.
-#   timeline-x-studio-claude.zip / -codex.zip / -antigravity.zip  the same bytes under fixed names, linked by
+#   timeline-x-studio-claude.zip / -codex.zip / -antigravity.zip / -cursor.zip  the same bytes under fixed names, linked by
 #     timelinex.studio through releases/latest/download/ so the site always serves the newest
 #   SHA256SUMS.txt
 name: Release plugin zips
@@ -45,7 +47,7 @@ jobs:
         with:
           ref: ${{ inputs.ref || format('refs/tags/{0}', inputs.tag || github.ref_name) }}
 
-      - name: Build Claude, Codex and Antigravity zips
+      - name: Build Claude, Codex, Antigravity and Cursor zips
         run: |
           set -euo pipefail
           version="${TAG#v}"
@@ -66,11 +68,11 @@ jobs:
 
           # Claude: the plugin root only.
           cp -R "$source/." "$stage/claude/"
-          rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json" "$stage/claude/.antigravity-plugin" "$stage/claude/mcp_config.json"
+          rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json" "$stage/claude/.antigravity-plugin" "$stage/claude/mcp_config.json" "$stage/claude/.cursor-plugin" "$stage/claude/.cursor.mcp.json"
 
           # Codex: the plugin root only.
           cp -R "$source/." "$stage/codex/"
-          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json" "$stage/codex/.antigravity-plugin" "$stage/codex/mcp_config.json"
+          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json" "$stage/codex/.antigravity-plugin" "$stage/codex/mcp_config.json" "$stage/codex/.cursor-plugin" "$stage/codex/.cursor.mcp.json"
           # The Codex app rejects a manifest without interface.capabilities; releases
           # built before the generator added it get the same default here.
           codex_manifest="$stage/codex/.codex-plugin/plugin.json"
@@ -84,11 +86,22 @@ jobs:
             test "$(jq -r .version "$source/.antigravity-plugin/plugin.json")" = "$version"
             has_antigravity=1
             cp -R "$source/." "$stage/antigravity/"
-            rm -rf "$stage/antigravity/.claude-plugin" "$stage/antigravity/.mcp.json" "$stage/antigravity/.codex-plugin" "$stage/antigravity/.codex.mcp.json"
+            rm -rf "$stage/antigravity/.claude-plugin" "$stage/antigravity/.mcp.json" "$stage/antigravity/.codex-plugin" "$stage/antigravity/.codex.mcp.json" "$stage/antigravity/.cursor-plugin" "$stage/antigravity/.cursor.mcp.json"
+          fi
+
+          # Cursor: the plugin root only, likewise skipped for older releases.
+          has_cursor=0
+          if [ -f "$source/.cursor-plugin/plugin.json" ]; then
+            test "$(jq -r .version "$source/.cursor-plugin/plugin.json")" = "$version"
+            has_cursor=1
+            mkdir -p "$stage/cursor"
+            cp -R "$source/." "$stage/cursor/"
+            rm -rf "$stage/cursor/.claude-plugin" "$stage/cursor/.mcp.json" "$stage/cursor/.codex-plugin" "$stage/cursor/.codex.mcp.json" "$stage/cursor/.antigravity-plugin" "$stage/cursor/mcp_config.json"
           fi
 
           hosts="claude codex"
           [ "$has_antigravity" = 1 ] && hosts="$hosts antigravity"
+          [ "$has_cursor" = 1 ] && hosts="$hosts cursor"
           for host in $hosts; do
             (cd "$stage/$host" && zip -rqX "$GITHUB_WORKSPACE/dist/$name-$host-$version.zip" . -x '*.DS_Store')
             # Same bytes under a fixed name: releases/latest/download/<name>-<host>.zip
@@ -115,7 +128,15 @@ jobs:
             grep -qx 'mcp_config.json' <<< "$antigravity_files"
             if grep -qE '^(\.claude-plugin/|\.codex-plugin/|\.mcp\.json$|\.codex\.mcp\.json$)' <<< "$antigravity_files"; then echo "::error::Antigravity zip carries Claude or Codex files"; exit 1; fi
           fi
-          if grep -qE '(^|/)(marketplace\.json)$' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"; then echo "::error::A plugin zip carries a marketplace file"; exit 1; fi
+          if grep -q '\.cursor-plugin/\|^\.cursor\.mcp\.json$' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"; then echo "::error::A non-Cursor zip carries Cursor files"; exit 1; fi
+          cursor_files=""
+          if [ "$has_cursor" = 1 ]; then
+            cursor_files=$(unzip -Z1 "dist/$name-cursor.zip")
+            grep -qx '.cursor-plugin/plugin.json' <<< "$cursor_files"
+            grep -qx '.cursor.mcp.json' <<< "$cursor_files"
+            if grep -qE '^(\.claude-plugin/|\.codex-plugin/|\.antigravity-plugin/|\.mcp\.json$|\.codex\.mcp\.json$|mcp_config\.json$)' <<< "$cursor_files"; then echo "::error::Cursor zip carries other hosts' files"; exit 1; fi
+          fi
+          if grep -qE '(^|/)(marketplace\.json)$' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"$'\n'"$cursor_files"; then echo "::error::A plugin zip carries a marketplace file"; exit 1; fi
           (cd dist && sha256sum *.zip > SHA256SUMS.txt)
           echo "NAME=$name" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
@@ -141,7 +162,11 @@ jobs:
           - Antigravity CLI: \`agy plugin install https://github.com/${{ github.repository }}\`, then \`/plugin\` → $NAME → Sign in
           - Or unzip it and use \`/plugin\` → Install from local directory.
 
-          Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-antigravity.zip
+          **Cursor:** \`$NAME-cursor-$VERSION.zip\`
+          - Unzip it into \`~/.cursor/plugins/local/$NAME/\` and run Developer: Reload Window, or import ${{ github.repository }} into a team marketplace.
+          - Sign in: Settings → MCP → plugin-$NAME-timeline-x → Connect.
+
+          Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-antigravity.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-cursor.zip
 
           The plugin connects to the hosted Timeline X MCP server and needs Timeline X Studio running on your computer. \`SHA256SUMS.txt\` lists the checksums.
           EOF

@@ -33,6 +33,9 @@ the server as requiring sign-in.
      the user to open `/plugin`, expand `timeline-x-studio` under Installed
      and choose Sign in (in the Antigravity app: Plugins → Timeline X Studio
      → Sign in), then send a message to continue.
+   - **Cursor**: there is no sign-in command for the agent to run. Ask the
+     user to open Settings → MCP, find `plugin-timeline-x-studio-timeline-x`
+     and choose Connect (or Login), then send a message to continue.
 3. The user signs in with their Timeline X account and approves access. Wait
    for the login command or tool to finish successfully.
 4. Retry the original request through the `timeline-x` tools, for example the

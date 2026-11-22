@@ -2,10 +2,10 @@
   <img src="assets/logo.png" width="112" height="112" alt="Timeline X Studio logo">
 </p>
 
-<h1 align="center">Timeline X Studio for Claude Code, Codex &amp; Antigravity</h1>
+<h1 align="center">Timeline X Studio for Claude Code, Codex, Antigravity &amp; Cursor</h1>
 
 <p align="center">
-  Edit and verify Timeline X Studio projects from Claude Code, Codex or Antigravity through the hosted Timeline X MCP connection and managed workflow skills.
+  Edit and verify Timeline X Studio projects from Claude Code, Codex, Antigravity or Cursor through the hosted Timeline X MCP connection and managed workflow skills.
 </p>
 
 <p align="center">
@@ -22,12 +22,13 @@
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Codex" src="https://img.shields.io/badge/Codex-plugin-111111">
   <img alt="Antigravity" src="https://img.shields.io/badge/Antigravity-plugin-4285f4">
+  <img alt="Cursor" src="https://img.shields.io/badge/Cursor-plugin-000000">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-2ea043">
 </p>
 
 ---
 
-Talk to Claude, Codex or Antigravity and let it edit your **Timeline X Studio** projects for you: cut and trim clips,
+Talk to Claude, Codex, Antigravity or Cursor and let it edit your **Timeline X Studio** projects for you: cut and trim clips,
 write and place captions, generate voiceover, music, images and video, build motion graphics, color
 grade, and export — while every change goes through the desktop app's own undo history and checks.
 
@@ -35,7 +36,7 @@ grade, and export — while every change goes through the desktop app's own undo
 
 - **Timeline X Studio** desktop app (macOS Apple Silicon or Windows x64), installed and running — get it from the [download page](https://timelinex.studio/download).
 - A Timeline X Studio account (you sign in once in the browser).
-- [Claude Code](https://claude.com/claude-code), [Codex CLI](https://github.com/openai/codex) or [Antigravity](https://antigravity.google).
+- [Claude Code](https://claude.com/claude-code), [Codex CLI](https://github.com/openai/codex) [Antigravity](https://antigravity.google) or [Cursor](https://cursor.com).
 
 Nothing else is installed on your machine: the plugin contains instructions (skills) and a link to
 the hosted Timeline X connection. No local binaries, no API keys.
@@ -67,6 +68,16 @@ agy plugin install https://github.com/kamileecher/timeline-x-plugin
 
 Then open `/plugin`, expand **timeline-x-studio** under Installed and choose **Sign in**. In the Antigravity
 app the same sign-in is under Plugins → Timeline X Studio.
+
+### Cursor
+
+- **Teams and Enterprise:** in Cursor's dashboard open **Plugins**, choose **Import from Repo**, paste
+  `https://github.com/kamileecher/timeline-x-plugin` and add **timeline-x-studio** to your team marketplace; members then
+  install it from **Customize**.
+- **Any plan:** download [timeline-x-studio-cursor.zip](https://github.com/kamileecher/timeline-x-plugin/releases/latest/download/timeline-x-studio-cursor.zip),
+  unzip it into `~/.cursor/plugins/local/timeline-x-studio/` and run **Developer: Reload Window**.
+
+Then open **Settings → MCP**, find **plugin-timeline-x-studio-timeline-x** and choose **Connect** to sign in.
 
 ### Connect your desktop app
 
@@ -122,7 +133,7 @@ Timeline X Studio. They load automatically when your request matches:
 ## How it works
 
 ```text
-Claude Code / Codex / Antigravity ──OAuth──▶ https://mcp.timelinex.studio/mcp
+Claude Code / Codex / Antigravity / Cursor ──OAuth──▶ https://mcp.timelinex.studio/mcp
                                         │  encrypted relay
                                         ▼
                          Timeline X Studio on your computer
@@ -133,7 +144,7 @@ Claude Code / Codex / Antigravity ──OAuth──▶ https://mcp.timelinex.stu
 - Every edit uses the same validated path as the app's own UI, so it shows up in the editor and can
   be undone.
 - Access is granted through OAuth consent. To revoke it on a machine, clear the server's
-  authentication in `/mcp` (Claude Code) run `codex mcp logout timeline-x` (Codex), or sign out in `/plugin` (Antigravity).
+  authentication in `/mcp` (Claude Code) run `codex mcp logout timeline-x` (Codex), sign out in `/plugin` (Antigravity), or log out under Settings → MCP (Cursor).
 
 ## Privacy and data
 
@@ -149,7 +160,7 @@ Claude Code / Codex / Antigravity ──OAuth──▶ https://mcp.timelinex.stu
   needs an outside service, such as AI image, video, music or speech generation with a provider you
   configured, or a file transfer you approve.
 - **Your assistant sees what the tools return.** Results such as transcripts, project summaries and
-  preview frames are sent to Claude, Codex or Antigravity as part of the conversation, under that product's own terms.
+  preview frames are sent to Claude, Codex, Antigravity or Cursor as part of the conversation, under that product's own terms.
 - No advertising, no sale of personal data, and nothing here is designed for health or other
   special-category data.
 
@@ -163,23 +174,23 @@ and questions about the plugin. Release history is on the [changelog](https://ti
 
 ## Updating and removing
 
-| | Claude Code | Codex | Antigravity |
-| --- | --- | --- | --- |
-| Update | `/plugin marketplace update timeline-x` | `codex plugin marketplace upgrade` | `agy plugin install https://github.com/kamileecher/timeline-x-plugin` again |
-| Remove | `/plugin uninstall timeline-x-studio@timeline-x` | `codex plugin remove timeline-x-studio@timeline-x` | `agy plugin uninstall timeline-x-studio` |
+| | Claude Code | Codex | Antigravity | Cursor |
+| --- | --- | --- | --- | --- |
+| Update | `/plugin marketplace update timeline-x` | `codex plugin marketplace upgrade` | `agy plugin install https://github.com/kamileecher/timeline-x-plugin` again | Re-import the repository, or replace the local folder with the newest zip |
+| Remove | `/plugin uninstall timeline-x-studio@timeline-x` | `codex plugin remove timeline-x-studio@timeline-x` | `agy plugin uninstall timeline-x-studio` | Uninstall in **Customize**, or delete the local folder |
 
 ## Troubleshooting
 
 | Symptom | Fix |
 | --- | --- |
-| `needs authentication` in `/mcp` | Select the server and choose **Authenticate**, run `codex mcp login timeline-x`, or in Antigravity choose **Sign in** under `/plugin`. |
+| `needs authentication` in `/mcp` | Select the server and choose **Authenticate**, run `codex mcp login timeline-x`, in Antigravity choose **Sign in** under `/plugin`, or in Cursor choose **Connect** under Settings → MCP. |
 | Desktop shows as offline / editing not ready | Start Timeline X Studio, sign in with the same account and approve the connection. |
 | Tools never appear in Claude Code | You may also have a claude.ai connector for `https://mcp.timelinex.studio/mcp`. Claude Code hides duplicate servers — remove one of them. |
 | Browser login does not return | Make sure nothing else is using the local callback port, then retry the login. |
 
 ## Türkçe
 
-**Timeline X Studio eklentisi**, Claude Code, Codex ve Antigravity'nin Timeline X Studio projelerinizi sizin için
+**Timeline X Studio eklentisi**, Claude Code, Codex, Antigravity ve Cursor'ın Timeline X Studio projelerinizi sizin için
 düzenlemesini sağlar: kesme, altyazı, seslendirme, müzik, görsel ve video üretimi, hareketli grafik,
 renk ve dışa aktarma.
 
@@ -187,7 +198,8 @@ renk ve dışa aktarma.
 2. Claude Code'da: `/plugin marketplace add kamileecher/timeline-x-plugin` ve `/plugin install timeline-x-studio@timeline-x`.
    Codex'te: `codex plugin marketplace add kamileecher/timeline-x-plugin`, `codex plugin add timeline-x-studio@timeline-x`.
    Antigravity'de: `agy plugin install https://github.com/kamileecher/timeline-x-plugin`.
-3. `/mcp` → **Authenticate** (Codex'te `codex mcp login timeline-x`, Antigravity'de `/plugin` → **Sign in**) ile tarayıcıda giriş yapıp onaylayın.
+   Cursor'da: ekip pazar yerine **Import from Repo** ile ekleyin ya da `timeline-x-studio-cursor.zip` dosyasını `~/.cursor/plugins/local/timeline-x-studio/` içine açıp pencereyi yeniden yükleyin.
+3. `/mcp` → **Authenticate** (Codex'te `codex mcp login timeline-x`, Antigravity'de `/plugin` → **Sign in**, Cursor'da Settings → MCP → **Connect**) ile tarayıcıda giriş yapıp onaylayın.
 4. Deneyin: "Timeline X bağlantı durumumu kontrol et."
 
 Projeleriniz ve medyanız bilgisayarınızda kalır; eklenti yalnızca talimatlar ve barındırılan bağlantı

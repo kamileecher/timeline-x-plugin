@@ -1,0 +1,21 @@
+{
+  "name": "timeline-x-studio",
+  "displayName": "Timeline X Studio",
+  "version": "0.2.944",
+  "description": "Edit and verify Timeline X Studio projects from Claude Code, Codex, Antigravity or Cursor through the hosted Timeline X MCP connection and managed workflow skills.",
+  "author": {
+    "name": "Timeline X Studio contributors"
+  },
+  "homepage": "https://timelinex.studio",
+  "repository": "https://github.com/kamileecher/timeline-x-plugin",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "video-editing",
+    "timeline",
+    "mcp"
+  ],
+  "logo": "assets/logo.png",
+  "skills": "./skills/",
+  "mcpServers": "./.cursor.mcp.json"
+}
