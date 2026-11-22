@@ -9,10 +9,12 @@
 #     .antigravity-plugin/, servers in mcp_config.json), for installing from a local folder
 #   timeline-x-studio-cursor-<version>.zip   Cursor plugin root (.cursor-plugin/ and .cursor.mcp.json),
 #     unzipped into ~/.cursor/plugins/local/<name>/
+#   timeline-x-studio-muse-<version>.zip     skills/ plus .muse.mcp.json for Muse Code, which has no
+#     public plugin format: install the skills with `muse skills install` and merge the MCP block
 # Each zip holds exactly one plugin root and no marketplace file: the Codex app
 # refuses an archive that also declares a marketplace ("Expected a single plugin
 # archive"). CLI users install from the GitHub marketplace instead.
-#   timeline-x-studio-claude.zip / -codex.zip / -antigravity.zip / -cursor.zip  the same bytes under fixed names, linked by
+#   timeline-x-studio-claude.zip / -codex.zip / -antigravity.zip / -cursor.zip / -muse.zip  the same bytes under fixed names, linked by
 #     timelinex.studio through releases/latest/download/ so the site always serves the newest
 #   SHA256SUMS.txt
 name: Release plugin zips
@@ -47,7 +49,7 @@ jobs:
         with:
           ref: ${{ inputs.ref || format('refs/tags/{0}', inputs.tag || github.ref_name) }}
 
-      - name: Build Claude, Codex, Antigravity and Cursor zips
+      - name: Build Claude, Codex, Antigravity, Cursor and Muse zips
         run: |
           set -euo pipefail
           version="${TAG#v}"
@@ -68,11 +70,11 @@ jobs:
 
           # Claude: the plugin root only.
           cp -R "$source/." "$stage/claude/"
-          rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json" "$stage/claude/.antigravity-plugin" "$stage/claude/mcp_config.json" "$stage/claude/.cursor-plugin" "$stage/claude/.cursor.mcp.json"
+          rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json" "$stage/claude/.antigravity-plugin" "$stage/claude/mcp_config.json" "$stage/claude/.cursor-plugin" "$stage/claude/.cursor.mcp.json" "$stage/claude/.muse.mcp.json"
 
           # Codex: the plugin root only.
           cp -R "$source/." "$stage/codex/"
-          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json" "$stage/codex/.antigravity-plugin" "$stage/codex/mcp_config.json" "$stage/codex/.cursor-plugin" "$stage/codex/.cursor.mcp.json"
+          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json" "$stage/codex/.antigravity-plugin" "$stage/codex/mcp_config.json" "$stage/codex/.cursor-plugin" "$stage/codex/.cursor.mcp.json" "$stage/codex/.muse.mcp.json"
           # The Codex app rejects a manifest without interface.capabilities; releases
           # built before the generator added it get the same default here.
           codex_manifest="$stage/codex/.codex-plugin/plugin.json"
@@ -86,7 +88,7 @@ jobs:
             test "$(jq -r .version "$source/.antigravity-plugin/plugin.json")" = "$version"
             has_antigravity=1
             cp -R "$source/." "$stage/antigravity/"
-            rm -rf "$stage/antigravity/.claude-plugin" "$stage/antigravity/.mcp.json" "$stage/antigravity/.codex-plugin" "$stage/antigravity/.codex.mcp.json" "$stage/antigravity/.cursor-plugin" "$stage/antigravity/.cursor.mcp.json"
+            rm -rf "$stage/antigravity/.claude-plugin" "$stage/antigravity/.mcp.json" "$stage/antigravity/.codex-plugin" "$stage/antigravity/.codex.mcp.json" "$stage/antigravity/.cursor-plugin" "$stage/antigravity/.cursor.mcp.json" "$stage/antigravity/.muse.mcp.json"
           fi
 
           # Cursor: the plugin root only, likewise skipped for older releases.
@@ -96,12 +98,23 @@ jobs:
             has_cursor=1
             mkdir -p "$stage/cursor"
             cp -R "$source/." "$stage/cursor/"
-            rm -rf "$stage/cursor/.claude-plugin" "$stage/cursor/.mcp.json" "$stage/cursor/.codex-plugin" "$stage/cursor/.codex.mcp.json" "$stage/cursor/.antigravity-plugin" "$stage/cursor/mcp_config.json"
+            rm -rf "$stage/cursor/.claude-plugin" "$stage/cursor/.mcp.json" "$stage/cursor/.codex-plugin" "$stage/cursor/.codex.mcp.json" "$stage/cursor/.antigravity-plugin" "$stage/cursor/mcp_config.json" "$stage/cursor/.muse.mcp.json"
+          fi
+
+          # Muse Code: skills and the settings block only; no manifest of any host.
+          has_muse=0
+          if [ -f "$source/.muse.mcp.json" ]; then
+            has_muse=1
+            mkdir -p "$stage/muse"
+            cp -R "$source/." "$stage/muse/"
+            rm -rf "$stage/muse/.claude-plugin" "$stage/muse/.mcp.json" "$stage/muse/.codex-plugin" "$stage/muse/.codex.mcp.json" \
+              "$stage/muse/.antigravity-plugin" "$stage/muse/mcp_config.json" "$stage/muse/.cursor-plugin" "$stage/muse/.cursor.mcp.json"
           fi
 
           hosts="claude codex"
           [ "$has_antigravity" = 1 ] && hosts="$hosts antigravity"
           [ "$has_cursor" = 1 ] && hosts="$hosts cursor"
+          [ "$has_muse" = 1 ] && hosts="$hosts muse"
           for host in $hosts; do
             (cd "$stage/$host" && zip -rqX "$GITHUB_WORKSPACE/dist/$name-$host-$version.zip" . -x '*.DS_Store')
             # Same bytes under a fixed name: releases/latest/download/<name>-<host>.zip
@@ -136,7 +149,15 @@ jobs:
             grep -qx '.cursor.mcp.json' <<< "$cursor_files"
             if grep -qE '^(\.claude-plugin/|\.codex-plugin/|\.antigravity-plugin/|\.mcp\.json$|\.codex\.mcp\.json$|mcp_config\.json$)' <<< "$cursor_files"; then echo "::error::Cursor zip carries other hosts' files"; exit 1; fi
           fi
-          if grep -qE '(^|/)(marketplace\.json)$' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"$'\n'"$cursor_files"; then echo "::error::A plugin zip carries a marketplace file"; exit 1; fi
+          if grep -qx '\.muse\.mcp\.json' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"$'\n'"$cursor_files"; then echo "::error::A non-Muse zip carries the Muse settings block"; exit 1; fi
+          muse_files=""
+          if [ "$has_muse" = 1 ]; then
+            muse_files=$(unzip -Z1 "dist/$name-muse.zip")
+            grep -qx '.muse.mcp.json' <<< "$muse_files"
+            grep -q '^skills/.*/SKILL\.md$' <<< "$muse_files"
+            if grep -qE '^(\.claude-plugin/|\.codex-plugin/|\.antigravity-plugin/|\.cursor-plugin/|\.mcp\.json$|\.codex\.mcp\.json$|\.cursor\.mcp\.json$|mcp_config\.json$)' <<< "$muse_files"; then echo "::error::Muse zip carries other hosts' files"; exit 1; fi
+          fi
+          if grep -qE '(^|/)(marketplace\.json)$' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"$'\n'"$cursor_files"$'\n'"$muse_files"; then echo "::error::A plugin zip carries a marketplace file"; exit 1; fi
           (cd dist && sha256sum *.zip > SHA256SUMS.txt)
           echo "NAME=$name" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
@@ -166,7 +187,10 @@ jobs:
           - Unzip it into \`~/.cursor/plugins/local/$NAME/\` and run Developer: Reload Window, or import ${{ github.repository }} into a team marketplace.
           - Sign in: Settings → MCP → plugin-$NAME-timeline-x → Connect.
 
-          Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-antigravity.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-cursor.zip
+          **Muse Code:** \`$NAME-muse-$VERSION.zip\`
+          - Unzip it, run \`muse skills install <folder> --scope user\` for each folder under \`skills/\`, merge \`.muse.mcp.json\` into \`~/.config/muse/settings.json\`, then \`muse mcp login timeline-x\`. The README has the exact commands.
+
+          Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-antigravity.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-cursor.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-muse.zip
 
           The plugin connects to the hosted Timeline X MCP server and needs Timeline X Studio running on your computer. \`SHA256SUMS.txt\` lists the checksums.
           EOF

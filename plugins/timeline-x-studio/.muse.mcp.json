@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "mcp_servers": {
+    "timeline-x": {
+      "transport": "streamable_http",
+      "url": "https://mcp.timelinex.studio/mcp",
+      "mode": "optional"
+    }
+  }
+}

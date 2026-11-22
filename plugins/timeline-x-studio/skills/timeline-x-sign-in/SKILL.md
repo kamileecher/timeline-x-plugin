@@ -36,6 +36,11 @@ the server as requiring sign-in.
    - **Cursor**: there is no sign-in command for the agent to run. Ask the
      user to open Settings → MCP, find `plugin-timeline-x-studio-timeline-x`
      and choose Connect (or Login), then send a message to continue.
+   - **Muse Code**: run `muse mcp login timeline-x` in the shell. It opens the
+     Timeline X sign-in page and stores the token. If Muse reports no
+     `timeline-x` server, the MCP block from the plugin's `.muse.mcp.json` has
+     not been merged into `~/.config/muse/settings.json` yet; point the user to
+     the README's Muse Code steps.
 3. The user signs in with their Timeline X account and approves access. Wait
    for the login command or tool to finish successfully.
 4. Retry the original request through the `timeline-x` tools, for example the
