@@ -1,0 +1,26 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "timeline-x-studio",
+  "displayName": "Timeline X Studio",
+  "version": "0.2.943",
+  "description": "Edit and verify Timeline X Studio projects from Claude Code, Codex or Antigravity through the hosted Timeline X MCP connection and managed workflow skills.",
+  "logo": "assets/logo.png",
+  "author": {
+    "name": "Timeline X Studio contributors",
+    "url": "https://timelinex.studio"
+  },
+  "homepage": "https://timelinex.studio",
+  "repository": "https://github.com/kamileecher/timeline-x-plugin",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "video-editing",
+    "timeline",
+    "mcp"
+  ],
+  "suggestedPrompts": [
+    "Check my Timeline X connection status and summarize the open project",
+    "Transcribe the active timeline and add styled captions",
+    "Inspect the current playhead frame and suggest an edit"
+  ]
+}

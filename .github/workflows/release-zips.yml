@@ -5,10 +5,12 @@
 # with separate, ready-to-install plugin zips:
 #   timeline-x-studio-claude-<version>.zip   Claude plugin root, for the Claude app's Upload plugin
 #   timeline-x-studio-codex-<version>.zip    Codex plugin root, for the Codex app's Add plugin
+#   timeline-x-studio-antigravity-<version>.zip  Antigravity plugin root (manifest in
+#     .antigravity-plugin/, servers in mcp_config.json), for installing from a local folder
 # Each zip holds exactly one plugin root and no marketplace file: the Codex app
 # refuses an archive that also declares a marketplace ("Expected a single plugin
 # archive"). CLI users install from the GitHub marketplace instead.
-#   timeline-x-studio-claude.zip / -codex.zip  the same bytes under fixed names, linked by
+#   timeline-x-studio-claude.zip / -codex.zip / -antigravity.zip  the same bytes under fixed names, linked by
 #     timelinex.studio through releases/latest/download/ so the site always serves the newest
 #   SHA256SUMS.txt
 name: Release plugin zips
@@ -43,7 +45,7 @@ jobs:
         with:
           ref: ${{ inputs.ref || format('refs/tags/{0}', inputs.tag || github.ref_name) }}
 
-      - name: Build Claude and Codex zips
+      - name: Build Claude, Codex and Antigravity zips
         run: |
           set -euo pipefail
           version="${TAG#v}"
@@ -60,22 +62,34 @@ jobs:
             test "$(jq -r .version "$source/$manifest")" = "$version"
           done
           stage="$RUNNER_TEMP/stage"
-          mkdir -p dist "$stage/claude" "$stage/codex"
+          mkdir -p dist "$stage/claude" "$stage/codex" "$stage/antigravity"
 
           # Claude: the plugin root only.
           cp -R "$source/." "$stage/claude/"
-          rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json"
+          rm -rf "$stage/claude/.codex-plugin" "$stage/claude/.codex.mcp.json" "$stage/claude/.antigravity-plugin" "$stage/claude/mcp_config.json"
 
           # Codex: the plugin root only.
           cp -R "$source/." "$stage/codex/"
-          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json"
+          rm -rf "$stage/codex/.claude-plugin" "$stage/codex/.mcp.json" "$stage/codex/.antigravity-plugin" "$stage/codex/mcp_config.json"
           # The Codex app rejects a manifest without interface.capabilities; releases
           # built before the generator added it get the same default here.
           codex_manifest="$stage/codex/.codex-plugin/plugin.json"
           jq 'if (.interface.capabilities | type) == "array" then . else .interface.capabilities = ["Interactive", "Read", "Write"] end' \
             "$codex_manifest" > "$codex_manifest.tmp" && mv "$codex_manifest.tmp" "$codex_manifest"
 
-          for host in claude codex; do
+          # Antigravity: the plugin root only. Releases built before the generator
+          # added its manifest have none, so they get no Antigravity zip.
+          has_antigravity=0
+          if [ -f "$source/.antigravity-plugin/plugin.json" ]; then
+            test "$(jq -r .version "$source/.antigravity-plugin/plugin.json")" = "$version"
+            has_antigravity=1
+            cp -R "$source/." "$stage/antigravity/"
+            rm -rf "$stage/antigravity/.claude-plugin" "$stage/antigravity/.mcp.json" "$stage/antigravity/.codex-plugin" "$stage/antigravity/.codex.mcp.json"
+          fi
+
+          hosts="claude codex"
+          [ "$has_antigravity" = 1 ] && hosts="$hosts antigravity"
+          for host in $hosts; do
             (cd "$stage/$host" && zip -rqX "$GITHUB_WORKSPACE/dist/$name-$host-$version.zip" . -x '*.DS_Store')
             # Same bytes under a fixed name: releases/latest/download/<name>-<host>.zip
             # always serves the newest plugin, so the website never needs a redeploy.
@@ -93,7 +107,15 @@ jobs:
           grep -qx '.codex.mcp.json' <<< "$codex_files"
           if grep -qE '^(\.claude-plugin/|\.mcp\.json$)' <<< "$codex_files"; then echo "::error::Codex zip carries Claude files"; exit 1; fi
           unzip -p "dist/$name-codex.zip" .codex-plugin/plugin.json | jq -e '.interface.capabilities | type == "array" and length > 0 and all(type == "string")' > /dev/null
-          if grep -qE '(^|/)(marketplace\.json)$' <<< "$claude_files"$'\n'"$codex_files"; then echo "::error::A plugin zip carries a marketplace file"; exit 1; fi
+          if grep -q '\.antigravity-plugin/\|^mcp_config\.json$' <<< "$claude_files"$'\n'"$codex_files"; then echo "::error::A Claude or Codex zip carries Antigravity files"; exit 1; fi
+          antigravity_files=""
+          if [ "$has_antigravity" = 1 ]; then
+            antigravity_files=$(unzip -Z1 "dist/$name-antigravity.zip")
+            grep -qx '.antigravity-plugin/plugin.json' <<< "$antigravity_files"
+            grep -qx 'mcp_config.json' <<< "$antigravity_files"
+            if grep -qE '^(\.claude-plugin/|\.codex-plugin/|\.mcp\.json$|\.codex\.mcp\.json$)' <<< "$antigravity_files"; then echo "::error::Antigravity zip carries Claude or Codex files"; exit 1; fi
+          fi
+          if grep -qE '(^|/)(marketplace\.json)$' <<< "$claude_files"$'\n'"$codex_files"$'\n'"$antigravity_files"; then echo "::error::A plugin zip carries a marketplace file"; exit 1; fi
           (cd dist && sha256sum *.zip > SHA256SUMS.txt)
           echo "NAME=$name" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
@@ -115,7 +137,11 @@ jobs:
           - Codex app: Plugins → Add → upload this zip.
           - Codex CLI: \`codex plugin marketplace add ${{ github.repository }}\`, \`codex plugin add $NAME@timeline-x\` and \`codex mcp login timeline-x\`
 
-          Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip
+          **Antigravity:** \`$NAME-antigravity-$VERSION.zip\`
+          - Antigravity CLI: \`agy plugin install https://github.com/${{ github.repository }}\`, then \`/plugin\` → $NAME → Sign in
+          - Or unzip it and use \`/plugin\` → Install from local directory.
+
+          Always-latest links: https://github.com/${{ github.repository }}/releases/latest/download/$NAME-claude.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-codex.zip and https://github.com/${{ github.repository }}/releases/latest/download/$NAME-antigravity.zip
 
           The plugin connects to the hosted Timeline X MCP server and needs Timeline X Studio running on your computer. \`SHA256SUMS.txt\` lists the checksums.
           EOF

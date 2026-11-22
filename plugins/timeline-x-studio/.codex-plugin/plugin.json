@@ -1,7 +1,7 @@
 {
   "name": "timeline-x-studio",
   "version": "0.2.943",
-  "description": "Edit and verify Timeline X Studio projects from Claude Code or Codex through the hosted Timeline X MCP connection and managed workflow skills.",
+  "description": "Edit and verify Timeline X Studio projects from Claude Code, Codex or Antigravity through the hosted Timeline X MCP connection and managed workflow skills.",
   "author": {
     "name": "Timeline X Studio contributors"
   },
@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "Timeline X Studio",
     "shortDescription": "Edit video projects in Timeline X Studio",
-    "longDescription": "Edit and verify Timeline X Studio projects from Claude Code or Codex through the hosted Timeline X MCP connection and managed workflow skills.",
+    "longDescription": "Edit and verify Timeline X Studio projects from Claude Code, Codex or Antigravity through the hosted Timeline X MCP connection and managed workflow skills.",
     "developerName": "Timeline X Studio contributors",
     "category": "Productivity",
     "websiteURL": "https://timelinex.studio",

@@ -29,6 +29,10 @@ the server as requiring sign-in.
    - **Claude Code**: if an authenticate tool for the `timeline-x` server is
      offered, call it; it opens the same sign-in page. Otherwise ask the user
      to run `/mcp`, choose `timeline-x` and select Authenticate.
+   - **Antigravity**: the CLI has no login command for plugin servers. Ask
+     the user to open `/plugin`, expand `timeline-x-studio` under Installed
+     and choose Sign in (in the Antigravity app: Plugins → Timeline X Studio
+     → Sign in), then send a message to continue.
 3. The user signs in with their Timeline X account and approves access. Wait
    for the login command or tool to finish successfully.
 4. Retry the original request through the `timeline-x` tools, for example the
