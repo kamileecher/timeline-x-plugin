@@ -319,7 +319,8 @@ detected scene cuts or fixed seconds; mode=existing-shots attaches references to
 the current shots by timing (source_start_seconds is Film frame 0). Each shot then
 gets the exact span of the video as its motion clip, stills and WAV audio
 reference. Both write the shots for the Settings video model unless video_model is
-given (direct MiniMax when nothing is set). Read the skipped list for shots under 2 s,
+given (direct MiniMax when nothing is set). A shot from 0.5 s to under 2 s gets references
+padded to the 2 s provider minimum (padded_to_seconds); read the skipped list for shots under 0.5 s,
 review with `get_film_manifest`,
 and let `start_scene_queue` approve every validating gate automatically. Public calls require a stable
 request_key and commit shots sequentially (concurrency 1). Retain the returned

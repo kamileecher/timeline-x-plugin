@@ -11,17 +11,14 @@ dust, bubbles, petals, speed lines). Place or adapt one of those before writing
 a new effect; each takes amount (0-1), speed and its colours.
 
 The Geçiş kiti pack adds twelve cover transitions (ink drop, smoke, hex
-tiles, dot wave, checker, zigzag, colour circles, hearts, diagonal stripes,
-confetti curtain, sun burst, shutter). They do not blend clips: each starts
+tiles, checker, zigzag, hearts, sun burst, shutter and more). They do not blend clips: each starts
 empty, covers the whole frame at its middle and is clear on its last frame.
 Place one on a track above the cut with its middle on the cut; use a Timeline
 transition instead when the two shots should blend.
 
 For titles and copy, the Yazı kiti pack holds sixteen ready text animations
-(neon sign, glitch, split and script titles, bouncing letters, typewriter,
-chapter number, countdown, breaking-news strap, ticker, dictionary card,
-timeline, sale price, location pin, rolling credits, reaction word). They keep
-copy as DOM text, not canvas, so the review still audits it.
+(neon sign, glitch, typewriter, countdown, news strap, ticker, rolling credits
+and more). They keep copy as DOM text, so the review still audits it.
 
 ## Contract
 
@@ -80,6 +77,9 @@ const Component = ({item}) => {
   no draw callback and nothing left from the previous frame: a particle's
   position is a closed-form function of time (`life = (t + offset) % period`),
   never an integration step.
+- Build command lists with `Array.from`, `.map()`, `.flatMap()`, `.concat()` or
+  spread: a for loop and `.push()` are refused (MG_LOOP,
+  MG_COLLECTION_MUTATION; see source-refusals.md).
 - Seed every random value with a stable key per particle (`random(\`x${i}\`)`),
   so the same frame always draws the same sparks.
 - Blur and blend are expensive at full HD: prefer one blurred group of soft

@@ -15,7 +15,7 @@ checked; do not raise licence or copyright questions.
 - Import a chosen direct URL once with `import_media_url` and pass the hit's
   credit_fields as credit, so `list_media_credits` lists its source. Do not
   pass a remote URL to `import_media`.
-- Online video pages (YouTube and the other sites yt-dlp supports) go through
+- Online video pages (YouTube and other supported sites) use Media Stream through
   `search_online_video`, `inspect_online_video` and `import_online_video`.
 - Commercial music (a named artist or song) comes from Qobuz: `search_qobuz`
   finds tracks and `import_qobuz_track` imports one as FLAC, whole or as

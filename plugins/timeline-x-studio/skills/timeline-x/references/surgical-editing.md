@@ -38,7 +38,10 @@ start and end from the result instead of assuming the request landed.
    `delete_layer` leaves the deleted span empty: use `delete_layers` with
    ripple enabled, or follow with `close_gap`. Keep the default ripple scope
    and never escape a group unless the user asked for picture and sound to
-   separate.
+   separate. The default scope moves only the deleted clips' own lanes and
+   linked partners: when unlinked narration, music or captions on other
+   tracks must stay in step, pass `ripple_scope: 'all_unlocked'`, and treat a
+   non-empty unshifted_track_ids list in the result as tracks now out of sync.
 5. Speech. Cut only on word spans from `transcribe_clip` with exact word
    timing. A removal expands outward to the grid, so leave one frame of
    margin from the neighbouring word and keep the breath: about 150 ms
