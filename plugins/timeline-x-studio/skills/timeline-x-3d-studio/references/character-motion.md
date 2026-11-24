@@ -178,3 +178,15 @@ also runs without characters. Check platform ascent/rotation, prop contacts and
 arbitrary backward seeks. Cloth pinned to bones, sewn garments, soft bodies, mesh colliders and
 crushing/knockback character responses are not implemented. Require engine contract agreement, persisted actor reread and real
 PNG/video frame comparisons; tool visibility alone does not prove installation.
+
+## Measuring a take (ADR 0270)
+
+Before a video render or a paid generation from a Studio take, run
+`studio_motion_check` on the characters over the moving range (step 2 for long
+shots). It poses frames like a capture and returns foot_slide, floating,
+ground_sink, off_balance, airborne (info) and penetration findings with frame
+ranges, peak values and fix hints. Fix the worst error, reread the source hash
+and check again until the take passes or the remaining findings are intended (a
+jump, a hand meant to pass behind a hollow prop). A character whose bones carry
+no foot, ankle or toe names is reported as not checked; confirm it in rendered
+frames instead.

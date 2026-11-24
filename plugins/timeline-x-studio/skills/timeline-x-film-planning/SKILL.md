@@ -311,6 +311,9 @@ scene" builds a whole plan this way, with each shot's opening/closing stills, it
 own Studio clip as motion_reference_media_id and overlapping dialogue audio as
 reference_audio_media_ids. Keep those bindings when editing such a plan; add real
 character images to the visual bible instead of replacing the shot references.
+Pass greybox_references true to `plan_film_from_studio` when the Studio set is a
+blockout or its look should not reach the model: stills and clips then render as
+grey clay, and each shot prompt carries a measured Framing sentence.
 
 Over MCP, build such a plan with `plan_film_from_studio` (document_id from
 `studio_read`; split at camera cuts or fixed seconds). To drive a film from any

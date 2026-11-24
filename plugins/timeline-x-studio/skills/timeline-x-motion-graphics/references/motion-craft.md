@@ -337,7 +337,12 @@ graphic times its parts the same way:
   and read it with useWords("words"); after placing the graphic over the
   narration, `sync_motion_graphic_words` fills it from the narration's
   word-timed transcript. Reveal word i when i < spoken, or scale it with
-  progress(i). Run the tool again whenever the narration moves.
+  progress(i). Run the tool again whenever the narration moves. To time
+  something to a spoken word, name the word instead of counting: w.at("fiyat")
+  gives {index, start, end} (w.at("uc_plan") a phrase, w.at("fiyat#2") its
+  second time), so a re-recorded narration keeps the timing. The review
+  reports a name the narration lacks (word_not_found, with near spellings) and
+  a bare name said more than once (word_repeated).
 - Real pen writing: handwrite(text, {fontSize, maxWidth, progress}) returns
   single-line strokes (Turkish letters included) in writing order. Draw each
   path with fill="none", strokeLinecap="round" and its draw props, inside an

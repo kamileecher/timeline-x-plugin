@@ -217,6 +217,76 @@ single beat; words about the music instead of the song's own world.
   orbits. Cutaways and labelled real numbers turn a simulation into an
   explanation. The 3D Studio skill owns light, materials and rendering.
 
+## Interface and app demos
+
+Build the interface as a camera world at full size and film it the way a
+close screen recording would: the camera sits on the part that changes, so
+the copy reads on a phone. The web promo kit gives the browser frame, cursor
+and click ripple; the camera kit frames each control with its neighbours.
+
+- Open on a short wide shot of the whole screen (overview, under 1.5 s), then
+  one step every 2.5–4 s: push to the control, the cursor glides and clicks,
+  the result appears, the camera follows the result.
+- Fit the control together with its context; fitting a lone button
+  over-zooms it (camera_zoom_high). UI copy at least 32 px on screen.
+- Step captions of three to six words in a band the interface never uses, or
+  pinned beside the control. A caption over a panel title or a row is the
+  most common failure (text_covered, content_overlap).
+- A thing that moves from one panel into another (an event into its slot) is
+  a Carry, not a fade out and a fade in.
+- Keep the finished state alive (a slow push, a highlight pulse) and end
+  within two seconds of it.
+
+## Code explainers
+
+- Show few lines at a time, large (monospace 34 px and up on 1080p), with
+  the line that matters highlighted while the rest dims. Type it with a cursor
+  only when typing is the point; otherwise reveal whole lines.
+- Pair every code beat with its effect: the output, the diagram or the screen
+  the line produces, next to it or after a camera move, never only the code.
+- A diff reads as red lines leaving and green lines arriving in place; keep
+  the surrounding lines still so the eye finds the change.
+- Check glyph coverage for arrows and box-drawing characters in the chosen
+  monospace face (missing_glyph).
+
+## Year and stats recaps
+
+- Open on the year in huge type, already moving. Then one stat per moment,
+  about 2.5 s each and cut on the beat, the number counting up large (160–260
+  px on 1080p) with its own small moving illustration.
+- Vary the layout per stat (number centred with the picture around it, the
+  number inside a full-frame illustration, a camera move along a route, a
+  split). The same corner layout every time reads as animated slides.
+- Count from the earlier value to the new one ("96 to 214") while the
+  picture grows with it; never hold the old number first.
+- Keep drifting background shapes and confetti off the numbers, and end on
+  the year rolling over with the last line landing late.
+
+## Logo stings
+
+The craft is in [technique recipes](technique-recipes.md) (logo sting): find
+the hit first, use the logo's own paths (drawPath, or morph simple shapes into
+them with matching parts: morph_no_pairs), lock the mark on the hit, reveal
+the wordmark clear of the moving mark, and keep the last second moving.
+
+## Long narrated films in one world
+
+For a narrated piece longer than about 30 s whose scenes should feel like one
+continuous shot (a journey, a cycle, a tour):
+
+- Put the world, the moving characters and the camera shots in one module on
+  an absolute clock in seconds. Each placed segment only renders
+  start + its own time, so a cut between segments is invisible and a fix in
+  the module republishes every segment at once.
+- Synthesize the narration line by line first and cut the segments on the
+  measured line boundaries; then time on-screen facts to the words by name
+  (useWords and at("word")), so a re-recorded line moves its graphics with it.
+- Keep each shot of the camera its own move when a long hold meets a quick
+  move, and read the plan before rendering anything: review_motion_graphic
+  with camera_only lists every hold and move with its framing.
+- Captions sit in the lower band, fact cards in the upper band with an
+  opaque backing, and the chapter label below the top 8% of a portrait frame.
+
 ## Tells of a generated piece, by type
 
 Run this list over the beat frames before presenting a draft, together with

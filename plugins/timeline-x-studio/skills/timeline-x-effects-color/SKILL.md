@@ -9,7 +9,14 @@ Use this skill for canvas painting/retouch, color correction, stylized looks, cl
 transitions. Prefer Timeline X Studio's native, editable catalog. When no
 catalog effect fits, a bounded authored effect is possible: validate the
 shader document with `compile_shader`, add it with `add_authored_shader_effect`,
-and verify it on a rendered frame. Never call a foreign or imagined shader tool.
+and verify it on a rendered frame. Use shader document `version: 2` for
+particles, light rays, sparkles or procedural textures: it adds bounded loops,
+branches and `random(vec2)`, `noise(vec2)` and `fbm(vec2)` helpers; compose
+the result over `sampleInput(uv)` and animate with the shader time input.
+Declare colours as colour parameters (three keyframeable 0..1 channels), and
+build glow or bloom from chained passes that read the effect input with
+`sampleSource(uv)`; a shader never reads earlier frames. Never call a foreign or
+imagined shader tool.
 
 For an underspecified look, effect reference, or transition request, read
 [native treatment design](references/native-treatment-design.md) to translate

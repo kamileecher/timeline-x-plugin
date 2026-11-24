@@ -57,7 +57,7 @@ Do not claim automatic speech-to-phoneme recognition, skeleton topology editing,
 
 Read only the reference the active request needs:
 
-- [Character motion and interactions](references/character-motion.md): pauses, walking and looking, repeating motion, hand grasp and release, interaction sequences, timed prop attachment and reach, jumps/pushes/knockback/crushing, live gait and planted feet.
+- [Character motion and interactions](references/character-motion.md): pauses, walking and looking, repeating motion, hand grasp and release, interaction sequences, timed prop attachment and reach, jumps/pushes/knockback/crushing, live gait and planted feet, measuring a take with `studio_motion_check`.
 - [Terrain, appearance, physics and liquids](references/terrain-physics.md): terrain, physical appearance, rigid-body physics and interactions, liquids.
 - [Prefabs and final renders](references/prefabs-and-final-renders.md): prefab snapshot instances and path-traced final renders.
 

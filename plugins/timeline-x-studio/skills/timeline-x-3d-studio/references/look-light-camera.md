@@ -147,6 +147,20 @@ them per scene with the reason, and the ones left off.
   dissolve. Dissolves and speed ramps happen on the Timeline after delivery.
 - Keep the horizon level unless roll is intended.
 
+Frame by words and check by words: the `studio_camera_edit` frame_shot edit
+places a camera from a size, view, side and level around one subject, and
+`studio_scene_inspect` section shot reads any frame back in the same terms
+with a prompt sentence. Reuse that sentence in video or image prompts so the
+generated shot keeps the Studio blocking; confirm unusual poses in a render,
+because the reading uses a standing proxy for imported models.
+
+For an AI video reference pack (ADR 0271), render the opening and closing frames
+with `studio_render` look greybox and the motion clip with `studio_video_start`
+look greybox, then read the move with `studio_scene_inspect` section shot and
+end_frame for the prompt. Greybox keeps geometry, motion, lights and camera and
+drops textures and photographic finishing, so the model follows the staging and
+takes the look from the prompt and character images.
+
 One continuous shot is one scene and one camera path whose three or four keys
 are the beats, eased so the camera never stops on a key. Track a moving subject,
 and place foreground objects to pass the lens at the closest moment. Over about

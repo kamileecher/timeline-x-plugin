@@ -24,7 +24,14 @@ comparisons, text animation, and other reusable animated overlays.
   device, timing and easing a move, choosing a transition, or reviewing motion
   before calling a graphic finished. It holds the nine-check motion review.
 - Read [story and review](references/story-and-review.md) to plan a story piece
-  and review it; [video types](references/video-types.md) per kind of piece.
+  and review it; [video types](references/video-types.md) per kind of piece
+  (explainers, data, promos, vertical, music, characters, interface demos,
+  code, recaps, logo stings and long narrated films in one world).
+- Read [technique recipes](references/technique-recipes.md) for starting
+  numbers once a device is chosen: pacing, transitions, camera, focus pulls,
+  marks, charts, text reveals, impacts, logo stings, hand-drawn steps, code,
+  product UI, word captions, vertical layout, and what the newer frame checks
+  report.
 - Read a style recipe when the user names a style or an approved direction
   maps to one: [graphic and information looks](references/style-recipes-graphic.md)
   (Swiss grid, titles, data stories, isometric, keynote, pictograms, blueprint,
