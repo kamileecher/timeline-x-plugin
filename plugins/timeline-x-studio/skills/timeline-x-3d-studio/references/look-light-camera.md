@@ -161,6 +161,12 @@ end_frame for the prompt. Greybox keeps geometry, motion, lights and camera and
 drops textures and photographic finishing, so the model follows the staging and
 takes the look from the prompt and character images.
 
+For a reference-video model (ADR 0272), render the motion clip with look
+blur_reference instead: every fourth frame from each cut is a light mosaic and
+the rest are blurred, so the model keeps camera, cuts and timing without copying
+grey figures. Take the matching prompt from `studio_scene_inspect` section
+reference_prompt; keep reference clips at 30 s or less for Seedance 2.5.
+
 One continuous shot is one scene and one camera path whose three or four keys
 are the beats, eased so the camera never stops on a key. Track a moving subject,
 and place foreground objects to pass the lens at the closest moment. Over about

@@ -313,7 +313,9 @@ reference_audio_media_ids. Keep those bindings when editing such a plan; add rea
 character images to the visual bible instead of replacing the shot references.
 Pass greybox_references true to `plan_film_from_studio` when the Studio set is a
 blockout or its look should not reach the model: stills and clips then render as
-grey clay, and each shot prompt carries a measured Framing sentence.
+grey clay, and each shot prompt opens with the measured framing and camera move.
+Pass blur_motion_reference true to render each motion clip as a mosaic/blur
+reference that the shot prompt names as a degraded copy (ADR 0272).
 
 Over MCP, build such a plan with `plan_film_from_studio` (document_id from
 `studio_read`; split at camera cuts or fixed seconds). To drive a film from any
