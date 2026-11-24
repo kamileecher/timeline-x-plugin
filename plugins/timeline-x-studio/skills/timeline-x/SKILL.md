@@ -135,6 +135,12 @@ descriptions:
   cues use `apply_caption_template` kinetic-slam: that writes `intro Kinetic`
   and the renderer pops each word on its own slam window. For a standalone
   overlay title, `add_motif` text-fx with effect kinetic.
+- Understanding sound before cutting: `listen_to_audio` answers a free
+  question about a layer or Library item (what is said in the intro, where
+  the music drops, where the laugh is) with approximate timestamped moments.
+  It sends the audio to Gemini with the user's key, so use it when a
+  transcript cannot answer; cut on `transcribe_clip` word spans, not on its
+  estimates.
 - Text-based picture/sound cutting: `transcribe_clip` → choose word ids and
   timeline-absolute spans → `preview_transcript_cut` →
   `apply_transcript_cut`. Copy the returned revision and expected-layer guard;

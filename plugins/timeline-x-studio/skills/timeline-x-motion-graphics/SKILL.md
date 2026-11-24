@@ -177,6 +177,10 @@ get them into a graphic: bind Library images instead (below).
   refs, draw callbacks or shaders exist.
 - Put user-editable values in `item.props` and declare the matching
   properties entries. Keep layout constants inside the component.
+  For a headline, accent colour or size the source already holds in a
+  top-level const, prefer `/** @inspect color */ const accent = "#ff3366"`:
+  it becomes a control with the literal as default and needs no properties
+  entry. Read it inside Component so the control drives it.
 - Give any rendered element that may need source-level repair a unique literal
   `motionId="element-id"`. Opt only deliberate scalar constants into safe
   write-back with `editable("element-id", "parameter", literal)`, where the
