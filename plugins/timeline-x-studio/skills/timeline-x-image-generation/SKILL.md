@@ -147,6 +147,16 @@ Timeline slot or an in-place layer revision use the plan → generate pair below
 - To see or operate the window itself, `capture_editor_screen` and
   `control_editor_mouse` accept `window: "image_studio"` when it is open.
 
+## Cutouts
+
+For a subject without its background (a product or a person over another
+picture, or inside a Motion Graphic through an image prop), use
+`remove_image_background` on a Library still instead of generating a new
+image: it runs on this Mac (macOS 14+), costs nothing and adds a transparent
+PNG beside the untouched source. Check its subject coverage and look at the
+result before using it; a picture without a clear subject keeps little or
+nothing.
+
 ## Regeneration
 
 To revise an existing generated ImageOverlay while preserving timing,

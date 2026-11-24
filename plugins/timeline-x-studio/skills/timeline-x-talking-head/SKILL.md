@@ -77,6 +77,11 @@ a second script-editing or Project-state path.
   speech edit feel less deliberate, not more polished.
 - Do not replace original recorded dialogue with synthetic speech unless the
   user explicitly asks for replacement or dubbing.
+- When the user asks to fix a few spoken words (a wrong day, name or number),
+  use `replace_spoken_words` with the word span from `transcribe_clip` and a
+  voice clone of that same speaker. Pass speaker consent only when the person
+  confirmed the speaker allowed it; the speech generation is paid. Afterwards
+  listen to both joins with `inspect_cut_audio`.
 
 If transcription returns no usable speech, stop and report that condition;
 do not invent a transcript or semantic cut.
