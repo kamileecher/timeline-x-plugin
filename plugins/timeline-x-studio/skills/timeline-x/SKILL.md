@@ -31,6 +31,24 @@ model, voice, or MCP connection is not an extra task. Use only the skills and
 options relevant to the request, and preserve explicit structure, language,
 duration, ending, target, and delivery choices over defaults.
 
+## Project media workflow
+
+For existing film, music, or 3D Studio work, start with the intended Timeline
+or sequence. Resolve the matching layer, time range and linked source. Then
+inspect the linked FilmManifest, audio, or Studio scene and render. If nothing
+matches on the Timeline, check the Film Library and FilmManifest, Music Studio
+or Library audio, or saved 3D Studio scenes and renders, as appropriate.
+Use live Project evidence before relying on chat history.
+
+For a request about project media, inspect the intended Project and relevant
+Library and Timeline state as part of the task. Reuse matching Library assets
+and import supplied sources once when needed, including into an empty Project.
+Analyze the actual source. If the user wants a cut or assembly, place the media
+on the intended sequence, track and time range, then verify and save. Source
+analysis, planning and Library-only delivery do not imply Timeline placement.
+Scene Manager delivers to Library. Place verified shot outputs separately when
+the task calls for an edited result.
+
 ## User brain
 
 The signed-in user has a local brain that persists across conversations,
@@ -56,7 +74,7 @@ Name what you create by its content; an id, a file stem or a bare kind word
    tracks/media/scene-plan reads. Reuse a resource result while the project
    revision is unchanged. Writing-only/story-planning work needs no project
    inspection, and an empty project is valid for a newly authorized generated
-   production. Otherwise, if the snapshot has zero duration, an empty media
+   production or a task with supplied source media. Otherwise, if the snapshot has zero duration, an empty media
    pool, and no layers, stop and ask for content; do not fan out, capture frames,
    or run `audit_timeline_quality` on an empty project.
 3. Call `checkpoint` before your first edit, so the user has a one-step

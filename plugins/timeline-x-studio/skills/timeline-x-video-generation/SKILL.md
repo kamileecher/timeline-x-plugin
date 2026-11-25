@@ -197,8 +197,9 @@ writing, a single clip, or a few manually reviewed variants.
    duplicate paid submission. For a FilmManifest-backed queue, pause or cancel
    it before revision, update and re-approve the manifest, then start a new
    exact incremental queue. The host uses canonical JSON+BLAKE3 dependencies,
-   resolves fresh-parent continuity, replaces stale shot layers in place, and
-   appends prompt/model/seed/input/output/job provenance. Generic
+   resolves fresh-parent continuity, delivers to Library, and appends
+   prompt/model/seed/input/output/job provenance. For an edited deliverable,
+   place verified shot outputs at the planned ranges in a separate editing step. Generic
    add/update/remove/reorder controls cannot override the approved manifest
    contract.
 

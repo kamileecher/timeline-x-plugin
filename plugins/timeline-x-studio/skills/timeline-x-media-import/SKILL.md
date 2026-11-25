@@ -5,8 +5,8 @@ description: Import local video, audio, and still files into Timeline X Studio a
 
 # Timeline X Studio Media Import
 
-Use this skill when the user wants to bring existing local media into the
-project. Do not use it for Timeline X Studio image, video, or speech generation:
+Use this skill when a requested Project analysis or edit needs existing media,
+including when the user supplies a source without separately asking to import it. Do not use it for Timeline X Studio image, video, or speech generation:
 those tools register their successful results automatically. Composer files
 added with the + menu are also already registered.
 
@@ -26,7 +26,7 @@ added with the + menu are also already registered.
    recordings, effects or music), keep a source record as
    [Outside material](references/outside-material.md) describes.
 
-## Place only when requested
+## Place when the deliverable is an edit
 
 - For video or still media, read `project://tracks` and use `add_video_layer`.
   Use role "a-roll" or "b-roll" when that editorial intent is known; otherwise
@@ -41,8 +41,8 @@ added with the + menu are also already registered.
 - If the user wants to replace the source of an existing compatible layer while
   preserving timing, transforms, and effects, use `replace_layer_media` instead
   of deleting and rebuilding the layer.
-- If the request is Library-only, stop after confirming the item in
-  `project://media`; do not edit the Timeline.
+- For source analysis, inspect the Library item. For Library-only delivery,
+  verify the registered item. Leave the Timeline untouched in both cases.
 
 After placement, re-read `project://tracks`, confirm the media id, range, role,
 and number of created layers, then call `verify_edit_result` for the exact
