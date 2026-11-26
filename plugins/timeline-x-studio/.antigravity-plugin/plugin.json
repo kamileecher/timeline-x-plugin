@@ -2,7 +2,7 @@
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "timeline-x-studio",
   "displayName": "Timeline X Studio",
-  "version": "0.2.1015",
+  "version": "0.2.1016",
   "description": "Edit and verify Timeline X Studio projects from Claude Code, Codex, Antigravity, Cursor or Muse Code through the hosted Timeline X MCP connection and managed workflow skills.",
   "logo": "assets/logo.png",
   "author": {
