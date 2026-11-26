@@ -59,6 +59,29 @@ always/never rule, fact about the user or brand, or decision later work must
 respect with `brain_remember`; supersede or `brain_forget` notes that no longer
 hold. Look up earlier work with `brain_search`. Never save secrets.
 
+## Implicit placement
+
+When a request to add, place, replace or change something leaves the place
+unsaid ("add this", "put it here", "on this clip", "from here on"), call
+`get_editor_context` and resolve it yourself instead of asking. Prefer, in
+order: what the user said; their selection or In/Out range; a playhead they
+moved recently; a scene_plan beat or spoken words that match the content;
+otherwise the end of the timeline. suggested_insert ranks these; a low
+candidate is a fallback, not the user's choice.
+
+- Edit the timeline on screen: pass suggested_insert.sequence_id as
+  sequence_id.
+- Pick the lane by content: titles, text, stickers and Motion Graphics on a new
+  overlay track (omit track_id); cutaways on a free B-roll lane over the
+  shot; music on a free audio lane under speech; sound effects on their own
+  lane; narration on the dialogue lane. Never overwrite a layer unless the user
+  asked to replace it.
+- Pass the returned user_revision as if_user_revision, then say in one
+  sentence where you placed it (timeline, time, track) so the user can move it.
+- Ask first only when two fresh signals disagree with nothing in the request to
+  choose between them. When the user corrects a placement in a way that will
+  hold next time, save it with `brain_remember`.
+
 ## Names
 
 Name what you create by its content; an id, a file stem or a bare kind word

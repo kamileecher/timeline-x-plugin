@@ -196,7 +196,8 @@ get them into a graphic: bind Library images instead (below).
 - The receipt must say `status: "installed"`; retain its concrete asset_id
   for placement and verification.
 - Place that asset with `add_motif`. Pass the receipt asset_id as motif_id,
-  the captured playheadTimeUs as t_start_us, the receipt duration_in_frames as
+  the user's place as t_start_us (an explicit time, else `get_editor_context`
+  suggested_insert.t_start_us), the receipt duration_in_frames as
   duration_in_frames, and the captured projectId as expected_project_id. Omit
   track_id for an isolated overlay track. The result reports `layer_id`,
   `track_id`, and the frame-resolved `t_start_us`/`t_end_us`; re-read that
