@@ -1,6 +1,6 @@
 # Direct Pruna P-Video
 
-Select `pruna-p-video-2` or `pruna-p-video-2-pro` explicitly. Both use the
+Select the Pruna model explicitly. All use the
 user's Pruna API key from Settings → API Keys, held in Vault and leased only to
 main. Pruna bills each returned second; always send an explicit duration.
 
@@ -15,6 +15,19 @@ main. Pruna bills each returned second; always send an explicit duration.
   at most 1080p and 60 fps, 15 s total) and three audio files (15 s total).
   It needs at least one reference image or video. Refer to them in the prompt
   in authored order (Image 1, Video 1, Audio 1).
+
+- `pruna-p-video-2-pro-lipsync` (the default Pruna model): re-voices an
+  existing clip. Give exactly one Library source video with the speaker's face
+  visible (reference_video_media_ids, 1–60 s, up to 200 MB) and one speech
+  audio (reference_audio_media_ids, MP3/WAV/FLAC). It re-renders the mouth to
+  the new speech; nothing else in the frame changes. No images and no prompt
+  are sent (write a short prompt anyway, the tool requires one). The output
+  keeps the source size (scaled down to at most 1080p), carries the new audio
+  and runs to the shorter of the two inputs, at most 60 s; duration, ratio and
+  resolution settings do not change it. $0.025 per output second. A video with
+  no detectable face fails and is not billed. Use it for dubbing, a corrected
+  line, or a voice-over onto a generated talking shot; it is not a Film shot
+  model.
 
 Inputs come from hashed Library media. `pruna-p-video-2` and
 `pruna-p-video-2-pro` take text, a first frame, or a first+last frame pair.

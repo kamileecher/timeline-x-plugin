@@ -27,7 +27,8 @@ explicit direct model; a saved Wan 2.7 route is a different provider identity.
 
 For direct **Pruna P-Video**, read
 [Pruna P-Video rules](references/pruna-p-video.md). Its models are
-`pruna-p-video-2`, `pruna-p-video-2-pro` and `pruna-p-video-2-pro-reference`.
+`pruna-p-video-2-pro-lipsync` (re-voices an existing clip), `pruna-p-video-2`,
+`pruna-p-video-2-pro` and `pruna-p-video-2-pro-reference`.
 
 For direct **HeyGen**, read [HeyGen rules](references/heygen-video.md). Its
 models are `heygen-video-1` (scene with its own sound) and `heygen-avatar-6` /
