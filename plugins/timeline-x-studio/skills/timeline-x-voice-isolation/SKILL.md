@@ -18,7 +18,11 @@ DeNoise uses an authored stationary noise floor; DeReverb suppresses late
 energy and does not reconstruct dry speech. Choose this route for a compatible
 noise/tail problem, not merely because it is local.
 
-For actual learned speech isolation, use a compatible external MCP connection
+For actual learned speech isolation on this computer, use `isolate_speech` on
+the dialogue's Audio layer (DeepFilterNet3, offline after a one-time model
+download): it imports a speech and a background stem and gives the clip the
+speech stem, keeping its timing and edits; undo restores the original. Where
+that tool is not advertised, use a compatible external MCP connection
 selected for the current conversation. Never substitute EQ, normalization,
 gating or volume reduction and claim AI voice isolation was performed. If the
 requested treatment is unavailable, explain that exact capability gap.
