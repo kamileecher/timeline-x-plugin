@@ -46,7 +46,10 @@ a second script-editing or Project-state path.
    ordered narrative beats. Add only B-roll and overlays that support a named
    beat. Mark speaker footage as A-roll and cutaways as B-roll with
    `set_clip_role`; use `set_shot_treatment` for punch-ins, picture-in-picture,
-   or split layouts.
+   or split layouts. For B-roll that follows the narration sentence by
+   sentence, `assemble_from_script` with the narration layer and one picture
+   description per sentence proposes a whole cutaway track; stage it in an
+   edit session (`begin_edit_session`) so the user reviews it before it lands.
 6. Create captions last: use the final transcript `srt` with
    `apply_subtitles`, then `list_caption_templates` and
    `apply_caption_template`. Use `update_caption` for factual or timing fixes.

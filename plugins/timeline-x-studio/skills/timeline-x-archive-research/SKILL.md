@@ -92,6 +92,10 @@ credit recorded. A video over an hour always needs sections.
 After import, `analyze_clip` (semantic) or `index_media_semantics` with
 `search_media_semantically` find the precise shot inside a longer section;
 look at frames with `inspect_timeline_frames` before relying on a picture.
+With a recorded narration and several imported sections, `assemble_from_script`
+lays a first cut from them in one call: one picture description per narration
+sentence, timed to the voice. Lines it reports as unmatched need more footage,
+not a stretched clip.
 
 Downloaded footage often carries burned-in text: channel watermarks, site
 names, English labels and subtitles. `find_onscreen_text` with media_id scans a

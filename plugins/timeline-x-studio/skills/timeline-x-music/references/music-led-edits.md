@@ -51,6 +51,10 @@ music may still drift, so verify against the real audio.
 
 - Put scene boundaries on bar lines and hits on beats the song already
   accents; never layer added drums over the song's own.
+- For a montage that must show particular things in order, write the order as
+  picture descriptions and call `assemble_from_script` with those lines and
+  the music layer: every cut lands on a beat and each slot gets the Library
+  moment that matches its line. `auto_edit` is for a montage with no script.
 - To write music to the picture instead of cutting to a song, mark each
   picture accent (label one marker drop and one end) and call
   `plan_music_to_cues`. Hear its score at once with `render_score_audio`
