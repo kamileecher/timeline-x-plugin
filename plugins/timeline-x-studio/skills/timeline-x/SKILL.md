@@ -280,8 +280,9 @@ descriptions:
   `save_version` once with the user's words as prompts, timed changes and
   resolves for the comments it fixed. Give every change its kind (text,
   captions, graphics, video, voice, music, sfx, effects, color or cut) and,
-  in a Project with several timelines, its `sequence_id`. Use `list_versions`
-  (filter by timeline or kind) when the user asks what changed,
+  in a Project with several timelines, its `sequence_id`; name the clips it
+  touched in layer_ids. Use `list_versions` (filter by timeline, kind or
+  clip) when the user asks what changed,
   `compare_versions` to show two versions side by side, and
   `restore_version` to bring an earlier one back.
 - Professional trim and gap review: use `find_gaps` and `match_frame` to
