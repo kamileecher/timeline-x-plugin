@@ -271,12 +271,16 @@ descriptions:
   For CMX, keep `record_origin=first_event` for conventional 01-hour record time
   unless absolute time was explicitly requested. CMX drop-frame remains a hard
   refusal; OTIO/FCPXML rate conversion is a disclosed lossy conform.
-- Timed review comments: the user can pin notes, and drawings, to moments of
-  the timeline in the Review Comments panel. Before revising a draft, and when
-  the user mentions comments or feedback, call `list_review_comments`; view each
-  open comment's frame with `capture_canvas_frame` at its t_us, make the fix,
-  then call `resolve_review_comment` with what changed. Never resolve a comment
-  you did not address. `add_review_comment` asks the user about one moment.
+- Review and version loop, on every request that edits a video: call
+  `list_review_comments` first. When the user gives timed feedback in chat
+  ("at 0:12 the title is too small"), record each point with
+  `add_review_comment` and from_user=true before editing. View each open
+  comment's frame with `capture_canvas_frame` at its t_us, make the fix, and
+  never close a comment you did not address. When the request is done, call
+  `save_version` once with the user's words as prompts, timed changes and
+  resolves for the comments it fixed. Use `list_versions` and
+  `restore_version` when the user asks what changed or wants an earlier
+  version back.
 - Professional trim and gap review: use `find_gaps` and `match_frame` to
   inspect before writing. Direct single edits use `ripple_trim_layer`,
   `roll_edit`, `slip_layer`, `slide_layer`, `close_gap`, or
