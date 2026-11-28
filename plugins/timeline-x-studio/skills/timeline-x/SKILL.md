@@ -274,9 +274,9 @@ descriptions:
 - Review and version loop, on every request that edits a video: call
   `list_review_comments` first. When the user gives timed feedback in chat
   ("at 0:12 the title is too small"), record each point with
-  `add_review_comment` and from_user=true before editing. View each open
-  comment's frame with `capture_canvas_frame` at its t_us, make the fix, and
-  never close a comment you did not address. When the request is done, call
+  `add_review_comment` and from_user=true before editing. See each open
+  comment with `view_review_comment` (its frame with the drawing), make the
+  fix, look again, and never close a comment you did not address. When the request is done, call
   `save_version` once with the user's words as prompts, timed changes and
   resolves for the comments it fixed. Use `list_versions` and
   `restore_version` when the user asks what changed or wants an earlier
