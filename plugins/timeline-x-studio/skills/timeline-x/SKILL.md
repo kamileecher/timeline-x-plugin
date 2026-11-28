@@ -278,9 +278,12 @@ descriptions:
   comment with `view_review_comment` (its frame with the drawing), make the
   fix, look again, and never close a comment you did not address. When the request is done, call
   `save_version` once with the user's words as prompts, timed changes and
-  resolves for the comments it fixed. Use `list_versions` and
-  `restore_version` when the user asks what changed or wants an earlier
-  version back.
+  resolves for the comments it fixed. Give every change its kind (text,
+  captions, graphics, video, voice, music, sfx, effects, color or cut) and,
+  in a Project with several timelines, its `sequence_id`. Use `list_versions`
+  (filter by timeline or kind) when the user asks what changed,
+  `compare_versions` to show two versions side by side, and
+  `restore_version` to bring an earlier one back.
 - Professional trim and gap review: use `find_gaps` and `match_frame` to
   inspect before writing. Direct single edits use `ripple_trim_layer`,
   `roll_edit`, `slip_layer`, `slide_layer`, `close_gap`, or
